@@ -1,0 +1,39 @@
+<!-- Accordion con las preguntas frecuentes -->
+<!--<div class="faq-accordion">
+    @for (question of faqs; track question.answer; let idx = $index) {
+    <button class="accordion-header" (click)="toggleAccordion(idx)">
+        {{ question.question }}
+        
+        <img src="/arrow_down.svg" alt="Toggle" class="accordion-icon"
+            [class.active]="activeIndex === idx" />
+    </button>
+    <div class="accordion-content" [class.active]="activeIndex === idx">
+        <span [innerHTML]="question.answer"></span>
+    </div>
+    } @empty {
+    <li>There are no items.</li>
+    }
+</div>-->
+
+<!-- Accordion con las preguntas frecuentes -->
+<div class="faq-accordion">
+    @for (question of accordions; track question.answer; let idx = $index) {
+    <button class="accordion-header" (click)="toggleAccordion(idx)">
+        {{ question.question }}
+        <img src="./arrow_down.svg" alt="Toggle" class="accordion-icon" [class.active]="activeIndex === idx" />
+    </button>
+    <div class="accordion-content" [class.active]="activeIndex === idx">
+        <span [innerHTML]="question.answer"></span>
+        
+        <!-- Mostrar description si no está vacío -->
+        <div *ngIf="description !== ''">
+            <span [innerHTML]="description"></span>
+        </div>
+        
+        <!-- Proyección de contenido adicional si description está vacío -->
+        <ng-content *ngIf="activeIndex === idx && question.answer === ''"></ng-content>
+    </div>
+    } @empty {
+    <li>There are no items.</li>
+    }
+</div>

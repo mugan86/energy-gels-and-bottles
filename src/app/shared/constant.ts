@@ -16,8 +16,8 @@ export const EVOLYTES_COMPOSITION_IN_MG = {
 
 // Proporciones de carbohidratos
 export const CARBS_PROPORTIONS = {
-    maltodextrinRatio: 0.6,     // 60% de carbohidratos de maltodextrina
-    fructoseRatio: 0.4         // 40% de carbohidratos de fructosa
+    maltodextrinRatio: 0.556,  // 55.6% de carbohidratos de maltodextrina
+    fructoseRatio: 0.444       // 44.4% de carbohidratos de fructosa
 }
 
 

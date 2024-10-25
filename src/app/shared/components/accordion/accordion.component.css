@@ -1,0 +1,63 @@
+/* Estilos del accordion header */
+.accordion-header {
+    background-color: #e4e4e4; /* Fondo gris claro */
+    border: 1px solid #d8d5d5; /* Borde gris oscuro */
+    border-radius: 0.5rem;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 1.2rem;
+    text-align: left;
+    outline: none;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.2s ease, border-color 0.2s ease,
+      box-shadow 0.2s ease;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .accordion-header:hover {
+    background-color: #e4e0e0; /* Color más oscuro en hover */
+    border-color: #888; /* Borde ligeramente más oscuro en hover */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+  }
+  
+  /* Icono SVG (flecha) */
+  .accordion-icon {
+    width: 20px;
+    height: 20px;
+    transition: transform 0.2s ease; /* Animación de rotación */
+    color: black;
+  }
+  
+  /* Rotar la imagen cuando el acordeón está activo */
+  .accordion-icon.active {
+    transform: rotate(180deg); /* Rotación de 180 grados cuando está activo */
+  }
+  
+  /* Estilos del contenido del accordion */
+  .accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out, padding 0.2s ease-out;
+    background-color: #f1f1f1;
+    padding: 0 10px;
+  }
+  
+  .accordion-content.active {
+    max-height: 1900px; /* Cambia según el contenido */
+    padding: 10px;
+  }
+  
+  .accordion-content span p {
+    font-size: 1rem;
+    color: #333;
+  }
+  
+  ::ng-deep .content,
+  ::ng-deep .content ul {
+    padding: 10px;
+    font-size: 1.2rem !important;
+  }

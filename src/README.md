@@ -1,4 +1,4 @@
-NGREDIENTES:
+INGREDIENTES:
 
 - Maltodextrina
 https://acortar.link/PusLII
