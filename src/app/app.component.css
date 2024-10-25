@@ -1,0 +1,90 @@
+.gel-calculator {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+  }
+  
+  form div {
+    margin-bottom: 15px;
+  }
+  
+  label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  input[type="range"] {
+    width: 100%;
+  }
+  
+  span {
+    margin-left: 10px;
+  }
+  
+  h3, h4 {
+    margin-top: 20px;
+  }
+  
+
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.sliders {
+    margin-bottom: 30px;
+}
+
+.slider {
+    margin: 15px 0;
+}
+
+.results {
+    display: flex;
+    justify-content: space-around;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.gel-result {
+    width: 45%;
+}
+
+.gel-result h3 {
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 5px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    margin: 5px 0;
+}
+
+@media (max-width: 768px) {
+    .results {
+        flex-direction: column;
+    }
+
+    .gel-result {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}
