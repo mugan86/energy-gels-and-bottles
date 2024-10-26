@@ -23,8 +23,12 @@ export class AppComponent {
       "description": ""
     },
     {
-      "title": "¿Donde puedo encontrar los ingredientes y elementos necesarios para crear nuestros geles?",
-      "description": "<p class=\"content\"><b>TExto para añadir lo necesario</b>. </p>"
+      "title": "Ingredientes",
+      "description": "<p class=\"content\">A continuaci&oacute;n ten&eacute;is tenéis disponibles los ingredientes:</p><p class=\"content\"><ul><li><a href=\"https://acortar.link/PusLII\" target=\"_blank\">Maltodextrina</a></li><li><a href=\"https://acortar.link/68Wcdr\" target=\"_blank\">Fructosa</a></li><li><a href=\"https://acortar.link/evcCYK\" target=\"_blank\">Evolytes (sales)</a></li><li><a href=\"https://acortar.link/cGGU5H\" target=\"_blank\">Saborizante</a></li><li><a href=\"https://www.hsnstore.com/hsnaffiliate/click/?linkid=cHJvZHVjdHx8SFNORS1DQUZ8fEFNQURPUk5JRVRPfHxodHRwczovL3d3dy5oc25zdG9yZS5jb20vbWFyY2FzL2Vzc2VudGlhbC1zZXJpZXMvY2FmZWluYS0yMDBtZw==\" target=\"_blank\">Cafeina (opcional)</a></li></ul></p>"
+    },
+    {
+      "title": "Básculas, selladora,...",
+      "description": "<p class=\"content\">A continuaci&oacute;n ten&eacute;is el material necesario.</p><p class=\"content\"><ul><li><a href=\"https://amzn.to/3U5iykF\" target=\"_blank\">Báscula de cocina</a></li><li><a href=\"https://amzn.to/3z0LMZY\" target=\"_blank\">Termoselladora</a></li><li><a href=\"https://amzn.to/4aw2sGz\" target=\"_blank\">Batidora</a></li><li><a href=\"https://a.aliexpress.com/_EzZbGe1\" target=\"_blank\">Sobres Geles (15x5,5)</a></li></ul></p>"
     },
     /*{
       "title": "¿Cuánto sería el coste por gel?",

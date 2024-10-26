@@ -1,5 +1,7 @@
 <div class="container">
   <h1>Calculadora de ingredientes para geles personalizados</h1>
+  <h4>1. Seleccionar el número de geles, su textura y cantidad de carbohidratos por gel, para configurar los ingredientes necesarios con sus ingredientes correspondientes</h4>
+  <hr><br/>
   <div class="sliders">
     <form [formGroup]="gelForm">
       <div class="slider">
@@ -21,36 +23,37 @@
       </div>
     </form>
   </div>
+  <p>2. A continuación tenemos la información de lo que deberíamos de necesitar tanto en ingredientes para añadir en las cantidades por gel y los utensilios y material necesario</p><hr><br>
+
   <app-accordion [accordions]="accordionOptions" [description]="''">
     <div class="results">
 
       @if (result) {
         @if (numberOfGels > 1) {
-        <div class="gel-result">
-          <h3>Resultados del Gel para {{ numberOfGels }} Geles</h3>
-          <p><strong>Peso Total:</strong> {{ (result.totalGelWeight * numberOfGels).toFixed(2) }} g</p>
-          <h4>Ingredientes Totales:</h4>
-          <ul>
-            <li>Maltodextrina: {{ (result.ingredients.maltodextrin * numberOfGels).toFixed(2) }} g</li>
-            <li>Fructosa: {{ (result.ingredients.fructose * numberOfGels).toFixed(2) }} g</li>
-            <li>Saborizante: {{ (result.ingredients.flavoring * numberOfGels).toFixed(2) }} g</li>
-            <li>Evolytes: {{ (result.ingredients.evolytes * numberOfGels).toFixed(2) }} g</li>
-            <li>Agua: {{ (result.ingredients.water * numberOfGels).toFixed(2) }} g</li>
-          </ul>
-          <h4>Valores Nutricionales Totales:</h4>
-          <ul>
-            <li>Carbohidratos Totales: {{ (result.nutritionalValues.totalCarbs * numberOfGels).toFixed(2) }} g</li>
-            <li>Azúcares Totales: {{ (result.nutritionalValues.totalSugars * numberOfGels).toFixed(2) }} g</li>
-            <li>Calorías: {{ (result.nutritionalValues.calories * numberOfGels).toFixed(2) }} kcal</li>
-            <li>Sodio: {{ (result.nutritionalValues.sodium * numberOfGels).toFixed(2) }} mg</li>
-            <li>Potasio: {{ (result.nutritionalValues.potassium * numberOfGels).toFixed(2) }} mg</li>
-            <li>Magnesio: {{ (result.nutritionalValues.magnesium * numberOfGels).toFixed(2) }} mg</li>
-            <li>Cloruro: {{ (result.nutritionalValues.chloride * numberOfGels).toFixed(2) }} mg</li>
-            <li>Calcio: {{ (result.nutritionalValues.calcium * numberOfGels).toFixed(2) }} mg</li>
-          </ul>
-        </div>
-  
-        <hr>
+          <div class="gel-result">
+            <h3>Resultados del Gel para {{ numberOfGels }} Geles</h3>
+            <p><strong>Peso Total:</strong> {{ (result.totalGelWeight * numberOfGels).toFixed(2) }} g</p>
+            <h4>Ingredientes Totales:</h4>
+            <ul>
+              <li>Maltodextrina: {{ (result.ingredients.maltodextrin * numberOfGels).toFixed(2) }} g</li>
+              <li>Fructosa: {{ (result.ingredients.fructose * numberOfGels).toFixed(2) }} g</li>
+              <li>Saborizante: {{ (result.ingredients.flavoring * numberOfGels).toFixed(2) }} g</li>
+              <li>Evolytes: {{ (result.ingredients.evolytes * numberOfGels).toFixed(2) }} g</li>
+              <li>Agua: {{ (result.ingredients.water * numberOfGels).toFixed(2) }} g</li>
+            </ul>
+            <h4>Valores Nutricionales Totales:</h4>
+            <ul>
+              <li>Carbohidratos Totales: {{ (result.nutritionalValues.totalCarbs * numberOfGels).toFixed(2) }} g</li>
+              <li>Azúcares Totales: {{ (result.nutritionalValues.totalSugars * numberOfGels).toFixed(2) }} g</li>
+              <li>Calorías: {{ (result.nutritionalValues.calories * numberOfGels).toFixed(2) }} kcal</li>
+              <li>Sodio: {{ (result.nutritionalValues.sodium * numberOfGels).toFixed(2) }} mg</li>
+              <li>Potasio: {{ (result.nutritionalValues.potassium * numberOfGels).toFixed(2) }} mg</li>
+              <li>Magnesio: {{ (result.nutritionalValues.magnesium * numberOfGels).toFixed(2) }} mg</li>
+              <li>Cloruro: {{ (result.nutritionalValues.chloride * numberOfGels).toFixed(2) }} mg</li>
+              <li>Calcio: {{ (result.nutritionalValues.calcium * numberOfGels).toFixed(2) }} mg</li>
+            </ul>
+          </div>
+          <hr>
         }
   
         <div class="gel-result">
@@ -79,8 +82,8 @@
         </div>
       }
     </div>
-  </app-accordion>
-
+  </app-accordion><br/>
+  <h4>3. Tutorial para crear nuestros geles</h4><hr><br>
   
 </div>
 
