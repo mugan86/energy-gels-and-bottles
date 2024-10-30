@@ -1,3 +1,7 @@
+*{
+  font-size: 105%;
+} 
+
 .gel-calculator {
     max-width: 600px;
     margin: 0 auto;
@@ -15,7 +19,12 @@
     display: block;
     font-weight: bold;
     margin-bottom: 5px;
+    font-size: 20px;
   }
+
+  ul.list {
+    list-style-type: '- ' !important;
+}
   
   input[type="range"] {
     width: 100%;
@@ -25,10 +34,13 @@
     margin-left: 10px;
   }
   
-  h3, h4 {
+  h1, h2, h3, h4 {
     margin-top: 20px;
   }
   
+.section-title {
+  font-size: 150%;
+}
 
   body {
     font-family: Arial, sans-serif;
@@ -41,6 +53,19 @@
     max-width: 1200px;
     margin: 0 auto;
     text-align: center;
+    padding: 1rem;
+}
+
+.instructions{
+  text-align: left;
+} 
+
+.instructions li {
+  margin-top: 1rem;
+}
+
+p {
+  font-size: 105%;
 }
 
 .sliders {
@@ -87,4 +112,49 @@ ul li {
         width: 100%;
         margin-bottom: 20px;
     }
+}
+
+
+ /* Contenedor de las tarjetas */
+ .accordion-content .card-container {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 1200px;
+  width: 100%;
+  padding: 20px;
+}
+
+/* Estilo de cada tarjeta */
+.card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* Imagen de la tarjeta */
+.card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+/* Texto y enlace */
+.card a {
+  display: block;
+  padding: 15px;
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+.card a:hover {
+  color: #007bff;
 }

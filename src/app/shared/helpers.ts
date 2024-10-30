@@ -50,6 +50,8 @@ export function calculateGelIngredients(carbsPerGel: number, textureIndex: numbe
         throw new Error("El peso total de los ingredientes excede los 100 gramos. Ajusta el contenido de carbohidratos.");
     }
 
+    water = water / 2.5;
+
     // Valores nutricionales
     const { totalSugars, calories } = getNutritionalValues(maltodextrin, fructose, flavoring);
    
