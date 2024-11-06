@@ -1,26 +1,138 @@
 // Valores de ingredientes por 100g
 export const INGREDIENTS_PER_ONE_HUNDRED_GR = {
-    maltodextrinCarbs: 95,     // Carbohidratos en g por 100g de maltodextrina
-    fructoseCarbs: 100,        // Carbohidratos en g por 100g de fructosa
-    flavoringCarbs: 6.6         // Carbohidratos en g por 100g de saborizante
-}
+  maltodextrinCarbs: 95, // Carbohidratos en g por 100g de maltodextrina
+  fructoseCarbs: 100, // Carbohidratos en g por 100g de fructosa
+  flavoringCarbs: 6.6, // Carbohidratos en g por 100g de saborizante
+};
 
 // Composición de Evolytes (por cada 2.5g de Evolytes)
 export const EVOLYTES_COMPOSITION_IN_MG = {
-    sodiumPerServing: 355.7,  // mg de sodio
-    potassiumPerServing: 100,   // mg de potasio
-    magnesiumPerServing: 62,     // mg de magnesio
-    chloridePerServing: 903.8,  // mg de cloruro
-    calciumPerServing: 120,      // mg de calcio
-}
+  sodiumPerServing: 355.7, // mg de sodio
+  potassiumPerServing: 100, // mg de potasio
+  magnesiumPerServing: 62, // mg de magnesio
+  chloridePerServing: 903.8, // mg de cloruro
+  calciumPerServing: 120, // mg de calcio
+};
 
 // Proporciones de carbohidratos
 export const CARBS_PROPORTIONS = {
-    maltodextrinRatio: 0.556,  // 55.6% de carbohidratos de maltodextrina
-    fructoseRatio: 0.444       // 44.4% de carbohidratos de fructosa
-}
+  maltodextrinRatio: 0.556, // 55.6% de carbohidratos de maltodextrina
+  fructoseRatio: 0.444, // 44.4% de carbohidratos de fructosa
+};
 
+export const SWEETNESS_INDEX = [
+  {
+    index: 0.0,
+    name: 'Very little sweet',
+    description: 'Casi insípido, apenas se percibe dulzor',
+  },
+  {
+    index: 0.1,
+    name: 'Slightly sweet',
+    description: 'Un toque sutil de dulzor, casi neutro',
+  },
+  {
+    index: 0.2,
+    name: 'Mildly sweet',
+    description: 'Dulzura leve pero clara, ligeramente perceptible',
+  },
+  {
+    index: 0.3,
+    name: 'Moderately sweet',
+    description: 'Dulzura notable, pero sin ser invasiva',
+  },
+  {
+    index: 0.4,
+    name: 'Sweet',
+    description: 'Suficientemente dulce, agradable al paladar',
+  },
+  {
+    index: 0.5,
+    name: 'Strongly sweet',
+    description: 'Dulzura más destacada, algo que se percibe con claridad',
+  },
+  {
+    index: 0.6,
+    name: 'Very sweet',
+    description: 'Dulzura intensa, claramente presente, pero no empalagosa',
+  },
+  {
+    index: 0.7,
+    name: 'Excessively sweet',
+    description: 'El dulzor predomina, bastante intenso',
+  },
+  {
+    index: 0.8,
+    name: 'Extremely sweet',
+    description: 'Dulzura casi dominante, notablemente empalagosa',
+  },
+  {
+    index: 0.9,
+    name: 'Exorbitant',
+    description: 'Súper dulce, casi empalagosamente dulce',
+  },
+  {
+    index: 1,
+    name: 'Exorbitant',
+    description: 'Súper dulce, casi empalagosamente dulce',
+  },
+];
 
-
-
-
+export const TEXTURE_INDEX = [
+    {
+      "index": 0.0,
+      "name": "Solid",
+      "description": "Totalmente sólido, no fluido en absoluto"
+    },
+    {
+      "index": 0.1,
+      "name": "Very thick",
+      "description": "Muy espeso, casi como una pasta"
+    },
+    {
+      "index": 0.2,
+      "name": "Thick",
+      "description": "Espeso, con una consistencia densa"
+    },
+    {
+      "index": 0.3,
+      "name": "Moderately thick",
+      "description": "Consistencia espesa, pero aún algo fluida"
+    },
+    {
+      "index": 0.4,
+      "name": "Slightly thick",
+      "description": "Un poco espeso, pero no muy denso"
+    },
+    {
+      "index": 0.5,
+      "name": "Dense",
+      "description": "Consistencia densa, difícil de mover, pero no sólida"
+    },
+    {
+      "index": 0.6,
+      "name": "Slightly liquid",
+      "description": "Ligeramente líquido, pero aún tiene algo de cuerpo"
+    },
+    {
+      "index": 0.7,
+      "name": "Fluid",
+      "description": "Bastante fluido, fácil de verter"
+    },
+    {
+      "index": 0.8,
+      "name": "Very fluid",
+      "description": "Muy fluido, se mueve fácilmente"
+    },
+    {
+      "index": 0.9,
+      "name": "Liquid",
+      "description": "Totalmente líquido, sin resistencia al movimiento"
+    },
+    {
+      "index": 1.0,
+      "name": "Completely liquid",
+      "description": "Totalmente líquido, fluye sin ningún tipo de densidad"
+    }
+  ]
+  

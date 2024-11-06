@@ -11,11 +11,22 @@
         <input type="range" id="numberOfGels" formControlName="numberOfGels" min="1" max="6" step="1" />
         <span>{{ gelForm.get('numberOfGels')?.value }}</span>
       </div>
+      <!--<app-slider [select]="{
+        range: [1, 6],
+        value: 2,
+        step: 1
+      }"></app-slider>-->
 
       <div class="slider">
-        <label for="textureIndex">Textura (0.5: denso, 1: líquido)</label>
-        <input type="range" id="textureIndex" formControlName="textureIndex" min="0.5" max="1" step="0.1" />
-        <span>{{ gelForm.get('textureIndex')?.value }}</span>
+        <label for="sweetnessIndex">Índice de dulzor</label>
+        <input type="range" id="sweetnessIndex" formControlName="sweetnessIndex" min="0" max="1" step="0.1" />
+        <span>{{ sweetnessIndexText }}</span>
+      </div>
+
+      <div class="slider">
+        <label for="textureIndex">Textura</label>
+        <input type="range" id="textureIndex" formControlName="textureIndex" min="0.5" max="0.9" step="0.1" />
+        <span>{{ textureIndexText }}</span>
       </div>
 
       <div class="slider">

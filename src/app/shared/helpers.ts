@@ -14,22 +14,24 @@ const getNutritionalValues = (maltodextrin: number, fructose: number, flavoring:
     }
 }
 
-export function calculateGelIngredients(carbsPerGel: number, textureIndex: number) {
+export function calculateGelIngredients(carbsPerGel: number, textureIndex: number, sweetnessIndex: number) {
     // Valores de ingredientes por 100g
     const { maltodextrinCarbs, fructoseCarbs } = INGREDIENTS_PER_ONE_HUNDRED_GR;
 
     // Composición de Evolytes (por cada 2.5g de Evolytes)
     const { sodiumPerServing, potassiumPerServing, magnesiumPerServing, chloridePerServing, calciumPerServing } = EVOLYTES_COMPOSITION_IN_MG;
 
-    // Ajuste de proporciones para alcanzar los 30 g de maltodextrina y 24 g de fructosa en carbohidratos
-    const totalDesiredCarbs = 30 + 24; // Total deseado de 54 g de carbohidratos (30 g de maltodextrina + 24 g de fructosa)
+    // Ajuste de proporciones para alcanzar los 30 g de maltodextrina y 24 g de fructosa en carbohidratos con dulzor variable
+    const baseMaltodextrinCarbs = 30;
+    const baseFructoseCarbs = 24;
 
-    // Calcular los factores de ajuste basados en carbsPerGel
-    const adjustmentFactor = carbsPerGel / totalDesiredCarbs;
+    // Ajuste de dulzor: varía entre menos dulce (más maltodextrina) y más dulce (más fructosa)
+    const adjustedMaltodextrinRatio = baseMaltodextrinCarbs - (3 * sweetnessIndex); // 30g base, ajustado hasta 27g
+    const adjustedFructoseRatio = baseFructoseCarbs + (3 * sweetnessIndex); // 24g base, ajustado hasta 27g
 
-    // Ajustar las cantidades de carbohidratos de maltodextrina y fructosa según el ajuste
-    const maltodextrinCarbsNeeded = 30 * adjustmentFactor;
-    const fructoseCarbsNeeded = 24 * adjustmentFactor;
+    // Normalizar para mantener el total deseado de carbohidratos
+    const maltodextrinCarbsNeeded = (adjustedMaltodextrinRatio / (adjustedMaltodextrinRatio + adjustedFructoseRatio)) * carbsPerGel;
+    const fructoseCarbsNeeded = carbsPerGel - maltodextrinCarbsNeeded;
 
     // Convertir los carbohidratos necesarios en gramos de ingrediente
     const maltodextrin = (maltodextrinCarbsNeeded / maltodextrinCarbs) * 100;
@@ -50,6 +52,7 @@ export function calculateGelIngredients(carbsPerGel: number, textureIndex: numbe
         throw new Error("El peso total de los ingredientes excede los 100 gramos. Ajusta el contenido de carbohidratos.");
     }
 
+    // Dividir el agua entre 2.5 para mejorar la consistencia
     water = water / 2.5;
 
     // Valores nutricionales
