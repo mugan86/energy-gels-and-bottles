@@ -1,4 +1,4 @@
-import { EVOLYTES_COMPOSITION_IN_MG, INGREDIENTS_PER_ONE_HUNDRED_GR } from "./constant";
+import { EVOLYTES_COMPOSITION_IN_MG, INGREDIENTS_PER_ONE_HUNDRED_GR } from "../constant";
 
 const getNutritionalValues = (maltodextrin: number, fructose: number, flavoring: number) => {
     const { maltodextrinCarbs, fructoseCarbs, flavoringCarbs } = INGREDIENTS_PER_ONE_HUNDRED_GR;

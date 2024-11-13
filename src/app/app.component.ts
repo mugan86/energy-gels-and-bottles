@@ -1,10 +1,13 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { RouterOutlet } from '@angular/router';
-import { calculateGelIngredients } from './shared/helpers';
+import { calculateGelIngredients } from './shared/helpers/gels';
 import { AccordionModule } from './shared/components/accordion/accordion.module';
 import { SWEETNESS_INDEX, TEXTURE_INDEX } from './shared/constant';
 import { SliderComponent } from './shared/components/slider/slider.component';
+import { Units } from './shared/types/units';
+import { calculateIngredientCost } from './shared/helpers/cost';
+import { GEL_INGREDIENTS_PRICES } from './shared/constants/gels';
 
 @Component({
   selector: 'app-root',
@@ -79,6 +82,22 @@ export class AppComponent {
 
     // Calcular los ingredientes inicialmente
     this.calculateIngredients();
+
+    // Example cost
+    this.costExample();
+  }
+
+  private costExample () {
+    // Ejemplo de uso:
+    const totalWeight = 1; // 1 kgr de Maltodextrina
+    const totalWeightUnit: Units = "kgr";
+    const totalPrice = 4.74; // Precio en euros
+    const portionWeight = 30; // 30 gramos
+    const portionWeightUnit: Units = "gr";
+    const ingredient = "Maltodextrina";
+
+    const cost = calculateIngredientCost(totalWeight, totalWeightUnit, totalPrice, portionWeight, portionWeightUnit);
+    console.log(`El coste de ${portionWeight}${portionWeightUnit} de ${ingredient} es: €${cost}`);
   }
 
   update($event: string | number, property: string) {
@@ -100,9 +119,25 @@ export class AppComponent {
         textureIndex,
         sweetnessIndex
       );
+      console.log(this.result);
+      let costTotal = 0;
+      Object.keys(this.result.ingredients).forEach((value) => {
+        console.log(this.result.ingredients[value]);
+        const selectIngredient = (GEL_INGREDIENTS_PRICES as any)[value];
+        console.log(selectIngredient);
+        const costIngredient = calculateIngredientCost(selectIngredient.weight, selectIngredient.unit, selectIngredient.price, this.result.ingredients[value], 'gr');
+        console.log(`El coste de ${this.result.ingredients[value]}${'gr'} de ${value} es: €${costIngredient}`);
+        costTotal += costIngredient;
+      });
+      // Añadir variable si tenemos cafeina
+      costTotal+= calculateIngredientCost(120, 'unit', 3.80, 1, 'unit')
+      console.log('Coste Total del Gel', costTotal.toFixed(4), `€`);
+
     } catch (error) {
       console.error(error);
       this.result = null;
     }
   }
 }
+
+
