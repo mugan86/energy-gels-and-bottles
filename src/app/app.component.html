@@ -17,11 +17,12 @@
             <span>{{ gelForm.get(item.id)?.value }}</span>
           }
       </div>
-      }
-      <input type="checkbox" formControlName="caffeine" name="caffeine" checked="false"> Incluir Cafeina (1 capsula)
-
-
-
+      }<br/>
+      <input type="checkbox" formControlName="caffeine" name="caffeine" checked="false"> Incluir Cafeina (1 capsula)&nbsp;
+      <input type="checkbox" formControlName="energyGel" name="energyGel" checked="false"> Sobre del gel
+      <hr>
+      <span>Miramos en <strong> Cantidades necesarias para crear geles</strong>, los costes asociados a cada gel y el total de {{numberOfGels}} geles</span>
+<br/>
     </form>
   </div>
   <br/>
@@ -47,6 +48,7 @@
           <li>Evolytes: {{ (result.ingredients.evolytes * numberOfGels).toFixed(2) }} g / {{costByGel['evolytes'] * numberOfGels | number: '1.0-3'}}€</li>
           <li>Agua: {{ (result.ingredients.water * numberOfGels).toFixed(2) }} g / {{costByGel['water'] * numberOfGels | number: '1.0-3'}}€</li>
           <li>Cafeina: {{ (result.ingredients.caffeine * numberOfGels) }} uds / {{costByGel['caffeine'] * numberOfGels | number: '1.0-3'}}€</li>
+          <li>Sobre gel: {{ (result.ingredients.energyGel * numberOfGels) }} uds / {{costByGel['energyGel'] * numberOfGels | number: '1.0-3'}}€</li>
           <hr>
           <li>Gasto total:  {{costByGel['total'] * numberOfGels | number: '1.0-3'}}€</li>
         </ul>
@@ -77,6 +79,7 @@
           <li>Evolytes: {{ result.ingredients.evolytes }} g / {{costByGel['evolytes'] | number: '1.0-3'}}€</li>
           <li>Agua: {{ result.ingredients.water }} g / {{costByGel['water'] | number: '1.0-3'}}€</li>
           <li>Cafeina: {{ (result.ingredients.caffeine) }} uds / {{costByGel['caffeine'] | number: '1.0-3'}}€</li>
+          <li>Sobre gel: {{ (result.ingredients.energyGel) }} uds / {{costByGel['energyGel'] | number: '1.0-3'}}€</li>
           <hr>
           <li>Gasto total:  {{costByGel['total'] | number: '1.0-3'}}€</li>
         </ul>

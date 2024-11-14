@@ -32,7 +32,8 @@ export class AppComponent {
     evolytes: 0,
     water: 0,
     caffeine: 0,
-    total: 0
+    total: 0,
+    energyGel: 0
   }
 
   valuesText = {
@@ -79,7 +80,8 @@ export class AppComponent {
       textureIndex: [0.7], // Valor inicial: textura media
       carbsPerGel: [52.7], // Valor inicial: 40g de carbohidratos por gel,
       sweetnessIndex: 0.5, // Ni poco dulce ni mucho entre 0 y 1,
-      caffeine: false
+      caffeine: false,
+      energyGel: false
     });
 
     // Escuchar los cambios en el formulario
@@ -99,33 +101,10 @@ export class AppComponent {
 
     // Calcular los ingredientes inicialmente
     this.calculateIngredients();
-
-    // Example cost
-    this.costExample();
+    
   }
 
   getTextValue = (id: string) => (this.valuesText as any)[id];
-
-  private costExample() {
-    // Ejemplo de uso:
-    const totalWeight = 1; // 1 kgr de Maltodextrina
-    const totalWeightUnit: Units = 'kgr';
-    const totalPrice = 4.74; // Precio en euros
-    const portionWeight = 30; // 30 gramos
-    const portionWeightUnit: Units = 'gr';
-    const ingredient = 'Maltodextrina';
-
-    const cost = calculateIngredientCost(
-      totalWeight,
-      totalWeightUnit,
-      totalPrice,
-      portionWeight,
-      portionWeightUnit
-    );
-    console.log(
-      `El coste de ${portionWeight}${portionWeightUnit} de ${ingredient} es: €${cost}`
-    );
-  }
 
   update($event: string | number, property: string) {
     this.gelForm.get(property)!.setValue($event);
@@ -139,7 +118,8 @@ export class AppComponent {
       textureIndex,
       carbsPerGel,
       sweetnessIndex,
-      caffeine
+      caffeine,
+      energyGel
     } = this.gelForm.value;
     this.numberOfGels = numberOfGels;
     try {
@@ -147,7 +127,8 @@ export class AppComponent {
         carbsPerGel,
         textureIndex,
         sweetnessIndex,
-        caffeine
+        caffeine,
+        energyGel
       );
       Object.keys(this.result.ingredients).forEach((value) => {
         console.log(this.result.ingredients[value]);
@@ -158,13 +139,11 @@ export class AppComponent {
           selectIngredient.unit,
           selectIngredient.price,
           this.result.ingredients[value],
-          value === 'caffeine' ? 'unit': 'gr'
+          value === 'caffeine' || value === 'energyGel' ? 'unit': 'gr'
         );
         (this.costByGel as any)[value] = costIngredient;
         (this.costByGel as any)['total'] += costIngredient;
       });
-      // Añadir variable si tenemos cafeina
-      // costTotal += calculateIngredientCost(120, 'unit', 3.8, 1, 'unit');
       console.log('Coste Total del Gel', (this.costByGel as any)['total'].toFixed(4), `€`);
       console.log(this.costByGel)
     } catch (error) {

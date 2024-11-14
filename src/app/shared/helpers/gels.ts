@@ -14,7 +14,7 @@ const getNutritionalValues = (maltodextrin: number, fructose: number, flavoring:
     }
 }
 
-export function calculateGelIngredients(carbsPerGel: number, textureIndex: number, sweetnessIndex: number, caffeine: number) {
+export function calculateGelIngredients(carbsPerGel: number, textureIndex: number, sweetnessIndex: number, caffeine: number, energyGel: number) {
     // Valores de ingredientes por 100g
     const { maltodextrinCarbs, fructoseCarbs } = INGREDIENTS_PER_ONE_HUNDRED_GR;
 
@@ -75,7 +75,8 @@ export function calculateGelIngredients(carbsPerGel: number, textureIndex: numbe
             flavoring: flavoring.toFixed(2),
             evolytes: evolytes.toFixed(2),
             water: water.toFixed(2),
-            caffeine: Number(caffeine)
+            caffeine: Number(caffeine),
+            energyGel: Number(energyGel)
         },
         nutritionalValues: {
             totalCarbs: carbsPerGel.toFixed(2), 

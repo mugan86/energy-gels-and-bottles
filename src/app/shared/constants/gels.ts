@@ -30,5 +30,10 @@ export const GEL_INGREDIENTS_PRICES = {
         price: 3.8,
         weight: 120,
         unit: 'unit' as Units
+    },
+    energyGel: {
+        price: 6.95,
+        weight: 50,
+        unit: 'unit' as Units
     }
 }
