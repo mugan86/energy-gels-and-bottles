@@ -3,16 +3,20 @@ import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { RouterOutlet } from '@angular/router';
 import { calculateGelIngredients } from './shared/helpers/gels';
 import { AccordionModule } from './shared/components/accordion/accordion.module';
-import { SWEETNESS_INDEX, TEXTURE_INDEX } from './shared/constant';
-import { SliderComponent } from './shared/components/slider/slider.component';
+import {
+  SLIDER_GELS_OPTIONS,
+  SWEETNESS_INDEX,
+  TEXTURE_INDEX,
+} from './shared/constant';
 import { Units } from './shared/types/units';
 import { calculateIngredientCost } from './shared/helpers/cost';
 import { GEL_INGREDIENTS_PRICES } from './shared/constants/gels';
+import { DecimalPipe } from '@angular/common';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, ReactiveFormsModule, AccordionModule, SliderComponent],
+  imports: [RouterOutlet, ReactiveFormsModule, AccordionModule, DecimalPipe],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
@@ -21,14 +25,24 @@ export class AppComponent {
   gelForm: FormGroup;
   result: any;
   numberOfGels = 1;
+  costByGel = {
+    maltodextrin: 0,
+    fructose: 0,
+    flavoring: 0,
+    evolytes: 0,
+    water: 0,
+    caffeine: 0,
+    total: 0
+  }
 
-  sweetnessIndexText =
-    SWEETNESS_INDEX[SWEETNESS_INDEX.findIndex((data) => data.index === 0.5)]
-      .description;
-
-  textureIndexText =
-    TEXTURE_INDEX[TEXTURE_INDEX.findIndex((data) => data.index === 0.7)]
-      .description;
+  valuesText = {
+    sweetnessIndex:
+      SWEETNESS_INDEX[SWEETNESS_INDEX.findIndex((data) => data.index === 0.5)]
+        .description,
+    textureIndex:
+      TEXTURE_INDEX[TEXTURE_INDEX.findIndex((data) => data.index === 0.7)]
+        .description,
+  };
 
   accordionOptions = [
     {
@@ -56,23 +70,26 @@ export class AppComponent {
     };
   });
 
+  slideGelsOptions = SLIDER_GELS_OPTIONS;
+
   constructor(private fb: FormBuilder) {
     // Crear el formulario reactivo con valores iniciales
     this.gelForm = this.fb.group({
       numberOfGels: [2], // Valor inicial: 2 geles
       textureIndex: [0.7], // Valor inicial: textura media
       carbsPerGel: [52.7], // Valor inicial: 40g de carbohidratos por gel,
-      sweetnessIndex: 0.5, // Ni poco dulce ni mucho entre 0 y 1
+      sweetnessIndex: 0.5, // Ni poco dulce ni mucho entre 0 y 1,
+      caffeine: false
     });
 
     // Escuchar los cambios en el formulario
     this.gelForm.valueChanges.subscribe(
       ({ sweetnessIndex, textureIndex }: any) => {
-        this.sweetnessIndexText =
+        this.valuesText.sweetnessIndex =
           SWEETNESS_INDEX[
             SWEETNESS_INDEX.findIndex((data) => data.index === sweetnessIndex)
           ].description;
-        this.textureIndexText =
+        this.valuesText.textureIndex =
           TEXTURE_INDEX[
             TEXTURE_INDEX.findIndex((data) => data.index === textureIndex)
           ].description;
@@ -87,17 +104,27 @@ export class AppComponent {
     this.costExample();
   }
 
-  private costExample () {
+  getTextValue = (id: string) => (this.valuesText as any)[id];
+
+  private costExample() {
     // Ejemplo de uso:
     const totalWeight = 1; // 1 kgr de Maltodextrina
-    const totalWeightUnit: Units = "kgr";
+    const totalWeightUnit: Units = 'kgr';
     const totalPrice = 4.74; // Precio en euros
     const portionWeight = 30; // 30 gramos
-    const portionWeightUnit: Units = "gr";
-    const ingredient = "Maltodextrina";
+    const portionWeightUnit: Units = 'gr';
+    const ingredient = 'Maltodextrina';
 
-    const cost = calculateIngredientCost(totalWeight, totalWeightUnit, totalPrice, portionWeight, portionWeightUnit);
-    console.log(`El coste de ${portionWeight}${portionWeightUnit} de ${ingredient} es: €${cost}`);
+    const cost = calculateIngredientCost(
+      totalWeight,
+      totalWeightUnit,
+      totalPrice,
+      portionWeight,
+      portionWeightUnit
+    );
+    console.log(
+      `El coste de ${portionWeight}${portionWeightUnit} de ${ingredient} es: €${cost}`
+    );
   }
 
   update($event: string | number, property: string) {
@@ -106,38 +133,43 @@ export class AppComponent {
 
   // Función para calcular los ingredientes basado en el formulario
   calculateIngredients(): void {
+    (this.costByGel as any)['total']  = 0;
     const {
       numberOfGels,
       textureIndex,
       carbsPerGel,
       sweetnessIndex,
+      caffeine
     } = this.gelForm.value;
     this.numberOfGels = numberOfGels;
     try {
       this.result = calculateGelIngredients(
         carbsPerGel,
         textureIndex,
-        sweetnessIndex
+        sweetnessIndex,
+        caffeine
       );
-      console.log(this.result);
-      let costTotal = 0;
       Object.keys(this.result.ingredients).forEach((value) => {
         console.log(this.result.ingredients[value]);
         const selectIngredient = (GEL_INGREDIENTS_PRICES as any)[value];
-        console.log(selectIngredient);
-        const costIngredient = calculateIngredientCost(selectIngredient.weight, selectIngredient.unit, selectIngredient.price, this.result.ingredients[value], 'gr');
-        console.log(`El coste de ${this.result.ingredients[value]}${'gr'} de ${value} es: €${costIngredient}`);
-        costTotal += costIngredient;
+        console.log(selectIngredient, value);
+        const costIngredient = calculateIngredientCost(
+          selectIngredient.weight,
+          selectIngredient.unit,
+          selectIngredient.price,
+          this.result.ingredients[value],
+          value === 'caffeine' ? 'unit': 'gr'
+        );
+        (this.costByGel as any)[value] = costIngredient;
+        (this.costByGel as any)['total'] += costIngredient;
       });
       // Añadir variable si tenemos cafeina
-      costTotal+= calculateIngredientCost(120, 'unit', 3.80, 1, 'unit')
-      console.log('Coste Total del Gel', costTotal.toFixed(4), `€`);
-
+      // costTotal += calculateIngredientCost(120, 'unit', 3.8, 1, 'unit');
+      console.log('Coste Total del Gel', (this.costByGel as any)['total'].toFixed(4), `€`);
+      console.log(this.costByGel)
     } catch (error) {
       console.error(error);
       this.result = null;
     }
   }
 }
-
-

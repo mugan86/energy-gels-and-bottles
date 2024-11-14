@@ -79,60 +79,94 @@ export const SWEETNESS_INDEX = [
 ];
 
 export const TEXTURE_INDEX = [
-    {
-      "index": 0.0,
-      "name": "Solid",
-      "description": "Totalmente sólido, no fluido en absoluto"
-    },
-    {
-      "index": 0.1,
-      "name": "Very thick",
-      "description": "Muy espeso, casi como una pasta"
-    },
-    {
-      "index": 0.2,
-      "name": "Thick",
-      "description": "Espeso, con una consistencia densa"
-    },
-    {
-      "index": 0.3,
-      "name": "Moderately thick",
-      "description": "Consistencia espesa, pero aún algo fluida"
-    },
-    {
-      "index": 0.4,
-      "name": "Slightly thick",
-      "description": "Un poco espeso, pero no muy denso"
-    },
-    {
-      "index": 0.5,
-      "name": "Dense",
-      "description": "Consistencia densa, difícil de mover, pero no sólida"
-    },
-    {
-      "index": 0.6,
-      "name": "Slightly liquid",
-      "description": "Ligeramente líquido, pero aún tiene algo de cuerpo"
-    },
-    {
-      "index": 0.7,
-      "name": "Fluid",
-      "description": "Bastante fluido, fácil de verter"
-    },
-    {
-      "index": 0.8,
-      "name": "Very fluid",
-      "description": "Muy fluido, se mueve fácilmente"
-    },
-    {
-      "index": 0.9,
-      "name": "Liquid",
-      "description": "Totalmente líquido, sin resistencia al movimiento"
-    },
-    {
-      "index": 1.0,
-      "name": "Completely liquid",
-      "description": "Totalmente líquido, fluye sin ningún tipo de densidad"
-    }
-  ]
-  
+  {
+    index: 0.0,
+    name: 'Solid',
+    description: 'Totalmente sólido, no fluido en absoluto',
+  },
+  {
+    index: 0.1,
+    name: 'Very thick',
+    description: 'Muy espeso, casi como una pasta',
+  },
+  {
+    index: 0.2,
+    name: 'Thick',
+    description: 'Espeso, con una consistencia densa',
+  },
+  {
+    index: 0.3,
+    name: 'Moderately thick',
+    description: 'Consistencia espesa, pero aún algo fluida',
+  },
+  {
+    index: 0.4,
+    name: 'Slightly thick',
+    description: 'Un poco espeso, pero no muy denso',
+  },
+  {
+    index: 0.5,
+    name: 'Dense',
+    description: 'Consistencia densa, difícil de mover, pero no sólida',
+  },
+  {
+    index: 0.6,
+    name: 'Slightly liquid',
+    description: 'Ligeramente líquido, pero aún tiene algo de cuerpo',
+  },
+  {
+    index: 0.7,
+    name: 'Fluid',
+    description: 'Bastante fluido, fácil de verter',
+  },
+  {
+    index: 0.8,
+    name: 'Very fluid',
+    description: 'Muy fluido, se mueve fácilmente',
+  },
+  {
+    index: 0.9,
+    name: 'Liquid',
+    description: 'Totalmente líquido, sin resistencia al movimiento',
+  },
+  {
+    index: 1.0,
+    name: 'Completely liquid',
+    description: 'Totalmente líquido, fluye sin ningún tipo de densidad',
+  },
+];
+
+export const SLIDER_GELS_OPTIONS = [
+  {
+    id: 'numberOfGels',
+    min: 1,
+    max: 6,
+    step: 1,
+    text: false,
+    title: 'Número de Geles',
+  },
+  {
+    id: 'sweetnessIndex',
+    min: 0,
+    max: 1,
+    step: 0.1,
+    text: true, // sweetnessIndexText
+    title: 'Índice de dulzor',
+  },
+  {
+    id: 'textureIndex',
+    min: 0.5,
+    max: 0.9,
+    step: 0.1,
+    text: true, // textureIndexText
+    title: 'Textura',
+  },
+  {
+    id: 'carbsPerGel',
+    min: 30,
+    max: 90,
+    step: 0.1,
+    text: false,
+    title: 'Carbohidratos por Gel (g)',
+  },
+];
