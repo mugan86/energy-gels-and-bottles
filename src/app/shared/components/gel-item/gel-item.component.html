@@ -1,0 +1,64 @@
+<div class="results">
+
+    @if (result) {
+      <div class="gel-result">
+        <h3>Resultados por Gel</h3>
+        <p><strong>Peso Total por Gel:</strong> {{ result.totalGelWeight }} g</p>
+        <h4>Ingredientes por Gel:</h4>
+        <ul>
+          <li>Maltodextrina: {{ result.ingredients.maltodextrin }} g / {{costByGel['maltodextrin'] | number: '1.0-3'}}€</li>
+          <li>Fructosa: {{ result.ingredients.fructose }} g / {{costByGel['fructose'] | number: '1.0-3'}}€</li>
+          <li>Saborizante: {{ result.ingredients.flavoring }} g / {{costByGel['flavoring'] | number: '1.0-3'}}€</li>
+          <li>Evolytes: {{ result.ingredients.evolytes }} g / {{costByGel['evolytes'] | number: '1.0-3'}}€</li>
+          <li>Agua: {{ result.ingredients.water }} g / {{costByGel['water'] | number: '1.0-3'}}€</li>
+          <li>Cafeina: {{ (result.ingredients.caffeine) }} uds / {{costByGel['caffeine'] | number: '1.0-3'}}€</li>
+          <li>Sobre gel: {{ (result.ingredients.energyGel) }} uds / {{costByGel['energyGel'] | number: '1.0-3'}}€</li>
+          <hr>
+          <li>Gasto total:  <strong class="total__pay">{{costByGel['total'] | number: '1.0-3'}} €</strong></li>
+        </ul>
+        <hr>
+        <h4>Valores Nutricionales por Gel:</h4>
+        <ul>
+          <li>Carbohidratos Totales: {{ result.nutritionalValues.totalCarbs }} g</li>
+          <li>Azúcares Totales: {{ result.nutritionalValues.totalSugars }} g</li>
+          <li>Calorías: {{ result.nutritionalValues.calories }} kcal</li>
+          <li>Sodio: {{ result.nutritionalValues.sodium }} mg</li>
+          <li>Potasio: {{ result.nutritionalValues.potassium }} mg</li>
+          <li>Magnesio: {{ result.nutritionalValues.magnesium }} mg</li>
+          <li>Cloruro: {{ result.nutritionalValues.chloride }} mg</li>
+          <li>Calcio: {{ result.nutritionalValues.calcium }} mg</li>
+        </ul>
+
+      </div>
+      @if (numberOfGels > 1) {
+        <div class="gel-result">
+          <h3>Resultados del Gel para {{ numberOfGels }} Geles</h3>
+          <p><strong>Peso Total:</strong> {{ (result.totalGelWeight * numberOfGels).toFixed(2) }} g</p>
+          <h4>Ingredientes Totales:</h4>
+          <ul>
+            <li>Maltodextrina: {{ (result.ingredients.maltodextrin * numberOfGels).toFixed(2) }} g / {{costByGel['maltodextrin'] * numberOfGels | number: '1.0-3'}}€</li>
+            <li>Fructosa: {{ (result.ingredients.fructose * numberOfGels).toFixed(2) }} g / {{costByGel['fructose'] * numberOfGels | number: '1.0-3'}}€</li>
+            <li>Saborizante: {{ (result.ingredients.flavoring * numberOfGels).toFixed(2) }} g / {{costByGel['flavoring'] * numberOfGels | number: '1.0-3'}}€</li>
+            <li>Evolytes: {{ (result.ingredients.evolytes * numberOfGels).toFixed(2) }} g / {{costByGel['evolytes'] * numberOfGels | number: '1.0-3'}}€</li>
+            <li>Agua: {{ (result.ingredients.water * numberOfGels).toFixed(2) }} g / {{costByGel['water'] * numberOfGels | number: '1.0-3'}}€</li>
+            <li>Cafeina: {{ (result.ingredients.caffeine * numberOfGels) }} uds / {{costByGel['caffeine'] * numberOfGels | number: '1.0-3'}}€</li>
+            <li>Sobre gel: {{ (result.ingredients.energyGel * numberOfGels) }} uds / {{costByGel['energyGel'] * numberOfGels | number: '1.0-3'}}€</li>
+            <hr>
+            <li>Gasto total:  <strong class="total__pay">{{costByGel['total'] * numberOfGels | number: '1.0-3'}} €</strong></li>
+          </ul>
+          <hr>
+          <h4>Valores Nutricionales Totales:</h4>
+          <ul>
+            <li>Carbohidratos Totales: {{ (result.nutritionalValues.totalCarbs * numberOfGels).toFixed(2) }} g</li>
+            <li>Azúcares Totales: {{ (result.nutritionalValues.totalSugars * numberOfGels).toFixed(2) }} g</li>
+            <li>Calorías: {{ (result.nutritionalValues.calories * numberOfGels).toFixed(2) }} kcal</li>
+            <li>Sodio: {{ (result.nutritionalValues.sodium * numberOfGels).toFixed(2) }} mg</li>
+            <li>Potasio: {{ (result.nutritionalValues.potassium * numberOfGels).toFixed(2) }} mg</li>
+            <li>Magnesio: {{ (result.nutritionalValues.magnesium * numberOfGels).toFixed(2) }} mg</li>
+            <li>Cloruro: {{ (result.nutritionalValues.chloride * numberOfGels).toFixed(2) }} mg</li>
+            <li>Calcio: {{ (result.nutritionalValues.calcium * numberOfGels).toFixed(2) }} mg</li>
+          </ul>
+        </div>
+      }
+    }
+  </div>

@@ -18,6 +18,18 @@
   label {
     display: block;
     font-weight: bold;
+  }
+
+  .option-check {
+    display: inline;
+    font-weight: normal;
+  }
+
+  .option-check:hover {
+    cursor: pointer;
+  }
+
+  label, .option-check {
     margin-bottom: 5px;
     font-size: 20px;
   }
@@ -76,43 +88,6 @@ p {
     margin: 20px 0;
 }
 
-.results {
-    display: flex;
-    justify-content: space-around;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.gel-result {
-    width: 45%;
-}
-
-.gel-result h3 {
-    border-bottom: 2px solid #007bff;
-    padding-bottom: 5px;
-}
-
-ul {
-    list-style: none;
-    padding: 0;
-}
-
-ul li {
-    margin: 5px 0;
-}
-
-@media (max-width: 768px) {
-    .results {
-        flex-direction: column;
-    }
-
-    .gel-result {
-        width: 100%;
-        margin-bottom: 20px;
-    }
-}
 
 
  /* Contenedor de las tarjetas */

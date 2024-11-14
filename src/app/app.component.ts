@@ -8,15 +8,14 @@ import {
   SWEETNESS_INDEX,
   TEXTURE_INDEX,
 } from './shared/constant';
-import { Units } from './shared/types/units';
 import { calculateIngredientCost } from './shared/helpers/cost';
 import { GEL_INGREDIENTS_PRICES } from './shared/constants/gels';
-import { DecimalPipe } from '@angular/common';
+import { GelItemComponent } from './shared/components/gel-item/gel-item.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, ReactiveFormsModule, AccordionModule, DecimalPipe],
+  imports: [RouterOutlet, ReactiveFormsModule, AccordionModule, GelItemComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
