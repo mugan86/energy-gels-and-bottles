@@ -1,0 +1,83 @@
+<div class="calculator">
+    <h1>Beverage Calculator</h1>
+
+    <!-- Tipo de Bebida -->
+    <div class="beverage-type">
+        <h3>Seleccione el tipo de bebida:</h3>
+        <label>
+            <input type="radio" name="beverageType" value="hypotonic" [(ngModel)]="selectedType" />
+            Hipotónica
+        </label>
+        <label>
+            <input type="radio" name="beverageType" value="isotonic" [(ngModel)]="selectedType" />
+            Isotónica
+        </label>
+        <label>
+            <input type="radio" name="beverageType" value="hypertonic" [(ngModel)]="selectedType" />
+            Hipertónica
+        </label>
+    </div>
+
+    <!-- Información dinámica -->
+    @if(selectedType) {
+    <div class="info">
+        <h3>Información sobre la bebida:</h3>
+        <p>{{ beverageInfo[selectedType] }}</p>
+    </div>
+    }
+
+
+    <!-- Formulario dinámico -->
+    @if(selectedType) {
+    <div class="form">
+        <h3>Ingrese los datos necesarios:</h3>
+
+        <!-- Hipotónica -->
+        @if(selectedType === 'hypotonic') {
+        <div>
+            <label for="waterVolume">Volumen de Agua (ml):</label>
+            <input type="number" id="waterVolume" [(ngModel)]="waterVolume" placeholder="500" />
+
+            <label for="concentration">Concentración (%):</label>
+            <input type="number" id="concentration" [(ngModel)]="carbConcentration" placeholder="2-4" min="2" max="4" />
+        </div>
+        }
+
+        @if(selectedType === 'isotonic') {
+        <!-- Isotónica -->
+        <div>
+            <label for="waterVolume">Volumen de Agua (ml):</label>
+            <input type="number" id="waterVolume" [(ngModel)]="waterVolume" placeholder="750" />
+
+            <label for="maltodextrin">Maltodextrina (g):</label>
+            <input type="number" id="maltodextrin" [(ngModel)]="maltodextrin" placeholder="40" />
+
+            <label for="fructose">Fructosa (g):</label>
+            <input type="number" id="fructose" [(ngModel)]="fructose" placeholder="20" />
+        </div>
+        }
+
+        @if(selectedType === 'hypertonic') {
+        <!-- Hipertónica -->
+        <div>
+            <label for="weight">Peso Corporal (kg):</label>
+            <input type="number" id="weight" [(ngModel)]="weight" placeholder="70" />
+        </div>
+        }
+
+    </div>
+    }
+
+
+    <!-- Botón de cálculo -->
+    <button (click)="calculate()">Calcular</button>
+
+    <!-- Resultados -->
+    @if(results) {
+    <div>
+        <h3>Resultados:</h3>
+        <p>{{ results }}</p>
+    </div>
+    }
+
+</div>
