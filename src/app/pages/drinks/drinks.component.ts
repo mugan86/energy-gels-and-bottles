@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HypertonicDrinkInput, HypertonicDrinkOutput } from '../../models/drink/hypertonic';
 import { getCarbohydrateMessage } from '../../shared/helpers/drinks';
@@ -11,7 +11,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './drinks.component.html',
   styleUrl: './drinks.component.css',
 })
-export class DrinksComponent {
+export class DrinksComponent implements OnInit {
   // Tipos de bebida
   selectedType: string = 'hypotonic';
   concentrationDefault = {
@@ -40,15 +40,23 @@ export class DrinksComponent {
       'Bebida para recuperación post-entrenamiento. Alta concentración de carbohidratos (>10%).',
   };
 
-  updateLayout(typeDrink: string) {
-    this.carbConcentration = (this.concentrationDefault as any)[
-      typeDrink
-    ];
+  ngOnInit() {
+    this.calculate();
+  }
+
+  updateLayout(typeDrink: string, waterChange: boolean = false) {
+    if (!waterChange) {
+      this.carbConcentration = (this.concentrationDefault as any)[
+        typeDrink
+      ];
+    }
     this.selectedType = typeDrink;
+    this.calculate();
   }
 
   updateCarboHidrateConcentration() {
     this.carbConcentrationMessage = getCarbohydrateMessage(this.carbConcentration);
+    this.calculate();
   }
 
   // Calcular resultados
@@ -62,21 +70,20 @@ export class DrinksComponent {
         const salt = (this.waterVolume * 1) / 500;
         this.results = `Carbohidratos que contiene: ${carbs.toFixed(
           2
-        )} g. / Maltodextrina: ${maltodextrin.toFixed(2)}g. / Sal necesaria: ${
-          salt < 1 ? 1 : salt.toFixed(2)
-        } g.`;
+        )} g. / Maltodextrina: ${maltodextrin.toFixed(2)}g. / Sal necesaria: ${salt < 1 ? 1 : salt.toFixed(2)
+          } g.`;
         break;
       case 'isotonic':
-        const {maltodextrin: malto, fructose} = this.getIsotonic(this.waterVolume, this.carbConcentration, this.sweetness)
-        
+        const { maltodextrin: malto, fructose } = this.getIsotonic(this.waterVolume, this.carbConcentration, this.sweetness)
+
         this.results = `Ingredientes a añadir en la bebida: Maltodextrina ${malto}gr. / Fructosa: ${fructose} gr. / Agua ${this.waterVolume}`;
         break;
       case 'hypertonic':
-        const {maltodextrin: maltos, protein: pro, salt: sa, effectiveCarbs, waterVolume} = this.calculateHypertonicDrink({
+        const { maltodextrin: maltos, protein: pro, salt: sa, effectiveCarbs, waterVolume } = this.calculateHypertonicDrink({
           carbConcentration: this.carbConcentration,
           weight: this.weight
         })
-        
+
         this.results = `Carbohidratos: ${effectiveCarbs.toFixed(
           2
         )} / Agua: ${waterVolume} ml / Maltodextrina: ${maltos.toFixed(
@@ -127,27 +134,27 @@ export class DrinksComponent {
 
   private calculateHypertonicDrink(input: HypertonicDrinkInput): HypertonicDrinkOutput {
     const { weight, carbConcentration } = input;
-  
+
     // Validaciones básicas
     if (carbConcentration < 10 || carbConcentration > 15) {
       throw new Error("La concentración de carbohidratos debe estar entre 10% y 15%.");
     }
-  
+
     // Carbohidratos efectivos (70g de maltodextrina proporcionan 66.5g de carbohidratos efectivos para un peso de 70kg)
     const effectiveCarbs = weight * (95 / 100);
-  
+
     // Volumen de agua necesario
     const waterVolume = (effectiveCarbs * 100) / carbConcentration;
-  
+
     // Cantidad de maltodextrina necesaria (95% de carbohidratos efectivos por 100g)
     const maltodextrin = effectiveCarbs / 0.95;
-  
+
     // Cantidad de proteína necesaria (1/5 de la maltodextrina)
     const protein = maltodextrin / 5;
-  
+
     // Cantidad de sal necesaria (mínimo de 1g por 500ml de agua)
     const salt = Math.max(1, (waterVolume / 500) * 1);
-  
+
     return {
       effectiveCarbs,
       waterVolume: parseFloat(waterVolume.toFixed(2)),
@@ -156,5 +163,5 @@ export class DrinksComponent {
       salt: parseFloat(salt.toFixed(2)),
     };
   }
-  
+
 }
