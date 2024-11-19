@@ -1,6 +1,4 @@
-*{
-    font-size: 105%;
-  } 
+
   
   .gel-calculator {
       max-width: 600px;
@@ -38,9 +36,7 @@
       list-style-type: '- ' !important;
   }
     
-    input[type="range"] {
-      width: 100%;
-    }
+   
     
     span {
       margin-left: 10px;
@@ -84,9 +80,6 @@
       margin-bottom: 30px;
   }
   
-  .slider {
-      margin: 20px 0;
-  }
   
   
   

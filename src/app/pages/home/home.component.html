@@ -1,2 +1,55 @@
-<p>home works!</p>
-<a [routerLink]="['/gels']">Gels</a>&nbsp;&nbsp; /&nbsp;&nbsp;<a [routerLink]="['/drinks']">Bebidas Energéticas</a>
+<h1>Bienvenido a mi Página</h1>
+<p>Selecciona una categoría para explorar más:</p>
+
+<!-- Tarjetas principales -->
+<div class="container">
+  <div class="card">
+    <img src="https://via.placeholder.com/300x150" alt="Geles">
+    <div class="card-content">
+      <div class="card-title">Geles</div>
+      <div class="card-description">Descubre una variedad de geles energéticos para mejorar tu rendimiento.</div>
+    </div>
+    <div class="card-actions">
+      <button [routerLink]="['/gels']">Ver más</button>
+    </div>
+  </div>
+  <div class="card">
+    <img src="https://via.placeholder.com/300x150" alt="Bebidas Energéticas">
+    <div class="card-content">
+      <div class="card-title">Bebidas Energéticas</div>
+      <div class="card-description">Explora las mejores bebidas energéticas para tus entrenamientos.</div>
+    </div>
+    <div class="card-actions">
+      <button [routerLink]="['/drinks']">Ver más</button>
+    </div>
+  </div>
+  <div class="card">
+    <img src="https://via.placeholder.com/300x150" alt="Materiales">
+    <div class="card-content">
+      <div class="card-title">Materiales</div>
+      <div class="card-description">Encuentra materiales esenciales para deportistas y atletas.</div>
+    </div>
+    <div class="card-actions">
+      <button>Ver más</button>
+    </div>
+  </div>
+  <div class="card">
+    <img src="https://via.placeholder.com/300x150" alt="Sobre el Autor">
+    <div class="card-content">
+      <div class="card-title">Sobre el Autor</div>
+      <div class="card-description">Conoce más sobre el autor de esta página y sus motivaciones.</div>
+    </div>
+    <div class="card-actions">
+      <button>Ver más</button>
+    </div>
+  </div>
+</div>
+
+<!-- Sección de enlaces adicionales -->
+<div class="footer">
+  <h2>Otros proyectos</h2>
+  <p>Explora más sobre mis proyectos y colaboraciones:</p>
+  <a href="https://your-podcast-link.com" target="_blank">Mi Podcast</a>
+  <a href="https://other-project-link.com" target="_blank">Otro Proyecto</a>
+  <a href="https://contact-me.com" target="_blank">Contáctame</a>
+</div>

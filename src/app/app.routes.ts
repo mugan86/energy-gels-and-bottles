@@ -14,6 +14,13 @@ export const routes: Routes = [
       ),
   },
   {
+    path: 'materials',
+    loadComponent: () =>
+      import('./pages/materials/materials.component').then(
+        (mod) => mod.MaterialsComponent
+      ),
+  },
+  {
     path: '',
     pathMatch: 'full',
     loadComponent: () =>

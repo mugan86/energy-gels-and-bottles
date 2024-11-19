@@ -1,1 +1,32 @@
 /* You can add global styles to this file, and also import other style files */
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 20px;
+}
+
+.container {
+  background: white;
+  border-radius: 10px;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 1rem;
+}
+
+.instructions {
+  text-align: left;
+}
+
+.instructions li {
+  margin-top: 1rem;
+}
+input[type='range'] {
+  width: 100%;
+}
+
+.slider {
+  margin: 20px 0;
+}
