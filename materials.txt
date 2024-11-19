@@ -1,0 +1,43 @@
+export const MATERIALS = { 
+    evolytes: {
+        price: 4.9,
+        weight: 150,
+        unit: 'gr',
+        label: 'Electrolitos'
+    },
+    flavoring: {
+        price: 8.2,
+        weight: 200,
+        unit: 'gr',
+        label: 'Saborizante'
+    },
+    fructose: {
+        price: 4.9,
+        weight: 1,
+        unit: 'kgr',
+        label: 'Fructosa' 
+    },
+    maltodextrin: {
+        price: 4.9,
+        weight: 1,
+        unit: 'kgr',
+        label: 'Maltodextrina' 
+    },
+    water: {
+        price: 0,
+        weight: 1,
+        unit: 'kgr',
+        label: 'Agua' 
+    },
+    caffeine: {
+        price: 3.8,
+        weight: 120,
+        unit: 'unit' 
+    },
+    energyGel: {
+        price: 6.95,
+        weight: 50,
+        unit: 'unit',
+        label: 'Sobre Gel' 
+    }
+}
