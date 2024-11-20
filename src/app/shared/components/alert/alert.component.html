@@ -1,0 +1,13 @@
+@if(isVisible) {
+<div class="alert" [ngClass]="type">
+    <span class="alert-icon">
+        <ng-content select="[icon]"></ng-content>
+    </span>
+    <span class="alert-message">
+        <ng-content select="[message]"></ng-content>
+    </span>
+    @if(dismissible) {
+    <button class="alert-close" (click)="closeAlert()">&times;</button>
+    }
+</div>
+}

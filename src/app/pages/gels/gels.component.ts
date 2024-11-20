@@ -5,11 +5,12 @@ import { GelItemComponent } from '../../shared/components/gel-item/gel-item.comp
 import { GEL_INFO_ACCORDION_OPTIONS, GEL_INGREDIENTS_PRICES, GELS_TYPES, SLIDER_GELS_OPTIONS, START_COST_GEL, SWEETNESS_INDEX, TEXTURE_INDEX } from '../../shared/constants';
 import { calculateGelIngredients, calculateIngredientCost } from '../../shared/helpers';
 import { CommonModule } from '@angular/common';
+import { AlertComponent } from '../../shared/components/alert/alert.component';
 
 @Component({
   selector: 'app-gels',
   standalone: true,
-  imports: [ReactiveFormsModule, AccordionModule, GelItemComponent, CommonModule],
+  imports: [ReactiveFormsModule, AccordionModule, GelItemComponent, CommonModule, AlertComponent],
   templateUrl: './gels.component.html',
   styleUrl: './gels.component.css'
 })

@@ -1,0 +1,40 @@
+
+
+.alert {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    padding: 1rem;
+    margin: 0.5rem;
+    border-radius: 6px;
+}
+
+.alert.ng-leave {
+    opacity: 0;
+    transform: translateY(-10px);
+}
+
+
+
+.alert.success {
+    background-color: var(--success-bg) !important;
+    color: var(--success-text);
+    border: 1px solid var(--success-bg);
+}
+
+.alert.info {
+    background-color: var(--info-bg) !important;
+    color: var(--info-text) !important;
+    border: 1px solid var(--info-bg) !important;
+}
+
+
+.alert.alert {
+    background-color: var(--alert-bg);
+    color: var(--alert-text);
+    border: 1px solid var(--alert-border);
+}
+
+.alert.danger {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}

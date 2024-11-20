@@ -1,103 +1,107 @@
 <div class="container">
-    <h1 class="section-title">Calculadora geles personalizada</h1>
-    <hr><br>
-    
-    <p>Seleccionar el tipo de gel, número, su textura y cantidad de carbohidratos por gel, para configurar los
-      ingredientes necesarios con sus ingredientes correspondientes</p>
-    <br />
-    <div class="results">
-      <label >Seleccione tipo de gel</label>
-      <div class="toggle-group">
-        @for(gelType of gelsTypes; track gelType.id) {
-          <button type="button" class="toggle-button" [ngClass]="{ active: selectedType === gelType.id}"
-              [disabled]="gelType.disabled"
-              (click)="updateLayout('custom')">
-              {{gelType.label}}
-          </button>
-        }
-    </div>
-      <form [formGroup]="gelForm">
-        @for (item of slideGelsOptions; track item.id) {
-        <div class="slider">
-          <label [for]="item.id">{{item.title}}</label>
-          <input type="range" [id]="item.id" [formControlName]="item.id" [min]="item.min" [max]="item.max"
-            [step]="item.step" />
-          @if (item.text) {
-          <span>{{ getTextValue(item.id) }}</span>
-          } @else {
-          <span>{{ gelForm.get(item.id)?.value }}</span>
-          }
-        </div>
-        }<br />
-        <label class="option-check">
-          <input type="checkbox" formControlName="caffeine" name="caffeine" checked="false">
-          Cafeina (1 capsula)
-        </label>
-        &nbsp;
-        <label class="option-check">
-          <input type="checkbox" formControlName="energyGel" name="energyGel" checked="false">
-          Sobre Gel
-        </label>
-         
-        <hr>
-        <div>Miramos en <strong> Cantidades necesarias para crear geles</strong>, los costes asociados a cada gel @if(numberOfGels > 1) {<span>y el total de {{numberOfGels}} geles</span>}.
-         
-        </div>
-        <br />
-      </form>
-    </div>
-    <br />
-    <h1 class="section-title">Información de lo necesario para crear geles</h1>
-    <hr><br>
-    <p>A continuación tenemos la información de lo que deberíamos de necesitar tanto en ingredientes para añadir en las
-      cantidades por gel y los utensilios y material necesario</p>
-    <br>
-  
-    <app-accordion [accordions]="accordionOptions" [description]="''">
-      @if(result && costByGel) {
-      <app-gel-item-1-0-8 [costByGel]="costByGel" [result]="result" [numberOfGels]="numberOfGels"></app-gel-item-1-0-8>
+  <h1 class="section-title">Calculadora geles personalizada</h1>
+  <hr><br>
+
+  <p>Seleccionar el tipo de gel, número, su textura y cantidad de carbohidratos por gel, para configurar los
+    ingredientes necesarios con sus ingredientes correspondientes</p>
+  <br />
+  <div class="results">
+    <label>Seleccione tipo de gel</label>
+    <app-alert [type]="'info'">
+      <span icon>ℹ</span>
+      <span message>Versión gratuita calculadora libre</span>
+    </app-alert>
+    <div class="toggle-group">
+      @for(gelType of gelsTypes; track gelType.id) {
+      <button type="button" class="toggle-button" [ngClass]="{ active: selectedType === gelType.id}"
+        [disabled]="gelType.disabled" (click)="updateLayout('custom')">
+        {{gelType.label}}
+      </button>
       }
-    </app-accordion><br />
-    <h1 class="section-title">Tutorial para crear nuestros geles</h1>
-    <hr><br>
-    <blockquote>
-      <ul>
-        <li>
-          Todos los materiales se encuentran <b>Básculas, selladora,...</b> por si véis la referencia a alguna de ellas y
-          no sabéis donde poder encontrarlo.
-        </li>
-        <li>
-          Las cantidades que se añaden en el tutorial que viene a continuación son el resultado de lo configurado en la
-          calculadora. Cualquier cambio que hagamos, tendremos que tenerlo en cuenta a la hora de crear nuestros geles.
-        </li>
-      </ul>
-    </blockquote>
-    <ol type="A" class="instructions">
-      <li>
-        Accedemos al apartado para las <b>Cantidades necesarias para crear geles</b> donde tenemos los ingredientes. Nos
-        da las proporciones y valores nutricionales de un gel y si hemos seleccionado más de un gel, dará sus proporciones
-        para hacer el número de geles seleccionados de una sola vez.
-        <br /><br />
-        Tenemos opción de variar los carbohidratos base (52,7gr) por los deseados con la calculadora que tenemos en la
-        parte superior pudiendo variar de 30 a 90gr. Aparte, tenemos la opción de seleccionar cantidad de geles deseados
-        (1-6) junto con su textura.
-      </li>
-      <li>
-        Mezclamos lo necesario para <b>{{numberOfGels > 1 ? numberOfGels : 'un'}} {{numberOfGels > 1 ? 'geles':
-          'gel'}}</b> todo con una batidora hasta que no queden grumos y empezamos a meter
-        <b>{{result.totalGelWeight}}g</b> de la mezcla en cada sobre para sellarlo con el <b>termosellador</b> o en un
-        <b>softflask (125ml)</b> para que sea más ecológico, que será más recomendable para entrenamientos y el uso de
-        sobres para carreras.
-      </li>
-      <li>
-        <b>OPCIONAL</b>: En aquellos geles que queramos con cafeína, le meteremos una pastilla para cuando estemos dentro
-        del entrenamiento seleccionar en qué momento queremos esa energía extra.
-        <br /><b>¡¡¡CUIDADO!!!</b>, son 200mg de cafeína, por lo que <b>no tomaría más de 2 geles de cafeína al día</b>.
-        Hay que ir alternándolos.
-      </li>
-  
-    </ol>
-    <p>Tutorial basado en el video de <a href="https://linktr.ee/amadornieto" target="_blank">Amador Nieto</a>: <a
-        href="https://www.instagram.com/reel/C8Pue5LsxC6/?igsh=c2k4dWQxZWIzMnh3" target="_blank">Geles caseros 1:0:8</a>
-    </p><br/>
+    </div>
+    <form [formGroup]="gelForm">
+      @for (item of slideGelsOptions; track item.id) {
+      <div class="slider">
+        <label [for]="item.id">{{item.title}}</label>
+        <input type="range" [id]="item.id" [formControlName]="item.id" [min]="item.min" [max]="item.max"
+          [step]="item.step" />
+        @if (item.text) {
+        <span>{{ getTextValue(item.id) }}</span>
+        } @else {
+        <span>{{ gelForm.get(item.id)?.value }}</span>
+        }
+      </div>
+      }<br />
+      <label class="option-check">
+        <input type="checkbox" formControlName="caffeine" name="caffeine" checked="false">
+        Cafeina (1 capsula)
+      </label>
+      &nbsp;
+      <label class="option-check">
+        <input type="checkbox" formControlName="energyGel" name="energyGel" checked="false">
+        Sobre Gel
+      </label>
+
+      <hr>
+      <div>Miramos en <strong> Cantidades necesarias para crear geles</strong>, los costes asociados a cada gel
+        @if(numberOfGels > 1) {<span>y el total de {{numberOfGels}} geles</span>}.
+
+      </div>
+      <br />
+    </form>
   </div>
+  <br />
+  <h1 class="section-title">Información de lo necesario para crear geles</h1>
+  <hr><br>
+  <p>A continuación tenemos la información de lo que deberíamos de necesitar tanto en ingredientes para añadir en las
+    cantidades por gel y los utensilios y material necesario</p>
+  <br>
+
+  <app-accordion [accordions]="accordionOptions" [description]="''">
+    @if(result && costByGel) {
+    <app-gel-item-1-0-8 [costByGel]="costByGel" [result]="result" [numberOfGels]="numberOfGels"></app-gel-item-1-0-8>
+    }
+  </app-accordion><br />
+  <h1 class="section-title">Tutorial para crear nuestros geles</h1>
+  <hr><br>
+  <blockquote>
+    <ul>
+      <li>
+        Todos los materiales se encuentran <b>Básculas, selladora,...</b> por si véis la referencia a alguna de ellas y
+        no sabéis donde poder encontrarlo.
+      </li>
+      <li>
+        Las cantidades que se añaden en el tutorial que viene a continuación son el resultado de lo configurado en la
+        calculadora. Cualquier cambio que hagamos, tendremos que tenerlo en cuenta a la hora de crear nuestros geles.
+      </li>
+    </ul>
+  </blockquote>
+  <ol type="A" class="instructions">
+    <li>
+      Accedemos al apartado para las <b>Cantidades necesarias para crear geles</b> donde tenemos los ingredientes. Nos
+      da las proporciones y valores nutricionales de un gel y si hemos seleccionado más de un gel, dará sus proporciones
+      para hacer el número de geles seleccionados de una sola vez.
+      <br /><br />
+      Tenemos opción de variar los carbohidratos base (52,7gr) por los deseados con la calculadora que tenemos en la
+      parte superior pudiendo variar de 30 a 90gr. Aparte, tenemos la opción de seleccionar cantidad de geles deseados
+      (1-6) junto con su textura.
+    </li>
+    <li>
+      Mezclamos lo necesario para <b>{{numberOfGels > 1 ? numberOfGels : 'un'}} {{numberOfGels > 1 ? 'geles':
+        'gel'}}</b> todo con una batidora hasta que no queden grumos y empezamos a meter
+      <b>{{result.totalGelWeight}}g</b> de la mezcla en cada sobre para sellarlo con el <b>termosellador</b> o en un
+      <b>softflask (125ml)</b> para que sea más ecológico, que será más recomendable para entrenamientos y el uso de
+      sobres para carreras.
+    </li>
+    <li>
+      <b>OPCIONAL</b>: En aquellos geles que queramos con cafeína, le meteremos una pastilla para cuando estemos dentro
+      del entrenamiento seleccionar en qué momento queremos esa energía extra.
+      <br /><b>¡¡¡CUIDADO!!!</b>, son 200mg de cafeína, por lo que <b>no tomaría más de 2 geles de cafeína al día</b>.
+      Hay que ir alternándolos.
+    </li>
+
+  </ol>
+  <p>Tutorial basado en el video de <a href="https://linktr.ee/amadornieto" target="_blank">Amador Nieto</a>: <a
+      href="https://www.instagram.com/reel/C8Pue5LsxC6/?igsh=c2k4dWQxZWIzMnh3" target="_blank">Geles caseros 1:0:8</a>
+  </p><br />
+</div>
