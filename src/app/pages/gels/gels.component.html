@@ -1,10 +1,21 @@
 <div class="container">
-    <h1 class="section-title">1. Calculadora geles 1:0:8</h1>
+    <h1 class="section-title">Calculadora geles personalizada</h1>
     <hr><br>
-    <p>Seleccionar el número de geles, su textura y cantidad de carbohidratos por gel, para configurar los
+    
+    <p>Seleccionar el tipo de gel, número, su textura y cantidad de carbohidratos por gel, para configurar los
       ingredientes necesarios con sus ingredientes correspondientes</p>
     <br />
     <div class="results">
+      <label >Seleccione tipo de gel</label>
+      <div class="toggle-group">
+        @for(gelType of gelsTypes; track gelType.id) {
+          <button type="button" class="toggle-button" [ngClass]="{ active: selectedType === gelType.id}"
+              [disabled]="gelType.disabled"
+              (click)="updateLayout('custom')">
+              {{gelType.label}}
+          </button>
+        }
+    </div>
       <form [formGroup]="gelForm">
         @for (item of slideGelsOptions; track item.id) {
         <div class="slider">
@@ -36,7 +47,7 @@
       </form>
     </div>
     <br />
-    <h1 class="section-title">2. Información de lo necesario para crear geles</h1>
+    <h1 class="section-title">Información de lo necesario para crear geles</h1>
     <hr><br>
     <p>A continuación tenemos la información de lo que deberíamos de necesitar tanto en ingredientes para añadir en las
       cantidades por gel y los utensilios y material necesario</p>
@@ -47,7 +58,7 @@
       <app-gel-item-1-0-8 [costByGel]="costByGel" [result]="result" [numberOfGels]="numberOfGels"></app-gel-item-1-0-8>
       }
     </app-accordion><br />
-    <h1 class="section-title">3. Tutorial para crear nuestros geles</h1>
+    <h1 class="section-title">Tutorial para crear nuestros geles</h1>
     <hr><br>
     <blockquote>
       <ul>

@@ -1,43 +1,97 @@
 export const MATERIALS = { 
-    evolytes: {
-        price: 4.9,
-        weight: 150,
-        unit: 'gr',
-        label: 'Electrolitos'
+    INGREDIENTES : {
+            evolytes: {
+            price: 4.9,
+            weight: 150,
+            unit: 'gr',
+            label: 'Electrolitos',
+            url: 'https://acortar.link/evcCYK'
+        },
+        flavoring: {
+            price: 8.2,
+            weight: 200,
+            unit: 'gr',
+            label: 'Saborizante',
+            url: 'https://acortar.link/cGGU5H'
+        },
+        fructose: {
+            price: 4.9,
+            weight: 1,
+            unit: 'kgr',
+            label: 'Fructosa',
+            url: 'https://acortar.link/68Wcdr'
+        },
+        maltodextrin: {
+            price: 4.9,
+            weight: 1,
+            unit: 'kgr',
+            label: 'Maltodextrina',
+            url: 'https://acortar.link/PusLII'
+        },
+        water: {
+            price: 0,
+            weight: 1,
+            unit: 'kgr',
+            label: 'Agua',
+            url: ''
+        },
+        caffeine: {
+            price: 3.8,
+            weight: 120,
+            unit: 'unit',
+            url: 'https://www.hsnstore.com/hsnaffiliate/click/?linkid=cHJvZHVjdHx8SFNORS1DQUZ8fEFNQURPUk5JRVRPfHxodHRwczovL3d3dy5oc25zdG9yZS5jb20vbWFyY2FzL2Vzc2VudGlhbC1zZXJpZXMvY2FmZWluYS0yMDBtZw=='
+        },
+        energyGel: {
+            price: 6.95,
+            weight: 50,
+            unit: 'unit',
+            label: 'Sobre Gel',
+            url: 'https://a.aliexpress.com/_EzZbGe1'
+        },
+        wheyProtein: {
+            price: 6.95,
+            weight: 50,
+            unit: 'unit',
+            label: 'Evowhey Protein',
+            url: 'https://www.hsnstore.es/en/brands/sport-series/evowhey-protein'
+        },
+        sodium: {
+            price: 1.10,
+            weight: 300,
+            unit: 'gr',
+            label: 'Bicarbonato de Sodio',
+            url: ''
+        }
     },
-    flavoring: {
-        price: 8.2,
-        weight: 200,
-        unit: 'gr',
-        label: 'Saborizante'
-    },
-    fructose: {
-        price: 4.9,
-        weight: 1,
-        unit: 'kgr',
-        label: 'Fructosa' 
-    },
-    maltodextrin: {
-        price: 4.9,
-        weight: 1,
-        unit: 'kgr',
-        label: 'Maltodextrina' 
-    },
-    water: {
-        price: 0,
-        weight: 1,
-        unit: 'kgr',
-        label: 'Agua' 
-    },
-    caffeine: {
-        price: 3.8,
-        weight: 120,
-        unit: 'unit' 
-    },
-    energyGel: {
-        price: 6.95,
-        weight: 50,
-        unit: 'unit',
-        label: 'Sobre Gel' 
+    TOOLS : {
+        kitchenScale: {
+            price: 1,
+            weight: 1,
+            unit: 'unit',
+            label: 'Báscula de cocina',
+            url: 'https://amzn.to/3U5iykF'
+        },
+        heatSealer: {
+            price: 1,
+            weight: 1,
+            unit: 'unit',
+            label: 'Termoselladora',
+            url: 'https://amzn.to/3z0LMZY'
+        },
+        blender: {
+            price: 1,
+            weight: 1,
+            unit: 'unit',
+            label: 'Batidora',
+            url: 'https://amzn.to/4aw2sGz'
+        },
+        softFlask: {
+            price: 9.99,
+            weight: 150,
+            unit: 'ml',
+            label: 'Softflask (150ml)',
+            url: 'https://www.amazon.es/Fitly-Botella-Flexible-Mochila-Hidrataci%C3%B3n/dp/B07KNDT5J7?th=1'
+        }
     }
+    
 }

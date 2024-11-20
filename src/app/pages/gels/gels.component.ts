@@ -2,13 +2,14 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { AccordionModule } from '../../shared/components/accordion/accordion.module';
 import { GelItemComponent } from '../../shared/components/gel-item/gel-item.component';
-import { GEL_INFO_ACCORDION_OPTIONS, GEL_INGREDIENTS_PRICES, SLIDER_GELS_OPTIONS, START_COST_GEL, SWEETNESS_INDEX, TEXTURE_INDEX } from '../../shared/constants';
+import { GEL_INFO_ACCORDION_OPTIONS, GEL_INGREDIENTS_PRICES, GELS_TYPES, SLIDER_GELS_OPTIONS, START_COST_GEL, SWEETNESS_INDEX, TEXTURE_INDEX } from '../../shared/constants';
 import { calculateGelIngredients, calculateIngredientCost } from '../../shared/helpers';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-gels',
   standalone: true,
-  imports: [ReactiveFormsModule, AccordionModule, GelItemComponent],
+  imports: [ReactiveFormsModule, AccordionModule, GelItemComponent, CommonModule],
   templateUrl: './gels.component.html',
   styleUrl: './gels.component.css'
 })
@@ -18,6 +19,8 @@ export class GelsComponent {
   result: any;
   numberOfGels = 1;
   costByGel = START_COST_GEL;
+  gelsTypes = GELS_TYPES;
+  selectedType: string = this.gelsTypes[0].id;
 
   valuesText = {
     sweetnessIndex:
@@ -69,6 +72,10 @@ export class GelsComponent {
   }
 
   getTextValue = (id: string) => (this.valuesText as any)[id];
+
+  updateLayout = (selectedType: string) => {
+    console.log(selectedType)
+  }
 
   update($event: string | number, property: string) {
     this.gelForm.get(property)!.setValue($event);

@@ -1,52 +1,22 @@
 <div class="container">
-    <h1>Beverage Calculator</h1>
-
+    <h1 class="section-title">Bebidas Energéticas</h1>
+    <hr>
     <!-- Tipo de Bebida -->
-    <!--<div class="beverage-type">
-        <h3>Seleccione el tipo de bebida:</h3>
-        <label>
-            <input type="radio" name="beverageType" value="hypotonic" [(ngModel)]="selectedType"
-                (ngModelChange)="updateLayout()" />
-            Hipotónica
-        </label>
-        <label>
-            <input type="radio" name="beverageType" value="isotonic" [(ngModel)]="selectedType"
-                (ngModelChange)="updateLayout()" />
-            Isotónica
-        </label>
-        <label>
-            <input type="radio" name="beverageType" value="hypertonic" [(ngModel)]="selectedType"
-                (ngModelChange)="updateLayout()" />
-            Hipertónica
-        </label>
-    </div>-->
 
     <div class="toggle-group">
-        <button
-          type="button"
-          class="toggle-button"
-          [ngClass]="{ active: selectedType === 'hypotonic' }"
-          (click)="updateLayout('hypotonic')"
-        >
-          Hipotónica
+        <button type="button" class="toggle-button" [ngClass]="{ active: selectedType === 'hypotonic' }"
+            (click)="updateLayout('hypotonic')">
+            Hipotónica
         </button>
-        <button
-          type="button"
-          class="toggle-button"
-          [ngClass]="{ active: selectedType === 'isotonic' }"
-          (click)="updateLayout('isotonic')"
-        >
-          Isotónica
+        <button type="button" class="toggle-button" [ngClass]="{ active: selectedType === 'isotonic' }"
+            (click)="updateLayout('isotonic')">
+            Isotónica
         </button>
-        <button
-          type="button"
-          class="toggle-button"
-          [ngClass]="{ active: selectedType === 'hypertonic' }"
-          (click)="updateLayout('hypertonic')"
-        >
-          Hipertónica
+        <button type="button" class="toggle-button" [ngClass]="{ active: selectedType === 'hypertonic' }"
+            (click)="updateLayout('hypertonic')">
+            Hipertónica
         </button>
-      </div>
+    </div>
 
     <!-- Información dinámica -->
     @if(selectedType) {
@@ -67,14 +37,14 @@
         <div>
             <div class="slider">
                 <label [for]="'waterVolume'">Volumen de Agua (ml):</label>
-                <input type="range" [id]="'waterVolume'" [(ngModel)]="waterVolume" [min]="250" [max]="1000" (ngModelChange)="updateLayout(selectedType, true)"
-                    [step]="10" />
+                <input type="range" [id]="'waterVolume'" [(ngModel)]="waterVolume" [min]="250" [max]="1000"
+                    (ngModelChange)="updateLayout(selectedType, true)" [step]="10" />
                 <span>{{ waterVolume }} ml</span>
             </div>
             <div class="slider">
                 <label [for]="'concentration'">Concentración ( {{carbConcentration}}%):</label>
-                <input type="range" [id]="'concentration'" [(ngModel)]="carbConcentration" [min]="2" [max]="4" (ngModelChange)="updateCarboHidrateConcentration()"
-                    [step]="0.1" />
+                <input type="range" [id]="'concentration'" [(ngModel)]="carbConcentration" [min]="2" [max]="4"
+                    (ngModelChange)="updateCarboHidrateConcentration()" [step]="0.1" />
                 <span>{{ carbConcentrationMessage }} </span>
             </div>
         </div>
@@ -91,40 +61,40 @@
             </div>
             <div class="slider">
                 <label [for]="'concentration'">Concentración ({{carbConcentration}}%):</label>
-                <input type="range" [id]="'concentration'" [(ngModel)]="carbConcentration" [min]="6" [max]="8" (ngModelChange)="updateCarboHidrateConcentration()"
-                    [step]="0.1" />
-                    <span>{{ carbConcentrationMessage }} </span>
+                <input type="range" [id]="'concentration'" [(ngModel)]="carbConcentration" [min]="6" [max]="8"
+                    (ngModelChange)="updateCarboHidrateConcentration()" [step]="0.1" />
+                <span>{{ carbConcentrationMessage }} </span>
             </div>
             <div class="slider">
                 <label [for]="'sweetness'">Dulzor:</label>
-                <input type="range" [id]="'sweetness'" [(ngModel)]="sweetness" [min]="0" [max]="1" (ngModelChange)="updateLayout(selectedType)"
-                    [step]="0.1" />
+                <input type="range" [id]="'sweetness'" [(ngModel)]="sweetness" [min]="0" [max]="1"
+                    (ngModelChange)="updateLayout(selectedType)" [step]="0.1" />
                 <span>{{ sweetness }} </span>
             </div>
 
         </div>
-        
+
         }
 
         @if(selectedType === 'hypertonic') {
-             <!-- Hipertónica -->
-            <div>
-                <div class="slider">
-                    <label [for]="'concentration'">Concentración ({{ carbConcentration }}%):</label>
-                    <input type="range" [id]="'concentration'" [(ngModel)]="carbConcentration" [min]="10" [max]="15" (ngModelChange)="updateCarboHidrateConcentration()"
-                        [step]="0.1" />
-                    <span>{{ carbConcentrationMessage }} </span>
-                </div>
-                <div class="slider">
-                    <label [for]="'weight'">Peso (kg):</label>
-                    <input type="range" [id]="'weight'" [(ngModel)]="weight" [min]="40" [max]="150" (ngModelChange)="updateLayout(selectedType)"
-                        [step]="0.1" />
-                    <span>{{ weight }} </span>
-                </div>
-    
+        <!-- Hipertónica -->
+        <div>
+            <div class="slider">
+                <label [for]="'concentration'">Concentración ({{ carbConcentration }}%):</label>
+                <input type="range" [id]="'concentration'" [(ngModel)]="carbConcentration" [min]="10" [max]="15"
+                    (ngModelChange)="updateCarboHidrateConcentration()" [step]="0.1" />
+                <span>{{ carbConcentrationMessage }} </span>
             </div>
-       
-        
+            <div class="slider">
+                <label [for]="'weight'">Peso (kg):</label>
+                <input type="range" [id]="'weight'" [(ngModel)]="weight" [min]="40" [max]="150"
+                    (ngModelChange)="updateLayout(selectedType)" [step]="0.1" />
+                <span>{{ weight }} </span>
+            </div>
+
+        </div>
+
+
         }
 
     </div>
@@ -136,5 +106,12 @@
         <p>{{ results }}</p>
     </div>
     }
+
+    <hr>
+
+    <span class="aditional-info" [innerHTML]="howElection"></span>
+
+
+
 
 </div>

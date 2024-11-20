@@ -1,0 +1,32 @@
+<header class="header">
+    <div class="container">
+      <h1 class="title">
+        <a routerLink="/">{{appName}}</a>
+      </h1>
+      <nav class="navigation">
+        <ul>
+          <li>
+            <a
+              routerLink="/"
+              routerLinkActive="active-link"
+              [routerLinkActiveOptions]="{ exact: true }"
+              >Inicio</a
+            >
+          </li>
+          <li><a routerLink="/gels" routerLinkActive="active-link">Geles</a></li>
+          <li><a routerLink="/drinks" routerLinkActive="active-link">Bebidas</a></li>
+          <!--<li>
+            <a routerLink="/contact" routerLinkActive="active-link">Contacto</a>
+          </li>
+          <li>
+            <a routerLink="/tutorials" routerLinkActive="active-link"
+              >Tutoriales</a
+            >
+          </li>-->
+          <li>
+            <a routerLink="/about-me" routerLinkActive="active-link">Sobre mí</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>

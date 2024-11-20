@@ -187,3 +187,41 @@ export const INGREDIENTS_PER_ONE_HUNDRED_GR = {
     energyGel: 0
   };
   
+
+  export const GELS_TYPES = [
+    {
+      id: 'custom',
+      label: 'Customizado',
+      disabled: false
+    },
+    {
+      id: '108',
+      label: '1:0:8',
+      disabled: true
+    },
+    {
+      id: '81',
+      label: '8:1',
+      disabled: true
+    },
+    {
+      id: '10',
+      label: '1:0',
+      disabled: true
+    },
+    {
+      id: '21',
+      label: '2:1',
+      disabled: true
+    },
+    {
+      id: '12',
+      label: '1:2',
+      disabled: true
+    },
+    {
+      id: '11',
+      label: '1:1',
+      disabled: true
+    }
+  ]

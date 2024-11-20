@@ -45,12 +45,17 @@
 }
 
 .toggle-button.active {
-  background-color: #007bff;
+  background-color: var(--principal-color);
   color: white;
   font-weight: bold;
 }
 
 .toggle-button:hover {
-  background-color: #0664c9;
+  background-color: var(--principal-color-hover);
   color: white;
+}
+
+
+.aditional-info {
+  text-align: left;
 }

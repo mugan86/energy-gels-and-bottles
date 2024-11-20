@@ -38,17 +38,7 @@
     
    
     
-    span {
-      margin-left: 10px;
-    }
     
-    h1, h2, h3, h4 {
-      margin-top: 20px;
-    }
-    
-  .section-title {
-    font-size: 150%;
-  }
   
     body {
       font-family: Arial, sans-serif;
@@ -126,3 +116,52 @@
   .card a:hover {
     color: #007bff;
   }
+
+  /* Contenedor de los botones toggle */
+  .toggle-group {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+  }
+  
+  .toggle-button {
+    background-color: #f3f3f3;
+    border: 1px solid #ddd;
+    border-radius: 0;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    flex: 1;
+    text-align: center;
+    transition: background-color 0.2s, color 0.2s;
+  }
+  
+  .toggle-button:not(:last-child) {
+    border-right: none;
+  }
+  
+  .toggle-button.active {
+    background-color: var(--principal-color);
+    color: white;
+    font-weight: bold;
+  }
+  
+  /* Estilo de hover en botones habilitados */
+  .toggle-button:hover {
+    background-color: var(--principal-color-hover);
+    color: white;
+  }
+  
+  /* Estilo para el botón deshabilitado, no permite hover */
+  button:disabled.toggle-button {
+    color: rgb(192, 176, 176) !important;
+    cursor: not-allowed;
+  }
+  
+  /* Desactivar el hover si el botón está deshabilitado */
+  button:disabled.toggle-button:hover {
+    background-color: #f3f3f3 !important; /* Asegura que no cambie el fondo */
+    color: rgb(192, 176, 176) !important; /* Mantiene el color de texto cuando el botón está deshabilitado */
+    cursor: not-allowed !important; /* Asegura que el cursor se mantenga deshabilitado */
+  }
+  

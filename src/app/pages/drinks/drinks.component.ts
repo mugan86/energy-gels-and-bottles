@@ -3,6 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { HypertonicDrinkInput, HypertonicDrinkOutput } from '../../models/drink/hypertonic';
 import { getCarbohydrateMessage } from '../../shared/helpers/drinks';
 import { CommonModule } from '@angular/common';
+import { drinkChoiceHTML } from '../../shared/constants';
 
 @Component({
   selector: 'app-drinks',
@@ -39,6 +40,17 @@ export class DrinksComponent implements OnInit {
     hypertonic:
       'Bebida para recuperación post-entrenamiento. Alta concentración de carbohidratos (>10%).',
   };
+
+ 
+  howElection = drinkChoiceHTML;
+  
+
+  activeIndex: number | null = null;
+
+  // Función para abrir o cerrar el accordion
+  toggleAccordion(index: number) {
+    this.activeIndex = this.activeIndex === index ? null : index;
+  }
 
   ngOnInit() {
     this.calculate();

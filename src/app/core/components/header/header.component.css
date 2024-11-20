@@ -1,0 +1,68 @@
+/* Estilos del header */
+.header {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    background-color: var(--principal-color);
+    color: white;
+    padding: 1rem 0;
+    z-index: 2500;
+    box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.2);
+    margin-bottom: 1rem;
+  }
+  
+  /* Alinea los elementos dentro del header */
+  .container {
+    display: flex;
+    justify-content: space-between;
+    /* Título a la izquierda y navegación a la derecha */
+    align-items: center;
+    max-width: 100%;
+    /* Se asegura de ocupar todo el ancho */
+    padding: 0 20px;
+    background: transparent
+  }
+  
+  /* Estilos para el título */
+  .title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin: 0;
+    /* Elimina margen adicional */
+    color: white;
+  }
+  
+  .title a:visited {
+    color: white;
+  }
+  
+  /* Navegación */
+  .navigation ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    /* Espacio entre los elementos */
+    margin: 0;
+    /* Elimina margen adicional */
+    padding: 0;
+    /* Elimina relleno adicional */
+  }
+  
+  .navigation ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+  
+  .navigation ul li a:hover {
+    color: var(--link-hover-color);
+  }
+  
+  /* Estilo para el enlace activo */
+  .active-link {
+    color: var(--link-hover-color);
+    font-weight: bold;
+    border-bottom: 2px solid var(--link-hover-color);
+  }

@@ -1,6 +1,17 @@
 *{
   font-size: 105%;
 } 
+/* Elimina los márgenes y paddings globales */
+body,
+html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+router-outlet {
+  margin: 3rem;
+}
 
 .gel-calculator {
     max-width: 600px;
@@ -132,4 +143,24 @@ p {
 
 .card a:hover {
   color: #007bff;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: var(--principal-color);
+  color: white;
+  padding: 1rem 0;
+  z-index: 2500;
+  box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.2);
+}
+
+.footer-space {
+  height: 4rem;
+}
+
+.container {
+  padding: 0;
+  background-color: transparent;
 }

@@ -1,10 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
-
+:root {
+  --active-color: #4caf50;
+  --inactive-color: #f44336;
+  --link-hover-color: #18bc9c;
+  --marker-pin-blue: #0b61c3;
+  --marker-pin-green: #1c910d;
+  --marker-pin-yellow: #c3e214;
+  --marker-pin-blue: #9d1ad1;
+  --principal-color: #3f51b5;
+  --principal-color-hover: #303f9f;
+}
 body {
   font-family: Arial, sans-serif;
   background-color: #f4f4f4;
   margin: 0;
-  padding: 20px;
 }
 
 .container {
@@ -16,6 +25,18 @@ body {
   padding: 1rem;
 }
 
+span {
+  margin-left: 10px;
+}
+
+h1, h2, h3, h4 {
+  margin-top: 20px;
+}
+
+.section-title {
+font-size: 150%;
+}
+
 .instructions {
   text-align: left;
 }
@@ -23,10 +44,52 @@ body {
 .instructions li {
   margin-top: 1rem;
 }
-input[type='range'] {
-  width: 100%;
-}
+
 
 .slider {
   margin: 20px 0;
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 8px; /* Altura de la pista */
+  background: transparent; /* Color de la pista */
+  border-radius: 5px;
+  outline: none;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px; /* Tamaño del control */
+  height: 25px;
+  background: var(--principal-color); /* Color del control */
+  border-radius: 50%;
+  cursor: pointer;
+  margin-top: -10px;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  background: #dadfe1; /* Color de la pista activa */
+  border-radius: 5px;
+  height: 8px;
+  
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: var(--principal-color);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+input[type="range"]::-moz-range-track {
+  background: #dadfe1; /* Color de la pista activa */
+  height: 8px;
+  border-radius: 5px;
 }
