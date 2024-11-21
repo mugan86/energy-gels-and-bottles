@@ -192,7 +192,7 @@ export const START_COST_GEL = {
   energyGel: 0,
 };
 
-export const GELS_TYPES = [
+export const getGelTypes = (premium: boolean = false) => [
   {
     id: 'custom',
     label: 'Personalizado',
@@ -212,35 +212,35 @@ export const GELS_TYPES = [
     label: '8:1 (Malto alta)',
     malto: 8,
     fructosa: 1,
-    disabled: true,
+    disabled: !premium,
   },
   {
     id: '21',
     label: '2:1 (Balanceado)',
     malto: 2,
     fructosa: 1,
-    disabled: true,
+    disabled: !premium,
   },
   {
     id: '12',
     label: '1:2 (Fructosa alta)',
     malto: 1,
     fructosa: 2,
-    disabled: true,
+    disabled: !premium,
   },
   {
     id: '10',
     label: '1:0 (Solo Malto)',
     malto: 1,
     fructosa: 0,
-    disabled: true,
+    disabled: !premium,
   },
   {
     id: '11',
     label: '1:1 (Equilibrado)',
     malto: 1,
     fructosa: 1,
-    disabled: true,
+    disabled: !premium,
   },
   
 ];

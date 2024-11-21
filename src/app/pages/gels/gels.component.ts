@@ -1,11 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, isDevMode } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { AccordionModule } from '../../shared/components/accordion/accordion.module';
 import { GelItemComponent } from '../../shared/components/gel-item/gel-item.component';
 import {
   GEL_INFO_ACCORDION_OPTIONS,
   GEL_INGREDIENTS_PRICES,
-  GELS_TYPES,
+  getGelTypes,
   SLIDER_GELS_OPTIONS,
   START_COST_GEL,
   SWEETNESS_INDEX,
@@ -18,6 +18,7 @@ import {
 } from '../../shared/helpers';
 import { CommonModule } from '@angular/common';
 import { AlertComponent } from '../../shared/components/alert/alert.component';
+import { ButtonToggleGroupComponent } from '../../shared/components/button-toggle-group/button-toggle-group.component';
 
 @Component({
   selector: 'app-gels',
@@ -28,6 +29,7 @@ import { AlertComponent } from '../../shared/components/alert/alert.component';
     GelItemComponent,
     CommonModule,
     AlertComponent,
+    ButtonToggleGroupComponent
   ],
   templateUrl: './gels.component.html',
   styleUrl: './gels.component.css',
@@ -37,8 +39,9 @@ export class GelsComponent {
   gelForm: FormGroup;
   result: any;
   numberOfGels = 1;
+  isPremium = localStorage.getItem('premium') === 'OK';
   costByGel = START_COST_GEL;
-  gelsTypes = GELS_TYPES;
+  gelsTypes = getGelTypes(this.isPremium);
   selectedType: string = this.gelsTypes[0].id;
 
   valuesText = {
@@ -91,13 +94,36 @@ export class GelsComponent {
 
   getTextValue = (id: string) => (this.valuesText as any)[id];
 
-  updateLayout = (selectedType: string) => {
+  updateLayout = (selectedType: string | number) => {
     console.log(selectedType);
-    this.selectedType = selectedType;
+    this.selectedType = selectedType as string;
+    this.calculateIngredients();
   };
 
   update($event: string | number, property: string) {
     this.gelForm.get(property)!.setValue($event);
+  }
+
+  private setGelCost = () => {
+    Object.keys(this.result.ingredients).forEach((value) => {
+      console.log(this.result.ingredients[value]);
+      const selectIngredient = (GEL_INGREDIENTS_PRICES as any)[value];
+      console.log(selectIngredient, value);
+      const costIngredient = calculateIngredientCost(
+        selectIngredient.weight,
+        selectIngredient.unit,
+        selectIngredient.price,
+        this.result.ingredients[value],
+        value === 'caffeine' || value === 'energyGel' ? 'unit' : 'gr'
+      );
+      (this.costByGel as any)[value] = costIngredient;
+      (this.costByGel as any)['total'] += costIngredient;
+    });
+    console.log(
+      'Coste Total del Gel',
+      (this.costByGel as any)['total'].toFixed(4),
+      `€`
+    );
   }
 
   // Función para calcular los ingredientes basado en el formulario
@@ -111,7 +137,7 @@ export class GelsComponent {
       caffeine,
       energyGel,
     } = this.gelForm.value;
-    console.log(this.gelForm.value)
+    isDevMode() && console.log(this.gelForm.value);
     this.numberOfGels = numberOfGels;
     try {
       if (this.selectedType === 'custom') {
@@ -122,35 +148,17 @@ export class GelsComponent {
           caffeine,
           energyGel
         );
-        Object.keys(this.result.ingredients).forEach((value) => {
-          console.log(this.result.ingredients[value]);
-          const selectIngredient = (GEL_INGREDIENTS_PRICES as any)[value];
-          console.log(selectIngredient, value);
-          const costIngredient = calculateIngredientCost(
-            selectIngredient.weight,
-            selectIngredient.unit,
-            selectIngredient.price,
-            this.result.ingredients[value],
-            value === 'caffeine' || value === 'energyGel' ? 'unit' : 'gr'
-          );
-          (this.costByGel as any)[value] = costIngredient;
-          (this.costByGel as any)['total'] += costIngredient;
-        });
-        console.log(
-          'Coste Total del Gel',
-          (this.costByGel as any)['total'].toFixed(4),
-          `€`
-        );
+        this.setGelCost();
         console.log(this.costByGel);
         return;
       }
-      console.log(
-        calculateSelectProportionGelIngredients(
-          carbsPerGel,
-          this.selectedType,
-          textureIndex
-        )
+
+      this.result = calculateSelectProportionGelIngredients(
+        carbsPerGel,
+        this.selectedType,
+        textureIndex
       );
+      this.setGelCost();
     } catch (error) {
       console.error(error);
       this.result = null;

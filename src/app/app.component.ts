@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, isDevMode } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './core/components/header/header.component';
 
@@ -12,4 +12,9 @@ import { HeaderComponent } from './core/components/header/header.component';
 export class AppComponent {
   currentYear = new Date().getFullYear();
   appName = 'Geles y Bebidas Energéticas';
+  ngOnInit() {
+    if (isDevMode()) {
+      localStorage.setItem('premium', 'OK');
+    }
+  }
 }

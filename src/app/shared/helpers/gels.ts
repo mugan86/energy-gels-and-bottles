@@ -2,7 +2,7 @@ import {
   EVOLYTES_COMPOSITION_IN_MG,
   INGREDIENTS_PER_ONE_HUNDRED_GR,
 } from '../constant';
-import { GELS_TYPES } from '../constants';
+import { getGelTypes } from '../constants';
 
 const getNutritionalValues = (
   maltodextrin: number,
@@ -157,7 +157,7 @@ export function calculateSelectProportionGelIngredients(
   }
 
   // Buscar proporción seleccionada por ID
-  const gelTypeSelect = GELS_TYPES.find((p) => p.id === idProporcion);
+  const gelTypeSelect = getGelTypes().find((p) => p.id === idProporcion);
 
   if (!gelTypeSelect) {
     throw new Error('Proporción no válida');

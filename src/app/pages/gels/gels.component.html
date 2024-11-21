@@ -7,18 +7,17 @@
   <br />
   <div class="results">
     <label>Seleccione tipo de gel</label>
+    @if(!isPremium){
     <app-alert [type]="'info'">
       <span icon>ℹ</span>
       <span message>Versión gratuita calculadora libre</span>
     </app-alert>
-    <div class="toggle-group">
-      @for(gelType of gelsTypes; track gelType.id) {
-      <button type="button" class="toggle-button" [ngClass]="{ active: selectedType === gelType.id}"
-        [disabled]="gelType.disabled" (click)="updateLayout(gelType.id)">
-        {{gelType.label}}
-      </button>
-      }
-    </div>
+    }
+
+
+    <app-button-toggle-group [options]="gelsTypes" [selectOption]="selectedType"
+      (updateSelectOption)="updateLayout($event)"></app-button-toggle-group>
+
     <form [formGroup]="gelForm">
       @for (item of slideGelsOptions; track item.id) {
       @if(selectedType !== 'custom' && item.id === 'sweetnessIndex') {

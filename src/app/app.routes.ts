@@ -23,8 +23,10 @@ export const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
+    /*loadComponent: () =>
+      import('./pages/home/home.component').then((mod) => mod.HomeComponent),*/
     loadComponent: () =>
-      import('./pages/home/home.component').then((mod) => mod.HomeComponent),
+      import('./pages/gels/gels.component').then((mod) => mod.GelsComponent),
   },
   {
     path: '**',

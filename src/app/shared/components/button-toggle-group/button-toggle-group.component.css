@@ -1,0 +1,75 @@
+/* Contenedor de los botones toggle */
+.toggle-group {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+    gap: 10px; /* Espacio entre botones */
+    flex-wrap: wrap; /* Permite que los botones se envuelvan en líneas adicionales si es necesario */
+  }
+  
+  /* Botones toggle */
+  .toggle-button {
+    background-color: #f3f3f3;
+    border: 1px solid #ddd;
+    border-radius: 0;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    flex: 1; /* Distribuye los botones de manera uniforme */
+    text-align: center;
+    transition: background-color 0.2s, color 0.2s;
+    min-width: 100px; /* Ancho mínimo para evitar que los botones sean demasiado pequeños */
+  }
+  
+  .toggle-button:not(:last-child) {
+    border-right: none;
+  }
+  
+  .toggle-button.active {
+    background-color: var(--principal-color);
+    color: white;
+    font-weight: bold;
+  }
+  
+  /* Estilo de hover en botones habilitados */
+  .toggle-button:hover {
+    background-color: var(--principal-color-hover);
+    color: white;
+  }
+  
+  /* Estilo para el botón deshabilitado */
+  button:disabled.toggle-button {
+    color: rgb(192, 176, 176) !important;
+    cursor: not-allowed;
+  }
+  
+  button:disabled.toggle-button:hover {
+    background-color: #f3f3f3 !important;
+    color: rgb(192, 176, 176) !important;
+    cursor: not-allowed !important;
+  }
+  
+  /* Media Query: Ajusta para pantallas más pequeñas */
+  @media (max-width: 768px) {
+    .toggle-group {
+      flex-direction: column; /* Cambia la dirección de los botones a vertical */
+      align-items: center; /* Centra los botones en la pantalla */
+      gap: 5px; /* Espacio reducido entre los botones */
+    }
+  
+    .toggle-button {
+      flex: none; /* Elimina la distribución uniforme en dispositivos pequeños */
+      width: 100%; /* Los botones ocupan todo el ancho disponible */
+      font-size: 14px; /* Ajusta el tamaño del texto */
+      padding: 8px 16px; /* Reduce el tamaño del padding */
+    }
+  }
+  
+  /* Media Query: Ajusta para pantallas extra pequeñas */
+  @media (max-width: 480px) {
+    .toggle-button {
+      font-size: 12px; /* Reduce aún más el tamaño del texto */
+      padding: 6px 12px; /* Ajusta el padding para pantallas más pequeñas */
+    }
+  }
+  
