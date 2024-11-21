@@ -1,9 +1,8 @@
-/* Contenedor de los botones toggle */
+  /* Contenedor de los botones toggle */
 .toggle-group {
     display: flex;
     justify-content: center;
     margin: 20px 0;
-    gap: 10px; /* Espacio entre botones */
     flex-wrap: wrap; /* Permite que los botones se envuelvan en líneas adicionales si es necesario */
   }
   

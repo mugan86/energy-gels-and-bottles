@@ -43,6 +43,7 @@ export class GelsComponent {
   costByGel = START_COST_GEL;
   gelsTypes = getGelTypes(this.isPremium);
   selectedType: string = this.gelsTypes[0].id;
+  sweetnessRangeShow = true;
 
   valuesText = {
     sweetnessIndex:
@@ -97,6 +98,7 @@ export class GelsComponent {
   updateLayout = (selectedType: string | number) => {
     console.log(selectedType);
     this.selectedType = selectedType as string;
+    this.sweetnessRangeShow = (selectedType === 'custom');
     this.calculateIngredients();
   };
 
