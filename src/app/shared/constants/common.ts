@@ -55,3 +55,4 @@ export const SWEETNESS_INDEX = [
       description: 'Súper dulce, casi empalagosamente dulce',
     },
   ];
+  
