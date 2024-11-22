@@ -19,6 +19,7 @@ import { CommonModule } from '@angular/common';
 import { AlertComponent } from '@shared/components/alert/alert.component';
 import { ButtonToggleGroupComponent } from '@shared/components/button-toggle-group/button-toggle-group.component';
 import { DEFAULT_FORM_OPTIONS, GEL_ACCORDION_OPTIONS, OPTIONS_VALUES_TEXTS } from './config';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-gels',
@@ -51,9 +52,13 @@ export class GelsComponent {
 
   slideGelsOptions = SLIDER_GELS_OPTIONS;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder, private route: ActivatedRoute,) {
     // Crear el formulario reactivo con valores iniciales
     this.gelForm = this.formBuilder.group(DEFAULT_FORM_OPTIONS);
+    const selectProportion = this.route.snapshot.paramMap.get('proportion');
+
+    selectProportion && this.updateLayout(selectProportion.replace(/:/gi, ''));
+    
 
     // Escuchar los cambios en el formulario
     this.gelForm.valueChanges.subscribe(

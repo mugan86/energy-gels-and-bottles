@@ -12,6 +12,11 @@ export const routes: Routes = [
       import('./pages/gels/principal/gels.component').then((mod) => mod.GelsComponent),
   },
   {
+    path: 'gels/:proportion',
+    loadComponent: () =>
+      import('./pages/gels/principal/gels.component').then((mod) => mod.GelsComponent),
+  },
+  {
     path: 'drinks',
     loadComponent: () =>
       import('./pages/drinks/drinks.component').then(

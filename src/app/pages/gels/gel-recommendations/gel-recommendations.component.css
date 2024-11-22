@@ -1,45 +1,109 @@
+/* General container styles */
 .container {
-    width: 80%;
-    margin: 0 auto;
-    padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  color: #333;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Form styles */
+.filter-form {
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
+
+select.form-control {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background-color: #fff;
+}
+
+/* Recommendation list */
+.recommendations h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: var(--principal-color);
+}
+
+.recommendations ul {
+  list-style: none;
+  padding: 0;
+}
+
+.recommendations li {
+  background-color: #fff;
+  margin-bottom: 15px;
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.recommendations li h3 {
+  margin: 0 0 10px;
+  font-size: 18px;
+  color: #333;
+}
+
+.recommendations li p {
+  margin: 5px 0;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.recommendations li p strong {
+  font-weight: bold;
+}
+
+.select-proportions {
+  font-size: 115%;
+}
+
+/* Message for no recommendations */
+.container > div p {
+  font-size: 16px;
+  color: #555;
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+  .container {
+    padding: 15px;
   }
-  
-  h1 {
-    text-align: center;
-  }
-  
-  .filter-form {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 20px;
-  }
-  
-  .form-group {
-    margin-bottom: 10px;
-  }
-  
-  form select {
+
+  select.form-control {
+    font-size: 14px;
     padding: 8px;
-    font-size: 1rem;
   }
-  
-  .recommendations {
-    margin-top: 20px;
-  }
-  
-  .recommendations ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
+
   .recommendations li {
-    border: 1px solid #ddd;
     padding: 10px;
-    margin-bottom: 10px;
   }
-  
-  .recommendations h3 {
-    margin: 0;
-    font-size: 1.2rem;
+
+  .recommendations li h3 {
+    font-size: 16px;
   }
-  
+
+  .recommendations li p {
+    font-size: 13px;
+  }
+}

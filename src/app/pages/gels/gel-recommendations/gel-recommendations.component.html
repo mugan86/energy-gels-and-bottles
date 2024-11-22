@@ -40,8 +40,14 @@
         <h3>{{ item.sport }} - {{ item.duration }} - {{ item.intensity }}</h3>
         <p><strong>Escenarios ideales:</strong> {{ item.ideal_scenarios }}</p>
         <p>
-          <strong>Proporciones recomendadas:</strong> {{
-          item.recommended_ratios.join(', ') }}
+          Proporciones recomendadas: <!--<strong class="select-proportions">{{
+          item.recommended_ratios.join(', ') }}</strong>-->
+          @for(proportion of item.recommended_ratios; track proportion.key) {
+            <button (click)="select(proportion)">
+              {{proportion.value}}
+            </button>
+          }
+          
         </p>
       </li>
       }
