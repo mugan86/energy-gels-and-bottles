@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Ratio108Gel } from '../../models/gel';
+import { Ratio108Gel } from '../../../models/gel';
 import { DecimalPipe } from '@angular/common';
 
 @Component({
@@ -7,7 +7,7 @@ import { DecimalPipe } from '@angular/common';
   standalone: true,
   imports: [DecimalPipe],
   templateUrl: './gel-item.component.html',
-  styleUrl: './gel-item.component.css'
+  styleUrl: '../item.component.css'
 })
 export class GelItemComponent {
   @Input() result!: any;

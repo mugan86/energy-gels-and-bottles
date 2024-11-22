@@ -1,0 +1,97 @@
+{
+    "sports": [
+      {
+        "sport": "Cycling",
+        "options": [
+          {
+            "duration": "< 1 h",
+            "intensity": "Alta (explosiva)",
+            "ideal_scenarios": "Contrarreloj, sprints cortos, series de alta intensidad.",
+            "recommended_ratios": ["8:1", "1:0"]
+          },
+          {
+            "duration": "1.5-3 h",
+            "intensity": "Mixta",
+            "ideal_scenarios": "Fondo medio, competiciones con cambios de ritmo.",
+            "recommended_ratios": ["2:1", "1:1"]
+          },
+          {
+            "duration": "> 3 h",
+            "intensity": "Baja-moderada (sostenida)",
+            "ideal_scenarios": "Fondos largos, entrenamiento base.",
+            "recommended_ratios": ["1:0:8", "1:2"]
+          }
+        ]
+      },
+      {
+        "sport": "Running",
+        "options": [
+          {
+            "duration": "< 10 km",
+            "intensity": "Alta (explosiva)",
+            "ideal_scenarios": "Carreras de 5K, intervalos rápidos en pista.",
+            "recommended_ratios": ["8:1", "1:0"]
+          },
+          {
+            "duration": "10-20 km",
+            "intensity": "Mixta",
+            "ideal_scenarios": "Medias maratones, rodajes de intensidad media.",
+            "recommended_ratios": ["2:1", "1:1"]
+          },
+          {
+            "duration": "> 20 km",
+            "intensity": "Baja-moderada (sostenida)",
+            "ideal_scenarios": "Maratones, rodajes largos con ritmos constantes.",
+            "recommended_ratios": ["1:0:8", "1:2"]
+          }
+        ]
+      },
+      {
+        "sport": "Trail Running",
+        "options": [
+          {
+            "duration": "< 15 km",
+            "intensity": "Alta (explosiva)",
+            "ideal_scenarios": "Kilómetro vertical, segmentos técnicos cortos y rápidos.",
+            "recommended_ratios": ["8:1", "1:0"]
+          },
+          {
+            "duration": "20-50 km",
+            "intensity": "Mixta",
+            "ideal_scenarios": "Maratones de montaña, trails técnicos con subidas y descensos frecuentes.",
+            "recommended_ratios": ["2:1", "1:1"]
+          },
+          {
+            "duration": "> 50 km",
+            "intensity": "Baja-moderada (sostenida)",
+            "ideal_scenarios": "Ultratrails (>8 h), etapas largas con ritmo constante.",
+            "recommended_ratios": ["1:0:8", "1:2"]
+          }
+        ]
+      },
+      {
+        "sport": "Triathlon",
+        "options": [
+          {
+            "duration": "< 1 h",
+            "intensity": "Alta (explosiva)",
+            "ideal_scenarios": "Salidas rápidas o primeros tramos de triatlón sprint u olímpico.",
+            "recommended_ratios": ["8:1", "1:0"]
+          },
+          {
+            "duration": "2-4 h",
+            "intensity": "Mixta",
+            "ideal_scenarios": "Segmentos de ciclismo y carrera en triatlones olímpicos o media distancia.",
+            "recommended_ratios": ["2:1", "1:1"]
+          },
+          {
+            "duration": "> 4 h",
+            "intensity": "Baja-moderada (sostenida)",
+            "ideal_scenarios": "Segmentos de ciclismo y carrera en triatlones Ironman o ultradistancia.",
+            "recommended_ratios": ["1:0:8", "1:2"]
+          }
+        ]
+      }
+    ]
+  }
+  

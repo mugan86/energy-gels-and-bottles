@@ -1,0 +1,55 @@
+<div class="container">
+  <h1>Recomendación de Geles</h1>
+  <form [formGroup]="filterForm" class="filter-form">
+    <div class="form-group">
+      <label for="sport">Deporte</label>
+      <select formControlName="sport" id="sport" class="form-control">
+        <option value="">Seleccionar Deporte</option>
+        @for (item of sports; track item) {
+        <option [value]="item">{{ item }}</option>
+        }
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="duration">Duración</label>
+      <select formControlName="duration" id="duration" class="form-control">
+        <option value="">Seleccionar Duración</option>
+        @for (item of durations; track item) {
+        <option [value]="item">{{ item }}</option>
+        }
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="intensity">Intensidad</label>
+      <select formControlName="intensity" id="intensity" class="form-control">
+        <option value="">Seleccionar Intensidad</option>
+        @for (item of intensities; track item) {
+        <option [value]="item">{{ item }}</option>
+        }
+      </select>
+    </div>
+  </form>
+  @if(recommendedGels.length > 0) {
+  <div class="recommendations">
+    <h2>Geles recomendados</h2>
+    <ul>
+      @for (item of recommendedGels; track item.sport) {
+      <li>
+        <h3>{{ item.sport }} - {{ item.duration }} - {{ item.intensity }}</h3>
+        <p><strong>Escenarios ideales:</strong> {{ item.ideal_scenarios }}</p>
+        <p>
+          <strong>Proporciones recomendadas:</strong> {{
+          item.recommended_ratios.join(', ') }}
+        </p>
+      </li>
+      }
+    </ul>
+  </div>
+  } @if(recommendedGels.length === 0) {
+  <div>
+    <p>No hay geles recomendados para los filtros seleccionados.</p>
+  </div>
+  }
+</div>

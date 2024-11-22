@@ -1,7 +1,7 @@
 <div class="results">
 
     @if (result) {
-      <div class="gel-result">
+      <div class="item-result">
         <h3>Resultados por Gel</h3>
         <p><strong>Peso Total por Gel:</strong> {{ result.totalGelWeight }} g</p>
         <h4>Ingredientes por Gel:</h4>
@@ -31,7 +31,7 @@
 
       </div>
       @if (numberOfGels > 1) {
-        <div class="gel-result">
+        <div class="item-result">
           <h3>Resultados del Gel para {{ numberOfGels }} Geles</h3>
           <p><strong>Peso Total:</strong> {{ (result.totalGelWeight * numberOfGels).toFixed(2) }} g</p>
           <h4>Ingredientes Totales:</h4>

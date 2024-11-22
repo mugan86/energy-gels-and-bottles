@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparación de Proporciones de Carbohidratos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+            color: #333;
+        }
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #444;
+        }
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-between;
+        }
+        .card {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            flex: 1 1 calc(50% - 20px);
+            min-width: 300px;
+        }
+        .card h2 {
+            margin-top: 0;
+            color: #555;
+        }
+        .table-container {
+            overflow-x: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        table th, table td {
+            text-align: left;
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+        table th {
+            background-color: #f4f4f4;
+        }
+        @media (max-width: 768px) {
+            .card {
+                flex: 1 1 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Comparación de Proporciones de Carbohidratos</h1>
+        <div class="cards">
+            <!-- Primera tabla -->
+            <div class="card">
+                <h2>Comparación de 3 Tipos (8:1, 1:0:8, 2:1)</h2>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Aspecto</th>
+                                <th>8:1 (Malto alta)</th>
+                                <th>1:0:8 (Fructosa alta)</th>
+                                <th>2:1 (Balanceado)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Carbohidratos totales</strong></td>
+                                <td>Mayoritariamente maltodextrina</td>
+                                <td>Principalmente fructosa</td>
+                                <td>Mezcla equilibrada (2:1)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Liberación de energía</strong></td>
+                                <td>Rápida y sostenida en menor medida</td>
+                                <td>Sostenida, lenta de liberar</td>
+                                <td>Rápida y sostenida</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Tasa de absorción máxima</strong></td>
+                                <td>~60 g/h</td>
+                                <td>Muy limitada sin glucosa</td>
+                                <td>Hasta 90 g/h</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Sistema de transporte</strong></td>
+                                <td>Predominantemente SGLT1 (glucosa)</td>
+                                <td>Principalmente GLUT5 (fructosa)</td>
+                                <td>Dual: SGLT1 y GLUT5</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Digestibilidad</strong></td>
+                                <td>Muy alta</td>
+                                <td>Riesgo mayor con exceso</td>
+                                <td>Alta</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Uso recomendado</strong></td>
+                                <td>Esfuerzos cortos, intensidad alta</td>
+                                <td>Esfuerzos largos, intensidad baja</td>
+                                <td>Mixta: corto, medio, largo</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Ventajas</strong></td>
+                                <td>Energía rápida sin digestión complicada</td>
+                                <td>Energía sostenida</td>
+                                <td>Balance entre energía rápida y sostenida</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Desventajas</strong></td>
+                                <td>Limita la absorción de carbohidratos</td>
+                                <td>Baja absorción si no se combina</td>
+                                <td>Requiere combinar bien cantidades</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Segunda tabla -->
+            <div class="card">
+                <h2>Comparación de 3 Tipos (1:0, 1:2, 1:1)</h2>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Aspecto</th>
+                                <th>1:0 (Solo Malto)</th>
+                                <th>1:2 (Fructosa alta)</th>
+                                <th>1:1 (Equilibrado)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Carbohidratos totales</strong></td>
+                                <td>Exclusivamente maltodextrina</td>
+                                <td>Mayoritariamente fructosa</td>
+                                <td>Mezcla igualitaria</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Liberación de energía</strong></td>
+                                <td>Rápida</td>
+                                <td>Sostenida</td>
+                                <td>Moderada</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Tasa de absorción máxima</strong></td>
+                                <td>~60 g/h</td>
+                                <td>Hasta 90 g/h</td>
+                                <td>Hasta 90 g/h</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Sistema de transporte</strong></td>
+                                <td>Exclusivamente SGLT1</td>
+                                <td>Dual: GLUT5 y algo de SGLT1</td>
+                                <td>Dual: SGLT1 y GLUT5</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Digestibilidad</strong></td>
+                                <td>Muy alta</td>
+                                <td>Riesgo moderado</td>
+                                <td>Moderada a alta</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Uso recomendado</strong></td>
+                                <td>Esfuerzos cortos</td>
+                                <td>Esfuerzos largos</td>
+                                <td>Esfuerzos medios a largos</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Ventajas</strong></td>
+                                <td>Rápida absorción</td>
+                                <td>Energía lenta, sostenida</td>
+                                <td>Balanceado</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Desventajas</strong></td>
+                                <td>No apto para esfuerzos largos</td>
+                                <td>Riesgo de problemas digestivos</td>
+                                <td>Requiere equilibrio preciso</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <h1>Detalles Adicionales para Cada Proporción</h1>
+            <div class="cards">
+                <!-- Detalles 8:1 -->
+                <div class="card">
+                    <h2>8:1</h2>
+                    <p><strong>Características principales:</strong> Alta velocidad de energía inmediata con mínimas complicaciones digestivas. Esencialmente para esfuerzos cortos y muy intensos.</p>
+                    <p><strong>Puntos débiles:</strong> No utiliza al máximo el sistema de transporte dual y no es óptimo para esfuerzos prolongados.</p>
+                </div>
+        
+                <!-- Detalles 1:0:8 -->
+                <div class="card">
+                    <h2>1:0:8</h2>
+                    <p><strong>Características principales:</strong> Basado casi exclusivamente en fructosa, ideal para liberar energía de forma gradual durante largas sesiones de ejercicio.</p>
+                    <p><strong>Puntos débiles:</strong> Baja capacidad de absorción por hora (~30-40 g/h máximo) si no se combina con glucosa/maltodextrina.</p>
+                </div>
+        
+                <!-- Detalles 2:1 -->
+                <div class="card">
+                    <h2>2:1</h2>
+                    <p><strong>Características principales:</strong> La fórmula más comúnmente recomendada para deportes de resistencia. Ofrece un equilibrio ideal entre energía rápida (maltodextrina) y energía sostenida (fructosa), maximizando la absorción (~90 g/h).</p>
+                    <p><strong>Puntos débiles:</strong> La proporción debe respetarse bien para evitar problemas digestivos.</p>
+                </div>
+        
+                <!-- Detalles 1:0 -->
+                <div class="card">
+                    <h2>1:0</h2>
+                    <p><strong>Características principales:</strong> Exclusivamente maltodextrina, perfecta para esfuerzos cortos que requieren energía inmediata.</p>
+                    <p><strong>Puntos débiles:</strong> Ineficiente en esfuerzos prolongados; no utiliza el sistema dual de transporte.</p>
+                </div>
+        
+                <!-- Detalles 1:2 -->
+                <div class="card">
+                    <h2>1:2</h2>
+                    <p><strong>Características principales:</strong> Diseñado para entrenamientos largos con énfasis en energía sostenida. Aumenta la proporción de fructosa para maximizar la energía a lo largo del tiempo.</p>
+                    <p><strong>Puntos débiles:</strong> Riesgo moderado de molestias digestivas si no se adapta la cantidad total.</p>
+                </div>
+        
+                <!-- Detalles 1:1 -->
+                <div class="card">
+                    <h2>1:1</h2>
+                    <p><strong>Características principales:</strong> Fórmula equilibrada, ideal para sesiones moderadamente largas o mixtas. Proporciona energía rápida y sostenida.</p>
+                    <p><strong>Puntos débiles:</strong> Menos especializada, podría no ser óptima para entrenamientos extremadamente cortos o largos.</p>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <h1>Tabla Comparativa Unificada para <strong>Ciclismo</strong>, <strong>Running</strong>, <strong>Trail Running</strong> y <strong>Triatlón</strong></h1>
+            <p>Esta tabla reúne recomendaciones para las proporciones <strong>8:1</strong>, <strong>1:0:8</strong>, <strong>2:1</strong>, <strong>1:0</strong>, <strong>1:2</strong> y <strong>1:1</strong>, considerando diferentes deportes de resistencia y situaciones específicas.</p>
+            
+            <div class="sports-section">
+                <h2>Ciclismo</h2>
+                <div class="card">
+                  <h3>Duración: < 1 h</h3>
+                  <p><strong>Intensidad:</strong> Alta (explosiva)</p>
+                  <p><strong>Escenarios ideales:</strong> Contrarreloj, sprints cortos, series de alta intensidad.</p>
+                  <p><strong>Proporciones recomendadas:</strong> <span class="proportion">8:1</span>, <span class="proportion">1:0</span></p>
+                </div>
+                <div class="card">
+                  <h3>Duración: 1.5-3 h</h3>
+                  <p><strong>Intensidad:</strong> Mixta</p>
+                  <p><strong>Escenarios ideales:</strong> Fondo medio, competiciones con cambios de ritmo.</p>
+                  <p><strong>Proporciones recomendadas:</strong> <span class="proportion">2:1</span>, <span class="proportion">1:1</span></p>
+                </div>
+                <div class="card">
+                  <h3>Duración: > 3 h</h3>
+                  <p><strong>Intensidad:</strong> Baja-moderada (sostenida)</p>
+                  <p><strong>Escenarios ideales:</strong> Fondos largos, entrenamiento base.</p>
+                  <p><strong>Proporciones recomendadas:</strong> <span class="proportion">1:0:8</span>, <span class="proportion">1:2</span></p>
+                </div>
+              </div>
+              
+              <div class="sports-section">
+                <h2>Running</h2>
+                <div class="card">
+                  <h3>Duración: < 10 km</h3>
+                  <p><strong>Intensidad:</strong> Alta (explosiva)</p>
+                  <p><strong>Escenarios ideales:</strong> Carreras de 5K, intervalos rápidos en pista.</p>
+                  <p><strong>Proporciones recomendadas:</strong> <span class="proportion">8:1</span>, <span class="proportion">1:0</span></p>
+                </div>
+                <div class="card">
+                  <h3>Duración: 10-20 km</h3>
+                  <p><strong>Intensidad:</strong> Mixta</p>
+                  <p><strong>Escenarios ideales:</strong> Medias maratones, rodajes de intensidad media.</p>
+                  <p><strong>Proporciones recomendadas:</strong> <span class="proportion">2:1</span>, <span class="proportion">1:1</span></p>
+                </div>
+                <div class="card">
+                  <h3>Duración: > 20 km</h3>
+                  <p><strong>Intensidad:</strong> Baja-moderada (sostenida)</p>
+                  <p><strong>Escenarios ideales:</strong> Maratones, rodajes largos con ritmos constantes.</p>
+                  <p><strong>Proporciones recomendadas:</strong> <span class="proportion">1:0:8</span>, <span class="proportion">1:2</span></p>
+                </div>
+              </div>
+              
+              <div class="sports-section">
+                <h2>Trail Running</h2>
+                <div class="card">
+                  <h3>Duración: < 15 km</h3>
+                  <p><strong>Intensidad:</strong> Alta (explosiva)</p>
+                  <p><strong>Escenarios ideales:</strong> Kilómetro vertical, segmentos técnicos cortos y rápidos.</p>
+                  <p><strong>Proporciones recomendadas:</strong> <span class="proportion">8:1</span>, <span class="proportion">1:0</span></p>
+                </div>
+                <div class="card">
+                  <h3>Duración: 20-50 km</h3>
+                  <p><strong>Intensidad:</strong> Mixta</p>
+                  <p><strong>Escenarios ideales:</strong> Maratones de montaña, trails técnicos con subidas y descensos frecuentes.</p>
+                  <p><strong>Proporciones recomendadas:</strong> <span class="proportion">2:1</span>, <span class="proportion">1:1</span></p>
+                </div>
+                <div class="card">
+                  <h3>Duración: > 50 km</h3>
+                  <p><strong>Intensidad:</strong> Baja-moderada (sostenida)</p>
+                  <p><strong>Escenarios ideales:</strong> Ultratrails (>8 h), etapas largas con ritmo constante.</p>
+                  <p><strong>Proporciones recomendadas:</strong> <span class="proportion">1:0:8</span>, <span class="proportion">1:2</span></p>
+                </div>
+              </div>
+              
+              <div class="sports-section">
+                <h2>Triatlón</h2>
+                <div class="card">
+                  <h3>Duración: < 1 h</h3>
+                  <p><strong>Intensidad:</strong> Alta (explosiva)</p>
+                  <p><strong>Escenarios ideales:</strong> Salidas rápidas o primeros tramos de triatlón sprint u olímpico.</p>
+                  <p><strong>Proporciones recomendadas:</strong> <span class="proportion">8:1</span>, <span class="proportion">1:0</span></p>
+                </div>
+                <div class="card">
+                  <h3>Duración: 2-4 h</h3>
+                  <p><strong>Intensidad:</strong> Mixta</p>
+                  <p><strong>Escenarios ideales:</strong> Segmentos de ciclismo y carrera en triatlones olímpicos o media distancia.</p>
+                  <p><strong>Proporciones recomendadas:</strong> <span class="proportion">2:1</span>, <span class="proportion">1:1</span></p>
+                </div>
+                <div class="card">
+                  <h3>Duración: > 4 h</h3>
+                  <p><strong>Intensidad:</strong> Baja-moderada (sostenida)</p>
+                  <p><strong>Escenarios ideales:</strong> Segmentos prolongados de ciclismo y carrera en triatlones Ironman o ultradistancia.</p>
+                  <p><strong>Proporciones recomendadas:</strong> <span class="proportion">1:0:8</span>, <span class="proportion">1:2</span></p>
+                </div>
+              </div>
+              
+        
+            <div>
+                <h2>Cómo usar la tabla</h2>
+                <ul>
+                    <li><strong>Identifica tu deporte:</strong> ciclismo, running, trail running o triatlón.</li>
+                    <li><strong>Define la duración del esfuerzo:</strong> considera el tiempo que pasarás activo.</li>
+                    <li><strong>Evalúa la intensidad:</strong> ¿será explosivo, sostenido o mixto?</li>
+                    <li><strong>Selecciona la proporción adecuada:</strong>
+                        <ul>
+                            <li>Para energía inmediata: <strong>8:1 o 1:0</strong>.</li>
+                            <li>Para sostenida en esfuerzos prolongados: <strong>1:0:8 o 1:2</strong>.</li>
+                            <li>Para balance entre energía rápida y sostenida: <strong>2:1 o 1:1</strong>.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+                
+    </div>
+</body>
+</html>

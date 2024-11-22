@@ -112,5 +112,3 @@ Esta tabla reúne recomendaciones para las proporciones 8:1, 1:0:8, 2:1, 1:0, 1:
    - Para balance entre energía rápida y sostenida: **2:1 o 1:1**.
 
 ---
-
-¿Te gustaría complementar con consejos sobre hidratación, cafeína, o electrolitos específicos para estas proporciones y deportes? 🚴‍♂️🏃‍♀️🏞️🏊‍♂️

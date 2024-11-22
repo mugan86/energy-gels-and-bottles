@@ -2,9 +2,14 @@ import { Routes } from '@angular/router';
 
 export const routes: Routes = [
   {
+    path: 'gels/recommendations',
+    loadComponent: () =>
+      import('./pages/gels/gel-recommendations/gel-recommendations.component').then((mod) => mod.GelRecommendationsComponent),
+  },
+  {
     path: 'gels',
     loadComponent: () =>
-      import('./pages/gels/gels.component').then((mod) => mod.GelsComponent),
+      import('./pages/gels/principal/gels.component').then((mod) => mod.GelsComponent),
   },
   {
     path: 'drinks',
@@ -33,7 +38,7 @@ export const routes: Routes = [
     /*loadComponent: () =>
       import('./pages/home/home.component').then((mod) => mod.HomeComponent),*/
     loadComponent: () =>
-      import('./pages/gels/gels.component').then((mod) => mod.GelsComponent),
+      import('./pages/gels/principal/gels.component').then((mod) => mod.GelsComponent),
   },
   {
     path: '**',

@@ -148,8 +148,8 @@ export function calculateSelectProportionGelIngredients(
   carbsPerGel: number,
   idProporcion: string,
   texturaIndex: number,
-  caffeine: number = 0,
-  energyGel: number = 0
+  caffeine: number,
+  energyGel: number
 ) {
   // Verificar índice de textura válido
   if (texturaIndex < 0.5 || texturaIndex > 0.9) {

@@ -1,0 +1,45 @@
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  h1 {
+    text-align: center;
+  }
+  
+  .filter-form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 10px;
+  }
+  
+  form select {
+    padding: 8px;
+    font-size: 1rem;
+  }
+  
+  .recommendations {
+    margin-top: 20px;
+  }
+  
+  .recommendations ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .recommendations li {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .recommendations h3 {
+    margin: 0;
+    font-size: 1.2rem;
+  }
+  

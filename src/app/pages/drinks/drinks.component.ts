@@ -18,7 +18,7 @@ export class DrinksComponent implements OnInit {
   concentrationDefault = {
     hypotonic: 3,
     isotonic: 7,
-    hypertonic: 12,
+    hypertonic: 12.5,
   };
 
   // Datos de entrada

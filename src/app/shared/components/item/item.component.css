@@ -8,11 +8,11 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.gel-result {
+.item-result {
     width: 45%;
 }
 
-.gel-result h3 {
+.item-result h3 {
     border-bottom: 2px solid #007bff;
     padding-bottom: 5px;
 }
@@ -35,7 +35,7 @@ strong.total__pay {
         flex-direction: column;
     }
 
-    .gel-result {
+    .item-result {
         width: 100%;
         margin-bottom: 20px;
     }

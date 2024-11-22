@@ -1,7 +1,7 @@
 import { Component, isDevMode } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { AccordionModule } from '../../shared/components/accordion/accordion.module';
-import { GelItemComponent } from '../../shared/components/gel-item/gel-item.component';
+import { AccordionModule } from '../../../shared/components/accordion/accordion.module';
+import { GelItemComponent } from '../../../shared/components/item/gel-item/gel-item.component';
 import {
   GEL_INFO_ACCORDION_OPTIONS,
   GEL_INGREDIENTS_PRICES,
@@ -10,15 +10,15 @@ import {
   START_COST_GEL,
   SWEETNESS_INDEX,
   TEXTURE_INDEX,
-} from '../../shared/constants';
+} from '../../../shared/constants';
 import {
   calculateCustomGelIngredients,
   calculateSelectProportionGelIngredients,
   calculateIngredientCost,
-} from '../../shared/helpers';
+} from '../../../shared/helpers';
 import { CommonModule } from '@angular/common';
-import { AlertComponent } from '../../shared/components/alert/alert.component';
-import { ButtonToggleGroupComponent } from '../../shared/components/button-toggle-group/button-toggle-group.component';
+import { AlertComponent } from '../../../shared/components/alert/alert.component';
+import { ButtonToggleGroupComponent } from '../../../shared/components/button-toggle-group/button-toggle-group.component';
 
 @Component({
   selector: 'app-gels',
@@ -158,7 +158,9 @@ export class GelsComponent {
       this.result = calculateSelectProportionGelIngredients(
         carbsPerGel,
         this.selectedType,
-        textureIndex
+        textureIndex,
+        caffeine,
+        energyGel
       );
       this.setGelCost();
     } catch (error) {
