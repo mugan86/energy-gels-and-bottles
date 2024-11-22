@@ -1,24 +1,24 @@
 import { Component, isDevMode } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { AccordionModule } from '../../../shared/components/accordion/accordion.module';
-import { GelItemComponent } from '../../../shared/components/item/gel-item/gel-item.component';
+import { AccordionModule } from '@shared/components/accordion/accordion.module';
+import { GelItemComponent } from '@shared/components/item/gel-item/gel-item.component';
 import {
-  GEL_INFO_ACCORDION_OPTIONS,
   GEL_INGREDIENTS_PRICES,
   getGelTypes,
   SLIDER_GELS_OPTIONS,
   START_COST_GEL,
   SWEETNESS_INDEX,
   TEXTURE_INDEX,
-} from '../../../shared/constants';
+} from '@shared/constants';
 import {
   calculateCustomGelIngredients,
   calculateSelectProportionGelIngredients,
   calculateIngredientCost,
-} from '../../../shared/helpers';
+} from '@shared/helpers';
 import { CommonModule } from '@angular/common';
-import { AlertComponent } from '../../../shared/components/alert/alert.component';
-import { ButtonToggleGroupComponent } from '../../../shared/components/button-toggle-group/button-toggle-group.component';
+import { AlertComponent } from '@shared/components/alert/alert.component';
+import { ButtonToggleGroupComponent } from '@shared/components/button-toggle-group/button-toggle-group.component';
+import { DEFAULT_FORM_OPTIONS, GEL_ACCORDION_OPTIONS, OPTIONS_VALUES_TEXTS } from './config';
 
 @Component({
   selector: 'app-gels',
@@ -45,34 +45,15 @@ export class GelsComponent {
   selectedType: string = this.gelsTypes[0].id;
   sweetnessRangeShow = true;
 
-  valuesText = {
-    sweetnessIndex:
-      SWEETNESS_INDEX[SWEETNESS_INDEX.findIndex((data) => data.index === 0.5)]
-        .description,
-    textureIndex:
-      TEXTURE_INDEX[TEXTURE_INDEX.findIndex((data) => data.index === 0.7)]
-        .description,
-  };
+  valuesText = OPTIONS_VALUES_TEXTS;
 
-  accordionOptions = GEL_INFO_ACCORDION_OPTIONS.map((item) => {
-    return {
-      question: item.title,
-      answer: item.description,
-    };
-  });
+  accordionOptions = GEL_ACCORDION_OPTIONS;
 
   slideGelsOptions = SLIDER_GELS_OPTIONS;
 
   constructor(private formBuilder: FormBuilder) {
     // Crear el formulario reactivo con valores iniciales
-    this.gelForm = this.formBuilder.group({
-      numberOfGels: [2], // Valor inicial: 2 geles
-      textureIndex: [0.7], // Valor inicial: textura media
-      carbsPerGel: [52.7], // Valor inicial: 40g de carbohidratos por gel,
-      sweetnessIndex: 0.5, // Ni poco dulce ni mucho entre 0 y 1,
-      caffeine: false,
-      energyGel: false,
-    });
+    this.gelForm = this.formBuilder.group(DEFAULT_FORM_OPTIONS);
 
     // Escuchar los cambios en el formulario
     this.gelForm.valueChanges.subscribe(
