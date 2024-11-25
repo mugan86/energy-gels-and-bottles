@@ -7,6 +7,11 @@ export const routes: Routes = [
       import('./pages/gels/gel-recommendations/gel-recommendations.component').then((mod) => mod.GelRecommendationsComponent),
   },
   {
+    path: 'gels/info',
+    loadComponent: () =>
+      import('./pages/gels/info/info.component').then((mod) => mod.GelsInfoComponent),
+  },
+  {
     path: 'gels',
     loadComponent: () =>
       import('./pages/gels/principal/gels.component').then((mod) => mod.GelsComponent),
@@ -39,6 +44,14 @@ export const routes: Routes = [
   },
   {
     path: '',
+    pathMatch: 'full',
+    /*loadComponent: () =>
+      import('./pages/home/home.component').then((mod) => mod.HomeComponent),*/
+    loadComponent: () =>
+      import('./pages/gels/principal/gels.component').then((mod) => mod.GelsComponent),
+  },
+  {
+    path: ':proportion',
     pathMatch: 'full',
     /*loadComponent: () =>
       import('./pages/home/home.component').then((mod) => mod.HomeComponent),*/

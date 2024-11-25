@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { Route, Router } from '@angular/router';
+import { Router } from '@angular/router';
+import { ButtonComponent } from '@app/shared/components/button/button.component';
 export interface GelRecommendation {
   sport: string;
   duration: string;
@@ -146,7 +147,7 @@ export const gelData: GelRecommendation[] = [
 @Component({
   selector: 'app-gel-recommendations',
   standalone: true,
-  imports: [FormsModule, ReactiveFormsModule],
+  imports: [FormsModule, ReactiveFormsModule, ButtonComponent],
   templateUrl: './gel-recommendations.component.html',
   styleUrl: './gel-recommendations.component.css'
 })
@@ -173,9 +174,9 @@ export class GelRecommendationsComponent {
     });
   }
 
-  select(proportion: {key: string, value: string, description: string}) {
+  select(proportion: number | string) {
     console.log(proportion);
-    this.router.navigate(['/gels', proportion.value ]);
+    this.router.navigate(['/', proportion ]);
   }
 
   // Filtrar los geles según los criterios seleccionados

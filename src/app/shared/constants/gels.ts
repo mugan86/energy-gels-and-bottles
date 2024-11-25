@@ -135,12 +135,12 @@ export const SLIDER_GELS_OPTIONS = [
     title: 'Número de Geles',
   },
   {
-    id: 'sweetnessIndex',
-    min: 0,
-    max: 1,
+    id: 'carbsPerGel',
+    min: 30,
+    max: 90,
     step: 0.1,
-    text: true, // sweetnessIndexText
-    title: 'Índice de dulzor',
+    text: false,
+    title: 'Carbohidratos por Gel (g)',
   },
   {
     id: 'textureIndex',
@@ -151,13 +151,14 @@ export const SLIDER_GELS_OPTIONS = [
     title: 'Textura',
   },
   {
-    id: 'carbsPerGel',
-    min: 30,
-    max: 90,
+    id: 'sweetnessIndex',
+    min: 0,
+    max: 1,
     step: 0.1,
-    text: false,
-    title: 'Carbohidratos por Gel (g)',
+    text: true, // sweetnessIndexText
+    title: 'Índice de dulzor',
   },
+  
 ];
 
 export const GEL_INFO_ACCORDION_OPTIONS = [
@@ -199,6 +200,9 @@ export const getGelTypes = (premium: boolean = false) => [
     malto: 0,
     fructosa: 0,
     disabled: false,
+    info: '',
+    cons: ''
+
   },
   {
     id: '108',
@@ -206,6 +210,8 @@ export const getGelTypes = (premium: boolean = false) => [
     malto: 1,
     fructosa: 8,
     disabled: false,
+    info: 'Basado casi exclusivamente en fructosa, ideal para liberar energía de forma gradual durante largas sesiones de ejercicio.',
+    cons: 'Baja capacidad de absorción por hora (~30-40 g/h máximo) si no se combina con glucosa/maltodextrina.'
   },
   {
     id: '81',
@@ -213,6 +219,8 @@ export const getGelTypes = (premium: boolean = false) => [
     malto: 8,
     fructosa: 1,
     disabled: !premium,
+    info: 'Alta velocidad de energía inmediata con mínimas complicaciones digestivas. Esencialmente para esfuerzos cortos y muy intensos.',
+    cons: 'No utiliza al máximo el sistema de transporte dual y no es óptimo para esfuerzos prolongados.'
   },
   {
     id: '21',
@@ -220,6 +228,8 @@ export const getGelTypes = (premium: boolean = false) => [
     malto: 2,
     fructosa: 1,
     disabled: !premium,
+    info: 'La fórmula más comúnmente recomendada para deportes de resistencia. Ofrece un equilibrio ideal entre energía rápida (maltodextrina) y energía sostenida (fructosa), maximizando la absorción (~90 g/h).',
+    cons: 'La proporción debe respetarse bien para evitar problemas digestivos.'
   },
   {
     id: '12',
@@ -227,6 +237,8 @@ export const getGelTypes = (premium: boolean = false) => [
     malto: 1,
     fructosa: 2,
     disabled: !premium,
+    info: 'Diseñado para entrenamientos largos con énfasis en energía sostenida. Aumenta la proporción de fructosa para maximizar la energía a lo largo del tiempo.',
+    cons: 'Riesgo moderado de molestias digestivas si no se adapta la cantidad total.'
   },
   {
     id: '10',
@@ -234,6 +246,8 @@ export const getGelTypes = (premium: boolean = false) => [
     malto: 1,
     fructosa: 0,
     disabled: !premium,
+    info: 'Exclusivamente maltodextrina, perfecta para esfuerzos cortos que requieren energía inmediata.',
+    cons: 'Ineficiente en esfuerzos prolongados; no utiliza el sistema dual de transporte.'
   },
   {
     id: '11',
@@ -241,6 +255,10 @@ export const getGelTypes = (premium: boolean = false) => [
     malto: 1,
     fructosa: 1,
     disabled: !premium,
+    info: 'Fórmula equilibrada, ideal para sesiones moderadamente largas o mixtas. Proporciona energía rápida y sostenida.',
+    cons: 'Menos especializada, podría no ser óptima para entrenamientos extremadamente cortos o largos.'
   },
   
 ];
+
+

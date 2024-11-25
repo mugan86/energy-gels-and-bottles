@@ -7,8 +7,8 @@
   --marker-pin-green: #1c910d;
   --marker-pin-yellow: #c3e214;
   --marker-pin-blue: #9d1ad1;
-  --principal-color: #3f51b5;
-  --principal-color-hover: #303f9f;
+  --principal-color: #2ba196;
+  --principal-color-hover: #1d7e74;
   --success-bg: #d4edda;
   --success-text: #155724;
   --info-bg: #d1ecf1;
@@ -107,4 +107,12 @@ input[type="range"].disabled {
   /* Tus estilos */
   opacity: 0.5;
   pointer-events: none;
+}
+
+a {
+  color: var(--principal-color)
+}
+
+a:hover {
+  color: var(--principal-color-hover)
 }

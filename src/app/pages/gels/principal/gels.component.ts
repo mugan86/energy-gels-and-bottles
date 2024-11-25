@@ -19,7 +19,7 @@ import { CommonModule } from '@angular/common';
 import { AlertComponent } from '@shared/components/alert/alert.component';
 import { ButtonToggleGroupComponent } from '@shared/components/button-toggle-group/button-toggle-group.component';
 import { DEFAULT_FORM_OPTIONS, GEL_ACCORDION_OPTIONS, OPTIONS_VALUES_TEXTS } from './config';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-gels',
@@ -30,7 +30,8 @@ import { ActivatedRoute } from '@angular/router';
     GelItemComponent,
     CommonModule,
     AlertComponent,
-    ButtonToggleGroupComponent
+    ButtonToggleGroupComponent,
+    RouterLink
   ],
   templateUrl: './gels.component.html',
   styleUrl: './gels.component.css',

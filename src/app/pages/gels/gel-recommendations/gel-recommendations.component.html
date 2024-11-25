@@ -1,5 +1,7 @@
 <div class="container">
-  <h1>Recomendación de Geles</h1>
+  <h1 class="section-title">Recomendación de Geles</h1>
+  <hr />
+  <br />
   <form [formGroup]="filterForm" class="filter-form">
     <div class="form-group">
       <label for="sport">Deporte</label>
@@ -43,11 +45,12 @@
           Proporciones recomendadas: <!--<strong class="select-proportions">{{
           item.recommended_ratios.join(', ') }}</strong>-->
           @for(proportion of item.recommended_ratios; track proportion.key) {
-            <button (click)="select(proportion)">
-              {{proportion.value}}
-            </button>
+          <app-button [item]="{
+              key: proportion.value,
+              label: proportion.value
+            }" (optionSelect)="select($event)"></app-button>&nbsp;
           }
-          
+
         </p>
       </li>
       }

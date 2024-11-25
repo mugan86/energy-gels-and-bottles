@@ -13,7 +13,7 @@
 }
 
 .item-result h3 {
-    border-bottom: 2px solid #007bff;
+    border-bottom: 2px solid var(--principal-color);
     padding-bottom: 5px;
 }
 

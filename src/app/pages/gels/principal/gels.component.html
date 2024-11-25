@@ -10,7 +10,15 @@
   </p>
   <br />
   <div class="results">
-    <label>Seleccione tipo de gel</label> ¿No sabes cuál debes de elegir? Accede aquí
+    <label>Seleccione tipo de gel</label> 
+    <app-alert [type]="'info'">
+      <span icon>ℹ</span>
+      <span message
+        >¿No sabes cuál debes de elegir? Accede <a [routerLink]="['/gels/recommendations']">aquí</a></span
+      >
+    </app-alert>
+    
+    
     @if(!isPremium){
     <app-alert [type]="'info'">
       <span icon>ℹ</span>
@@ -154,6 +162,7 @@
       alternándolos.
     </li>
   </ol>
+  <hr>
   <p>
     Tutorial basado en el video de
     <a href="https://linktr.ee/amadornieto" target="_blank">Amador Nieto</a>:
@@ -163,5 +172,6 @@
       >Geles caseros 1:0:8</a
     >
   </p>
+  <hr>
   <br />
 </div>
