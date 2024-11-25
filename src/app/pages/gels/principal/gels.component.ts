@@ -83,7 +83,6 @@ export class GelsComponent {
   getTextValue = (id: string) => (this.valuesText as any)[id];
 
   updateLayout = (selectedType: string | number) => {
-    console.log(selectedType);
     this.selectedType = selectedType as string;
     this.sweetnessRangeShow = (selectedType === 'custom');
     this.calculateIngredients();
@@ -95,9 +94,7 @@ export class GelsComponent {
 
   private setGelCost = () => {
     Object.keys(this.result.ingredients).forEach((value) => {
-      console.log(this.result.ingredients[value]);
       const selectIngredient = (GEL_INGREDIENTS_PRICES as any)[value];
-      console.log(selectIngredient, value);
       const costIngredient = calculateIngredientCost(
         selectIngredient.weight,
         selectIngredient.unit,
@@ -108,11 +105,6 @@ export class GelsComponent {
       (this.costByGel as any)[value] = costIngredient;
       (this.costByGel as any)['total'] += costIngredient;
     });
-    console.log(
-      'Coste Total del Gel',
-      (this.costByGel as any)['total'].toFixed(4),
-      `€`
-    );
   }
 
   // Función para calcular los ingredientes basado en el formulario
@@ -126,7 +118,6 @@ export class GelsComponent {
       caffeine,
       energyGel,
     } = this.gelForm.value;
-    isDevMode() && console.log(this.gelForm.value);
     this.numberOfGels = numberOfGels;
     try {
       if (this.selectedType === 'custom') {
@@ -138,7 +129,6 @@ export class GelsComponent {
           energyGel
         );
         this.setGelCost();
-        console.log(this.costByGel);
         return;
       }
 

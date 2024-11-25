@@ -125,6 +125,8 @@ export const TEXTURE_INDEX = [
   },
 ];
 
+export const GEL_MAX_WEIGHT = 110; // gr
+
 export const SLIDER_GELS_OPTIONS = [
   {
     id: 'numberOfGels',

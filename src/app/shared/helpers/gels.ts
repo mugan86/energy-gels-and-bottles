@@ -93,7 +93,7 @@ export function calculateCustomGelIngredients(
   // Calcular el peso total de los ingredientes
   const totalIngredientsWeight =
     maltodextrin + fructose + flavoring + evolytesPerGel;
-  let water = 100 - totalIngredientsWeight; // Ajustar para llegar a 100 g de peso total
+  let water = 110 - totalIngredientsWeight; // Ajustar para llegar a 110 g de peso total
 
   // Ajuste de agua basado en el índice de textura
   const textureAdjustment = (textureIndex * 0.4 - 0.2) * 100; // Entre -20g y +20g

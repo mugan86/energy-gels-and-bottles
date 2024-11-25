@@ -175,7 +175,6 @@ export class GelRecommendationsComponent {
   }
 
   select(proportion: number | string) {
-    console.log(proportion);
     this.router.navigate(['/', proportion ]);
   }
 
