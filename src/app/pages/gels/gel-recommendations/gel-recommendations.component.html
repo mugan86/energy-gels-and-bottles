@@ -7,8 +7,8 @@
       <label for="sport">Deporte</label>
       <select formControlName="sport" id="sport" class="form-control">
         <option value="">Seleccionar Deporte</option>
-        @for (item of sports; track item) {
-        <option [value]="item">{{ item }}</option>
+        @for (item of sports; track item.key) {
+        <option [value]="item.key">{{ item.label }}</option>
         }
       </select>
     </div>
@@ -17,8 +17,8 @@
       <label for="duration">Duración</label>
       <select formControlName="duration" id="duration" class="form-control">
         <option value="">Seleccionar Duración</option>
-        @for (item of durations; track item) {
-        <option [value]="item">{{ item }}</option>
+        @for (item of durations; track item.key) {
+        <option [value]="item.key">{{ item.label }}</option>
         }
       </select>
     </div>
@@ -27,8 +27,8 @@
       <label for="intensity">Intensidad</label>
       <select formControlName="intensity" id="intensity" class="form-control">
         <option value="">Seleccionar Intensidad</option>
-        @for (item of intensities; track item) {
-        <option [value]="item">{{ item }}</option>
+        @for (item of intensities; track item.key) {
+        <option [value]="item.key">{{ item.label }}</option>
         }
       </select>
     </div>

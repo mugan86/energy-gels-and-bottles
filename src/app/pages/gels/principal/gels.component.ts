@@ -1,4 +1,4 @@
-import { Component, isDevMode } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { AccordionModule } from '@shared/components/accordion/accordion.module';
 import { GelItemComponent } from '@shared/components/item/gel-item/gel-item.component';

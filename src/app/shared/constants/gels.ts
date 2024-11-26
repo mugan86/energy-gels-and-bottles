@@ -1,3 +1,4 @@
+import { GelRecommendation } from '@app/models/gel';
 import { Units } from '../types/units';
 
 export const GEL_INGREDIENTS_PRICES = {
