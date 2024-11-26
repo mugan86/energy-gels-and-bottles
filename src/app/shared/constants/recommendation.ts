@@ -14,7 +14,11 @@ export const KEYS_FILTERS = {
     MORE_TWENTY_KM: 'more_20_km',
     MORE_FIFTY_KM: 'more_50_km',
   },
-  INTENSITIES: {},
+  INTENSITIES: {
+    HIGH: 'high',
+    MIX: 'mix',
+    LOW: 'low'  
+  },
   SPORTS: {
     CYCLING: 'cycling',
     RUNNING: 'running',
@@ -45,9 +49,9 @@ export const DURATIONS: Select[] = [
   { key: KEYS_FILTERS.DURATIONS.MORE_FIFTY_KM, label: '> 50 km' },
 ];
 export const INTENSITIES: Select[] = [
-  { key: 'high', label: 'Alta (explosiva)' },
-  { key: 'mix', label: 'Mixta' },
-  { key: 'low', label: 'Baja-moderada (sostenida)' },
+  { key: KEYS_FILTERS.INTENSITIES.HIGH, label: 'Alta (explosiva)' },
+  { key: KEYS_FILTERS.INTENSITIES.MIX, label: 'Mixta' },
+  { key: KEYS_FILTERS.INTENSITIES.LOW, label: 'Baja-moderada (sostenida)' },
 ];
 
 export const gelData: GelRecommendation[] = [
