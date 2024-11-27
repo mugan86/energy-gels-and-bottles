@@ -58,7 +58,7 @@ export const gelData: GelRecommendation[] = [
     {
       sport: KEYS_FILTERS.SPORTS.CYCLING,
       duration: KEYS_FILTERS.DURATIONS.SIXTEEN_MAX,
-      intensity: 'Alta (explosiva)',
+      intensity: KEYS_FILTERS.INTENSITIES.HIGH,
       ideal_scenarios: 'Contrarreloj, sprints cortos, series de alta intensidad.',
       recommended_ratios: [
         {
@@ -72,7 +72,7 @@ export const gelData: GelRecommendation[] = [
     {
       sport: KEYS_FILTERS.SPORTS.CYCLING,
       duration: KEYS_FILTERS.DURATIONS.NINETEEN_ONE_HUNDRED_EIGHTEEN,
-      intensity: 'Mixta',
+      intensity: KEYS_FILTERS.INTENSITIES.MIX,
       ideal_scenarios: 'Fondo medio, competiciones con cambios de ritmo.',
       recommended_ratios: [
         {
@@ -86,7 +86,7 @@ export const gelData: GelRecommendation[] = [
     {
       sport: KEYS_FILTERS.SPORTS.CYCLING,
       duration: KEYS_FILTERS.DURATIONS.MORE_THREE_HOURS,
-      intensity: 'Baja-moderada (sostenida)',
+      intensity: KEYS_FILTERS.INTENSITIES.LOW,
       ideal_scenarios: 'Fondos largos, entrenamiento base.',
       recommended_ratios: [
         {
@@ -100,7 +100,7 @@ export const gelData: GelRecommendation[] = [
     {
       sport: KEYS_FILTERS.SPORTS.CYCLING,
       duration: KEYS_FILTERS.DURATIONS.SIXTEEN_NINETEEN,
-      intensity: 'Mixta',
+      intensity: KEYS_FILTERS.INTENSITIES.MIX,
       ideal_scenarios:
         'Entrenamientos intermedios o competencias cortas con variación de ritmo.',
       recommended_ratios: [
@@ -115,7 +115,7 @@ export const gelData: GelRecommendation[] = [
     {
       sport: KEYS_FILTERS.SPORTS.RUNNING,
       duration: KEYS_FILTERS.DURATIONS.MAX_10_KM,
-      intensity: 'Alta (explosiva)',
+      intensity: KEYS_FILTERS.INTENSITIES.HIGH,
       ideal_scenarios: 'Carreras de 5K, intervalos rápidos en pista.',
       recommended_ratios: [
         {
@@ -129,7 +129,7 @@ export const gelData: GelRecommendation[] = [
     {
       sport: KEYS_FILTERS.SPORTS.RUNNING,
       duration: KEYS_FILTERS.DURATIONS.TEN_TWENTY_KM,
-      intensity: 'Mixta',
+      intensity: KEYS_FILTERS.INTENSITIES.MIX,
       ideal_scenarios: 'Medias maratones, rodajes de intensidad media.',
       recommended_ratios: [
         {
@@ -143,7 +143,7 @@ export const gelData: GelRecommendation[] = [
     {
       sport: KEYS_FILTERS.SPORTS.RUNNING,
       duration: KEYS_FILTERS.DURATIONS.MORE_TWENTY_KM,
-      intensity: 'Baja-moderada (sostenida)',
+      intensity: KEYS_FILTERS.INTENSITIES.LOW,
       ideal_scenarios: 'Maratones, rodajes largos con ritmos constantes.',
       recommended_ratios: [
         {
@@ -157,7 +157,7 @@ export const gelData: GelRecommendation[] = [
     {
       sport: KEYS_FILTERS.SPORTS.TRAIL_RUNNING,
       duration: KEYS_FILTERS.DURATIONS.MAX_10_KM,
-      intensity: 'Alta (explosiva)',
+      intensity: KEYS_FILTERS.INTENSITIES.HIGH,
       ideal_scenarios: 'Kilómetro vertical, segmentos técnicos cortos y rápidos.',
       recommended_ratios: [
         {
@@ -171,7 +171,7 @@ export const gelData: GelRecommendation[] = [
     {
       sport: KEYS_FILTERS.SPORTS.TRAIL_RUNNING,
       duration: KEYS_FILTERS.DURATIONS.MORE_TWENTY_KM,
-      intensity: 'Mixta',
+      intensity: KEYS_FILTERS.INTENSITIES.MIX,
       ideal_scenarios:
         'Maratones de montaña, trails técnicos con subidas y descensos frecuentes.',
       recommended_ratios: [
@@ -186,7 +186,7 @@ export const gelData: GelRecommendation[] = [
     {
       sport: KEYS_FILTERS.SPORTS.TRAIL_RUNNING,
       duration: KEYS_FILTERS.DURATIONS.MORE_FIFTY_KM,
-      intensity: 'Baja-moderada (sostenida)',
+      intensity: KEYS_FILTERS.INTENSITIES.LOW,
       ideal_scenarios: 'Ultratrails (>8 h), etapas largas con ritmo constante.',
       recommended_ratios: [
         {
@@ -200,7 +200,7 @@ export const gelData: GelRecommendation[] = [
     {
       sport: KEYS_FILTERS.SPORTS.TRIATLON,
       duration: KEYS_FILTERS.DURATIONS.SIXTEEN_MAX,
-      intensity: 'Alta (explosiva)',
+      intensity: KEYS_FILTERS.INTENSITIES.HIGH,
       ideal_scenarios:
         'Salidas rápidas o primeros tramos de triatlón sprint u olímpico.',
       recommended_ratios: [
@@ -215,7 +215,7 @@ export const gelData: GelRecommendation[] = [
     {
       sport: KEYS_FILTERS.SPORTS.TRIATLON,
       duration: KEYS_FILTERS.DURATIONS.TWO_FOUR_HOURS,
-      intensity: 'Mixta',
+      intensity: KEYS_FILTERS.INTENSITIES.MIX,
       ideal_scenarios:
         'Segmentos de ciclismo y carrera en triatlones olímpicos o media distancia.',
       recommended_ratios: [
@@ -230,7 +230,7 @@ export const gelData: GelRecommendation[] = [
     {
       sport: KEYS_FILTERS.SPORTS.TRIATLON,
       duration: KEYS_FILTERS.DURATIONS.MORE_FOUR_HOURS,
-      intensity: 'Baja-moderada (sostenida)',
+      intensity: KEYS_FILTERS.INTENSITIES.LOW,
       ideal_scenarios:
         'Segmentos de carrera en triatlones de larga distancia (Half Ironman o Ironman).',
       recommended_ratios: [

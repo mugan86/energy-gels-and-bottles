@@ -4,11 +4,12 @@ import { Router } from '@angular/router';
 import { GelRecommendation } from '@app/models/gel';
 import { ButtonComponent } from '@app/shared/components/button/button.component';
 import { DURATIONS, gelData, INTENSITIES, SPORTS } from '@app/shared/constants/recommendation';
+import { SelectLabelFromKeyPipe } from '@app/shared/pipes/select-label-from-key.pipe';
 
 @Component({
   selector: 'app-gel-recommendations',
   standalone: true,
-  imports: [FormsModule, ReactiveFormsModule, ButtonComponent],
+  imports: [FormsModule, ReactiveFormsModule, ButtonComponent, SelectLabelFromKeyPipe],
   templateUrl: './gel-recommendations.component.html',
   styleUrl: './gel-recommendations.component.css'
 })
@@ -51,6 +52,11 @@ export class GelRecommendationsComponent {
         (duration ? gel.duration === duration : true) &&
         (intensity ? gel.intensity === intensity : true)
       );
+    }).map((value) => {
+      return {
+        ...value,
+        filterAll: `${value.sport} - ${value.duration} - ${value.intensity}`
+      }
     });
   }
 }

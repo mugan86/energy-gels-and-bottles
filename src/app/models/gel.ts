@@ -1,4 +1,5 @@
 export interface GelRecommendation {
+  filterAll?: string;
   sport: string;
   duration: string;
   intensity: string;
