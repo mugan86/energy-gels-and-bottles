@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { GelRecommendation } from '@app/models/gel';
+import { Select } from '@app/models/select';
 import { ButtonComponent } from '@app/shared/components/button/button.component';
 import { DURATIONS, gelData, INTENSITIES, SPORTS } from '@app/shared/constants/recommendation';
 import { SelectLabelFromKeyPipe } from '@app/shared/pipes/select-label-from-key.pipe';
@@ -21,6 +22,8 @@ export class GelRecommendationsComponent {
   sports = SPORTS;
   durations = DURATIONS;
   intensities = INTENSITIES;
+
+  valuesList: Select[] = [...SPORTS, ...DURATIONS, ...INTENSITIES];
 
   constructor(private fb: FormBuilder, private router: Router) {
     // Crear formulario reactivo con validaciones

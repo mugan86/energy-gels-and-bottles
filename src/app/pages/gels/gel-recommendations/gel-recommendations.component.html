@@ -39,7 +39,7 @@
     <ul>
       @for (item of recommendedGels; track item.sport) {
       <li>
-        <h3>{{ item.filterAll | selectLabelFromKey }}</h3>
+        <h3>{{ item.filterAll | selectLabelFromKey:valuesList }}</h3>
         <p><strong>Escenarios ideales:</strong> {{ item.ideal_scenarios }}</p>
         <p>
           Proporciones recomendadas: <!--<strong class="select-proportions">{{

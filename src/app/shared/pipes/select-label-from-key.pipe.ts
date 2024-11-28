@@ -17,7 +17,7 @@ export class SelectLabelFromKeyPipe implements PipeTransform {
 
   private readonly INTENSITIES: Select[] = INTENSITIES_LIST;
 
-  transform(value?: string, ...args: unknown[]): string {
+  transform(value?: string, ...args: Select[][]): string {
     if (!value) {
       return '';
     }
@@ -25,16 +25,18 @@ export class SelectLabelFromKeyPipe implements PipeTransform {
     // Dividir el texto en claves separadas por " - "
     const keys = value.split(' - ');
 
+    // Combinar todas las listas pasadas como argumentos en un único array
+    const allLists = args.flat();
+
     // Convertir cada clave en su etiqueta
-    const labels = keys.map((key) => this.getLabelFromLists(key.trim()));
+    const labels = keys.map((key) => this.getLabelFromLists(key.trim(), allLists));
 
     // Combinar las etiquetas en un string final
     return labels.join(' - ');
   }
 
-  private getLabelFromLists(key: string): string {
-    // Buscar en las listas
-    const allLists = [...this.SPORTS, ...this.DURATIONS, ...this.INTENSITIES];
+  private getLabelFromLists(key: string, allLists: Select[]): string {
+    // Buscar en las listas combinadas
     const match = allLists.find((item) => item.key === key);
 
     // Si se encuentra, devolver el label; si no, devolver la clave original
