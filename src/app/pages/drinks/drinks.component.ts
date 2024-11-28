@@ -9,17 +9,31 @@ import { CommonModule } from '@angular/common';
 import { DRINK_INGREDIENTS_PRICES, drinkChoiceHTML, SWEETNESS_INDEX } from '../../shared/constants';
 import { OPTIONS_VALUES_TEXTS } from '../gels/principal/config';
 import { calculateIngredientCost } from '@app/shared/helpers';
+import { ButtonToggleGroupComponent } from '@app/shared/components/button-toggle-group/button-toggle-group.component';
+import { Select } from '@app/models/select';
 
 @Component({
   selector: 'app-drinks',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, ButtonToggleGroupComponent],
   templateUrl: './drinks.component.html',
   styleUrl: './drinks.component.css',
 })
 export class DrinksComponent implements OnInit {
   formGroup!: FormGroup;
   private formBuilder = inject(FormBuilder);
+
+  drinkTypes: {id: string | number, label: string, disabled: boolean}[] = [
+    {
+      id: 'hypotonic', label: 'Hipotónica', disabled: false
+    },
+    {
+      id: 'isotonic', label: 'Isotónica', disabled: false
+    },
+    {
+      id: 'hypertonic', label: 'Hipertónica', disabled: false
+    }
+  ]
 
   // Tipos de bebida
   selectedType: string = 'hypotonic';
@@ -62,6 +76,11 @@ export class DrinksComponent implements OnInit {
   // Función para abrir o cerrar el accordion
   toggleAccordion(index: number) {
     this.activeIndex = this.activeIndex === index ? null : index;
+  }
+
+  selectType($event: string | number) {
+    this.selectedType = $event as string;
+    this.updateLayout($event as string)
   }
 
   ngOnInit() {

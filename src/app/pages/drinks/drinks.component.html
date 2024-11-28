@@ -1,23 +1,16 @@
 <div class="container">
     <h1 class="section-title">Bebidas Energéticas</h1>
     <hr>
+    <span class="aditional-info" [innerHTML]="howElection"></span><br/>
+    <hr>
     <!-- Tipo de Bebida -->
-
-    <div class="toggle-group">
-        <button type="button" class="toggle-button" [ngClass]="{ active: selectedType === 'hypotonic' }"
-            (click)="updateLayout('hypotonic')">
-            Hipotónica
-        </button>
-        <button type="button" class="toggle-button" [ngClass]="{ active: selectedType === 'isotonic' }"
-            (click)="updateLayout('isotonic')">
-            Isotónica
-        </button>
-        <button type="button" class="toggle-button" [ngClass]="{ active: selectedType === 'hypertonic' }"
-            (click)="updateLayout('hypertonic')">
-            Hipertónica
-        </button>
-    </div>
-
+    <h3>Seleccione el tipo de bebida deseada:</h3>
+    <app-button-toggle-group
+      [options]="drinkTypes"
+      [selectOption]="selectedType"
+      (updateSelectOption)="selectType($event)"
+    ></app-button-toggle-group>
+    
     <!-- Información dinámica -->
     @if(selectedType) {
     <div class="info">
@@ -115,8 +108,11 @@
     }
 
     <hr>
-
-    <span class="aditional-info" [innerHTML]="howElection"></span>
+    <div class="info">
+        <h3>Instrucciones para crear nuestra bebida:</h3>
+        <p></p>
+    </div>
+    
 
 
 
