@@ -1,49 +1,123 @@
-<div class="start">
-  <h1>Bienvenido a mi Página</h1>
-  <p>Selecciona una categoría para explorar más:</p>
-</div>
-
-<!-- Tarjetas principales -->
 <div class="container">
+  <!--<section class="intro-section">
+    <h1 class="section-title">¡Optimiza Tu Rendimiento y Cuida Tu Presupuesto!</h1>
+    <hr>
+    <h2>La Solución Inteligente para Deportistas y Atletas</h2>
+    <p>
+      Nuestro proyecto está diseñado para ofrecerte <strong>recursos prácticos</strong> que no solo potencian tu
+      rendimiento, sino que también te ayudan a <strong>ahorrar dinero</strong> sin comprometer la calidad.
+    </p>
+    <p>
+      Aquí encontrarás guías y herramientas que te permitirán:
+    </p>
+    <ul>
+      <li><strong>Crear geles energéticos personalizados:</strong> para mantener tu energía sin gastar de más.</li>
+      <li><strong>Preparar bebidas deportivas:</strong> efectivas y económicas, adaptadas a tus necesidades.</li>
+      <li><strong>Identificar materiales esenciales:</strong> que complementen tus entrenamientos de manera inteligente.
+      </li>
+    </ul>
 
-  <div class="card">
-    <img src="https://via.placeholder.com/300x150" alt="Geles">
-    <div class="card-content">
-      <div class="card-title">Geles</div>
-      <div class="card-description">Descubre una variedad de geles energéticos para mejorar tu rendimiento.</div>
+    <p>
+      🏋️ <strong>¿Por qué es importante ahorrar?</strong> Cada euro que optimizas al usar nuestros recursos puede
+      marcar la diferencia en tu progreso. Imagina reinvertir ese ahorro en:
+    </p>
+    <ul>
+      <li><strong>Pruebas médicas</strong> que aseguren tu salud y rendimiento.</li>
+      <li><strong>Asesorías con entrenadores o nutricionistas profesionales,</strong> clave para tus objetivos.</li>
+      <li><strong>Equipamiento de calidad</strong> para entrenar con mayor eficacia.</li>
+    </ul>
+
+    <h3>¿Qué hace único a este proyecto?</h3>
+    <ul>
+      <li>🚀 <strong>Recursos adaptados:</strong> Pensados en tus necesidades específicas como deportista.</li>
+      <li>📘 <strong>Información confiable y detallada:</strong> para que tomes decisiones informadas.</li>
+      <li>🛠️ <strong>Herramientas efectivas:</strong> que simplifican la gestión de tu entrenamiento y nutrición.</li>
+    </ul>
+
+    <p><strong>¡Es hora de llevar tu entrenamiento al siguiente nivel sin romper tu presupuesto!</strong></p>
+    <p><em>¡Descubre cómo aprovechar cada recurso y empieza a triunfar hoy mismo! 🏆</em></p>
+  </section>-->
+
+
+  <!-- Tarjetas principales -->
+
+  <section class="intro-section">
+    <h1 class="section-title">¡Transforma Tu Entrenamiento con Herramientas Inteligentes!</h1>
+    <hr>
+    <h2>Ahorra Dinero y Optimiza Tu Rendimiento</h2>
+    <p>
+      Este proyecto está diseñado para proporcionarte <strong>recursos y recomendaciones</strong> que no solo mejoran tu desempeño, sino que también te ayudan a <strong>maximizar tu presupuesto</strong>.
+    </p>
+    <p>
+      A través de nuestras herramientas, aprenderás a elaborar y utilizar productos como:
+    </p>
+    <ul>
+      <li><strong>Geles energéticos:</strong> para mantenerte activo sin gastar de más.</li>
+      <li><strong>Bebidas deportivas:</strong> diseñadas para potenciar tu hidratación con un costo reducido.</li>
+      <li><strong>Materiales e ingredientes esenciales:</strong> para crear tus propias soluciones adaptadas a tus necesidades.</li>
+    </ul>
+  
+    <p>
+      💡 <strong>¿Por qué ahorrar importa?</strong> El dinero que optimizas al usar nuestras guías y calculadoras puede ser reinvertido en:
+    </p>
+    <ul>
+      <li><strong>Consultas con entrenadores o nutricionistas profesionales.</strong></li>
+      <li><strong>Pruebas médicas</strong> que aseguren tu salud y progreso.</li>
+      <li><strong>Equipamiento de calidad</strong> para tus entrenamientos.</li>
+    </ul>
+  
+    <h3>¿Qué te ofrecemos?</h3>
+    <ul>
+      <li>💪 <strong>Recursos prácticos:</strong> diseñados para satisfacer tus necesidades específicas.</li>
+      <li>📚 <strong>Información clara y detallada:</strong> sobre los beneficios y aplicaciones de cada producto.</li>
+      <li>🛠️ <strong>Herramientas útiles:</strong> que te ayudarán a lograr más con menos.</li>
+    </ul>
+  
+    <p><strong>¡Aprovecha esta oportunidad para llevar tu rendimiento y tu economía al siguiente nivel!</strong></p>
+    <p><em>¡Explora ahora y comienza tu camino hacia el éxito! 🏆</em></p>
+</section>
+
+  <div class="options-app">
+
+    <div class="card">
+      <img src="https://via.placeholder.com/300x150" alt="Geles">
+      <div class="card-content">
+        <div class="card-title">Geles</div>
+        <div class="card-description">Descubre una variedad de geles energéticos para mejorar tu rendimiento.</div>
+      </div>
+      <div class="card-actions">
+        <button [routerLink]="['/gels']">Ver más </button>
+      </div>
     </div>
-    <div class="card-actions">
-      <button [routerLink]="['/gels']">Ver más</button>
+    <div class="card">
+      <img src="https://via.placeholder.com/300x150" alt="Bebidas Energéticas">
+      <div class="card-content">
+        <div class="card-title">Bebidas Energéticas</div>
+        <div class="card-description">Explora las mejores bebidas energéticas para tus entrenamientos.</div>
+      </div>
+      <div class="card-actions">
+        <button [routerLink]="['/drinks']">Ver más</button>
+      </div>
     </div>
-  </div>
-  <div class="card">
-    <img src="https://via.placeholder.com/300x150" alt="Bebidas Energéticas">
-    <div class="card-content">
-      <div class="card-title">Bebidas Energéticas</div>
-      <div class="card-description">Explora las mejores bebidas energéticas para tus entrenamientos.</div>
+    <!--<div class="card">
+      <img src="https://via.placeholder.com/300x150" alt="Materiales">
+      <div class="card-content">
+        <div class="card-title">Materiales</div>
+        <div class="card-description">Encuentra materiales esenciales para deportistas y atletas.</div>
+      </div>
+      <div class="card-actions">
+        <button>Ver más</button>
+      </div>
     </div>
-    <div class="card-actions">
-      <button [routerLink]="['/drinks']">Ver más</button>
-    </div>
-  </div>
-  <div class="card">
-    <img src="https://via.placeholder.com/300x150" alt="Materiales">
-    <div class="card-content">
-      <div class="card-title">Materiales</div>
-      <div class="card-description">Encuentra materiales esenciales para deportistas y atletas.</div>
-    </div>
-    <div class="card-actions">
-      <button>Ver más</button>
-    </div>
-  </div>
-  <div class="card">
-    <img src="https://via.placeholder.com/300x150" alt="Sobre el Autor">
-    <div class="card-content">
-      <div class="card-title">Sobre el Autor</div>
-      <div class="card-description">Conoce más sobre el autor de esta página y sus motivaciones.</div>
-    </div>
-    <div class="card-actions">
-      <button>Ver más</button>
-    </div>
+    <div class="card">
+      <img src="https://via.placeholder.com/300x150" alt="Sobre el Autor">
+      <div class="card-content">
+        <div class="card-title">Sobre el Autor</div>
+        <div class="card-description">Conoce más sobre el autor de esta página y sus motivaciones.</div>
+      </div>
+      <div class="card-actions">
+        <button>Ver más</button>
+      </div>
+    </div>-->
   </div>
 </div>

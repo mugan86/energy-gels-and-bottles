@@ -59,3 +59,8 @@
 .aditional-info {
   text-align: left;
 }
+
+.item-result{
+  border-bottom: 2px solid var(--principal-color);
+  padding-bottom: 5px;
+}

@@ -30,6 +30,8 @@ const getNutritionalValues = (
   };
 };
 
+export const getEvolytes = (carbs: number) => (carbs / 30) * 2.5
+
 /**
  * Toda la info en guides\electrolytes.md
  * @param carbsPerGel

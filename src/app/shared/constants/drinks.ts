@@ -1,3 +1,6 @@
+import { Units } from "../types/units";
+import { ENERGETIC_INGREDIENTS } from "./common";
+
 export const CARBOHYDRATE_CONCENTRATION_DESCRIPTIONS = {
   hypotonic: {
     2: 'Muy ligero, ideal para hidratación rápida y reposición de electrolitos sin causar molestias digestivas.',
@@ -240,3 +243,18 @@ export const drinkSummaryHTML = `
 </table>
 <p>Recuerda que estas bebidas deportivas también pueden ser ajustadas a necesidades específicas, como el clima o el nivel de sudoración.</p>
 `;
+
+
+export const DRINK_INGREDIENTS_PRICES = {
+  salt: {
+    price: 7.19,
+    weight: 1000,
+    unit: 'gr' as Units,
+  },
+  protein: {
+    price: 30.90,
+    weight: 2,
+    unit: 'kgr' as Units,
+  },
+  ...ENERGETIC_INGREDIENTS
+};

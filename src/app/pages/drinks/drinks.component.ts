@@ -1,9 +1,14 @@
-import { Component, OnInit } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { HypertonicDrinkInput, HypertonicDrinkOutput } from '../../models/drink/hypertonic';
-import { getCarbohydrateMessage } from '../../shared/helpers/drinks';
+import { Component, inject, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, FormsModule } from '@angular/forms';
+import {
+  HypertonicDrinkInput,
+  HypertonicDrinkOutput,
+} from '../../models/drink/hypertonic';
+import { calculateFlavor, getCarbohydrateMessage } from '../../shared/helpers/drinks';
 import { CommonModule } from '@angular/common';
-import { drinkChoiceHTML } from '../../shared/constants';
+import { DRINK_INGREDIENTS_PRICES, drinkChoiceHTML, SWEETNESS_INDEX } from '../../shared/constants';
+import { OPTIONS_VALUES_TEXTS } from '../gels/principal/config';
+import { calculateIngredientCost } from '@app/shared/helpers';
 
 @Component({
   selector: 'app-drinks',
@@ -13,6 +18,9 @@ import { drinkChoiceHTML } from '../../shared/constants';
   styleUrl: './drinks.component.css',
 })
 export class DrinksComponent implements OnInit {
+  formGroup!: FormGroup;
+  private formBuilder = inject(FormBuilder);
+
   // Tipos de bebida
   selectedType: string = 'hypotonic';
   concentrationDefault = {
@@ -21,11 +29,17 @@ export class DrinksComponent implements OnInit {
     hypertonic: 12.5,
   };
 
+  valuesText = OPTIONS_VALUES_TEXTS;
+
   // Datos de entrada
   waterVolume: number = 500; // Hipotónica e Isotónica
   carbConcentration: number = this.concentrationDefault['hypotonic']; // Hipotónica
-  carbConcentrationMessage: string = getCarbohydrateMessage(this.carbConcentration);
+  carbConcentrationMessage: string = getCarbohydrateMessage(
+    this.carbConcentration
+  );
+  flavour = 0;
   sweetness: number = 0.5; // Isotónica
+  sweetnessText: string = this.selectSweetness();
   weight: number = 70; // Hipertónica
 
   // Resultados
@@ -41,9 +55,7 @@ export class DrinksComponent implements OnInit {
       'Bebida para recuperación post-entrenamiento. Alta concentración de carbohidratos (>10%).',
   };
 
- 
   howElection = drinkChoiceHTML;
-  
 
   activeIndex: number | null = null;
 
@@ -53,56 +65,127 @@ export class DrinksComponent implements OnInit {
   }
 
   ngOnInit() {
+    /*this.formGroup = this.formBuilder.group({
+      type: 'hypotonic', // Valor inicial: 2 geles
+      textureIndex: 0.7, // Valor inicial: textura media
+      carbsPerGel: 52.7, // Valor inicial: 40g de carbohidratos por gel,
+      sweetnessIndex: 0.5, // Ni poco dulce ni mucho entre 0 y 1,
+      caffeine: false,
+      energyGel: false,
+    });*/
     this.calculate();
+  }
+
+  private selectSweetness() {
+    return SWEETNESS_INDEX[
+      SWEETNESS_INDEX.findIndex((data) => data.index === this.sweetness)
+    ].description;
+  }
+
+  updateWeetneess() {
+    this.sweetnessText = this.selectSweetness();
   }
 
   updateLayout(typeDrink: string, waterChange: boolean = false) {
     if (!waterChange) {
-      this.carbConcentration = (this.concentrationDefault as any)[
-        typeDrink
-      ];
+      this.carbConcentration = (this.concentrationDefault as any)[typeDrink];
     }
     this.selectedType = typeDrink;
     this.calculate();
   }
 
   updateCarboHidrateConcentration() {
-    this.carbConcentrationMessage = getCarbohydrateMessage(this.carbConcentration);
+    this.carbConcentrationMessage = getCarbohydrateMessage(
+      this.carbConcentration
+    );
     this.calculate();
   }
 
   // Calcular resultados
   calculate() {
+    const flavourGr = calculateFlavor(this.waterVolume, this.selectedType as any,  Math.floor(Math.random() * 5) + 1)
     switch (this.selectedType) {
       case 'hypotonic':
         const carbs = (this.waterVolume * this.carbConcentration) / 100;
         const maltodextrin = (carbs * 100) / 95;
         // 95gr ch ----- 100 gr
         // carbs ch ----- x gr
-        const salt = (this.waterVolume * 1) / 500;
-        this.results = `Carbohidratos que contiene: ${carbs.toFixed(
+        const salt = Math.max(1, (this.waterVolume / 500) * 1);
+        /*this.results = `Carbohidratos que contiene: ${carbs.toFixed(
           2
-        )} g. / Maltodextrina: ${maltodextrin.toFixed(2)}g. / Sal necesaria: ${salt < 1 ? 1 : salt.toFixed(2)
-          } g.`;
+        )} g. / Maltodextrina: ${maltodextrin.toFixed(2)}g. / Sal necesaria: ${
+          salt < 1 ? 1 : salt.toFixed(2)
+        } g.`;*/
+        const selectIngredientMalto = (DRINK_INGREDIENTS_PRICES as any)['maltodextrin'];
+        const costIngredientMalto = calculateIngredientCost(
+          selectIngredientMalto.weight,
+          selectIngredientMalto.unit,
+          selectIngredientMalto.price,
+          maltodextrin,
+          'gr'
+        );
+        const selectIngredientSalt = (DRINK_INGREDIENTS_PRICES as any)['salt'];
+
+        const costSalt = calculateIngredientCost(
+          selectIngredientSalt.weight,
+          selectIngredientSalt.unit,
+          selectIngredientSalt.price,
+          salt,
+          'gr'
+        );
+        const selectFlavour = (DRINK_INGREDIENTS_PRICES as any)['flavoring'];
+        const costFlavour = calculateIngredientCost(
+          selectFlavour.weight,
+          selectFlavour.unit,
+          selectIngredientSalt.price,
+          flavourGr,
+          'gr'
+        );
+        console.log('MALto', costIngredientMalto, 'SALT', costSalt, 'Flavour', costFlavour)
+        console.log('COST', costIngredientMalto + costSalt + costFlavour, '€')
+        this.results = `
+        <ul>
+        <li>Carbohidratos: ${carbs.toFixed(2)}.gr</li>
+        <li>Agua: ${this.waterVolume} ml.</li>
+        <li>Maltodextrina: ${maltodextrin.toFixed(
+          2
+        )} gr.<li>Sal: ${salt.toFixed(2)} gr.</li>
+        </ul>`;
         break;
       case 'isotonic':
-        const { maltodextrin: malto, fructose } = this.getIsotonic(this.waterVolume, this.carbConcentration, this.sweetness)
+        const { maltodextrin: malto, fructose } = this.getIsotonic(
+          this.waterVolume,
+          this.carbConcentration,
+          this.sweetness
+        );
 
         this.results = `Ingredientes a añadir en la bebida: Maltodextrina ${malto}gr. / Fructosa: ${fructose} gr. / Agua ${this.waterVolume}`;
         break;
       case 'hypertonic':
-        const { maltodextrin: maltos, protein: pro, salt: sa, effectiveCarbs, waterVolume } = this.calculateHypertonicDrink({
+        const {
+          maltodextrin: maltos,
+          protein: pro,
+          salt: sa,
+          effectiveCarbs,
+          waterVolume,
+        } = this.calculateHypertonicDrink({
           carbConcentration: this.carbConcentration,
-          weight: this.weight
-        })
+          weight: this.weight,
+        });
 
-        this.results = `Carbohidratos: ${effectiveCarbs.toFixed(
+        this.results = `
+        <ul>
+        <li>Carbohidratos: ${effectiveCarbs.toFixed(2)}.gr</li>
+        <li>Agua: ${waterVolume} ml.</li>
+        <li>Maltodextrina: ${maltos.toFixed(
           2
-        )} / Agua: ${waterVolume} ml / Maltodextrina: ${maltos.toFixed(
+        )} gr.</li><li>Proteína: ${pro.toFixed(
           2
-        )} g. / Proteína recomendada: ${pro.toFixed(2)} g. / Sal: ${sa.toFixed(2)} g.`;
+        )} gr.</li><li>Sal: ${sa.toFixed(2)} gr.</li>
+        </ul>`;
         break;
     }
+    
   }
 
   private getIsotonic(
@@ -122,8 +205,7 @@ export class DrinksComponent implements OnInit {
     }
 
     // Paso 1: Calcular los carbohidratos totales
-    const carbohidratosTotales =
-      (carbosConcentration * waterVolume) / 100;
+    const carbohidratosTotales = (carbosConcentration * waterVolume) / 100;
 
     // Paso 2: Ajustar las proporciones según el dulzor
     const proporcionMaltodextrina = 0.66 - 0.16 * sweetness; // 66% base ajustado por dulzor
@@ -144,12 +226,16 @@ export class DrinksComponent implements OnInit {
     };
   }
 
-  private calculateHypertonicDrink(input: HypertonicDrinkInput): HypertonicDrinkOutput {
+  private calculateHypertonicDrink(
+    input: HypertonicDrinkInput
+  ): HypertonicDrinkOutput {
     const { weight, carbConcentration } = input;
 
     // Validaciones básicas
     if (carbConcentration < 10 || carbConcentration > 15) {
-      throw new Error("La concentración de carbohidratos debe estar entre 10% y 15%.");
+      throw new Error(
+        'La concentración de carbohidratos debe estar entre 10% y 15%.'
+      );
     }
 
     // Carbohidratos efectivos (70g de maltodextrina proporcionan 66.5g de carbohidratos efectivos para un peso de 70kg)
@@ -175,5 +261,4 @@ export class DrinksComponent implements OnInit {
       salt: parseFloat(salt.toFixed(2)),
     };
   }
-
 }
