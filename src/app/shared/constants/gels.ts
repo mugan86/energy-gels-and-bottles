@@ -242,6 +242,15 @@ export const getGelTypes = (premium: boolean = false) => [
     info: 'Fórmula equilibrada, ideal para sesiones moderadamente largas o mixtas. Proporciona energía rápida y sostenida.',
     cons: 'Menos especializada, podría no ser óptima para entrenamientos extremadamente cortos o largos.'
   },
+  {
+    id: '41',
+    label: '4:1 (Carbohidratos : Proteínas)',
+    malto: 4,
+    fructosa: 1,
+    disabled: !premium,
+    info: 'Fórmula con alta concentración de carbohidratos y una proporción moderada de proteínas. Ideal para deportes de resistencia de larga duración como triatlón o ultra trail. Ofrece energía rápida y ayuda a la recuperación muscular durante el esfuerzo sostenido.',
+    cons: 'No se recomienda para esfuerzos cortos o entrenamientos de alta intensidad, donde los carbohidratos por sí solos son suficientes. Puede no ser ideal para personas que no requieren un aporte proteico adicional durante el ejercicio.'
+  }
   
 ];
 

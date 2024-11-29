@@ -10,15 +10,15 @@
   </p>
   <br />
   <div class="results">
-    <label>Seleccione tipo de gel</label> 
+    <label>Seleccione tipo de gel</label>
     <app-alert [type]="'info'">
       <span icon>ℹ</span>
       <span message
-        >¿No sabes cuál debes de elegir? Accede <a [routerLink]="['/gels/recommendations']">aquí</a></span
+        >¿No sabes cuál debes de elegir? Accede
+        <a [routerLink]="['/gels/recommendations']">aquí</a></span
       >
     </app-alert>
-    
-    
+
     @if(!isPremium){
     <app-alert [type]="'info'">
       <span icon>ℹ</span>
@@ -153,16 +153,18 @@
       más ecológico, que será más recomendable para entrenamientos y el uso de
       sobres para carreras.
     </li>
+    @if(showCaffeineInstructions) {
     <li>
-      <b>OPCIONAL</b>: En aquellos geles que queramos con cafeína, le meteremos
+      En aquellos geles que queramos <b>con cafeína</b>, le meteremos
       una pastilla para cuando estemos dentro del entrenamiento seleccionar en
       qué momento queremos esa energía extra. <br /><b>¡¡¡CUIDADO!!!</b>, son
       200mg de cafeína, por lo que
       <b>no tomaría más de 2 geles de cafeína al día</b>. Hay que ir
       alternándolos.
     </li>
+    }
   </ol>
-  <hr>
+  <hr />
   <p>
     Tutorial basado en el video de
     <a href="https://linktr.ee/amadornieto" target="_blank">Amador Nieto</a>:
@@ -172,6 +174,6 @@
       >Geles caseros 1:0:8</a
     >
   </p>
-  <hr>
+  <hr />
   <br />
 </div>

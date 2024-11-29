@@ -53,6 +53,8 @@ export class GelsComponent {
 
   slideGelsOptions = SLIDER_GELS_OPTIONS;
 
+  showCaffeineInstructions = false;
+
   constructor(private formBuilder: FormBuilder, private route: ActivatedRoute,) {
     // Crear el formulario reactivo con valores iniciales
     this.gelForm = this.formBuilder.group(DEFAULT_FORM_OPTIONS);
@@ -119,6 +121,7 @@ export class GelsComponent {
       energyGel,
     } = this.gelForm.value;
     this.numberOfGels = numberOfGels;
+    this.showCaffeineInstructions = caffeine;
     try {
       if (this.selectedType === 'custom') {
         this.result = calculateCustomGelIngredients(
