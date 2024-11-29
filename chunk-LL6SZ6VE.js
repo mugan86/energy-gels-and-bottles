@@ -1,1 +1,0 @@
-import{Oa as o,Pa as s,W as n,Za as a,gb as i}from"./chunk-CTTU235N.js";var f=class t{static \u0275fac=function(e){return new(e||t)};static \u0275cmp=n({type:t,selectors:[["app-gels-info"]],standalone:!0,features:[i],decls:2,vars:0,template:function(e,l){e&1&&(o(0,"p"),a(1,"info works!"),s())}})};export{f as GelsInfoComponent};
