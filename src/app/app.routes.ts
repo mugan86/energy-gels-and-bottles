@@ -43,6 +43,13 @@ export const routes: Routes = [
       ),
   },
   {
+    path: 'calculator',
+    loadComponent: () =>
+      import('./pages/calculator/calculator.component').then(
+        (mod) => mod.CalculatorComponent
+      ),
+  },
+  {
     path: '',
     pathMatch: 'full',
     /*loadComponent: () =>
