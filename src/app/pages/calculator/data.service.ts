@@ -1,10 +1,16 @@
 import { Injectable } from '@angular/core';
+import { GEL_INGREDIENTS_PRICES } from '@app/shared/constants';
 
 @Injectable({
     providedIn: 'root',
 })
 export class DataService {
     constructor() { }
+
+    materials = Object.entries(GEL_INGREDIENTS_PRICES).map(([key, value]) => ({
+        name: key,
+        ...value,
+    }));
 
     todoList = [
         {
@@ -36,4 +42,6 @@ export class DataService {
     getmyData() {
         return [...this.todoList];
     }
+
+    getGelsIngredients =  () => [...this.materials]
 }

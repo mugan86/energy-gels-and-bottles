@@ -48,3 +48,78 @@
     <b>Form is Valid ? :</b>
     {{ toDoListForm.valid }}
     }
+
+    @if(ingredientsCostsForm) {
+        <form class="form-group" [formGroup]="ingredientsCostsForm">
+            <div formArrayName="ingredients">
+                @if(ingredientsArray.value.length) {
+                <table class="table-bordered">
+                    <tr>
+                        <th>Code</th>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th colspan="2">Cantidad por lote</th>
+                        <th colspan="2">Cantidad usado</th>
+                    </tr>
+                    @for(x of ingredientsArray.controls; track $index) {
+                    <tr [formGroupName]="$index">
+                        <td>
+                            <input class="form-control" formControlName="code" placeholder="Item name" />
+                        </td>
+                        <td>
+                            <input class="form-control" formControlName="label" placeholder="Item name" />
+                        </td>
+                        <td>
+                            <input class="form-control" formControlName="price" placeholder="Item name" />
+                        </td>
+                        <td>
+                            <input class="form-control" formControlName="weight" placeholder="Item name" />
+                        </td>
+                        <!--<td>
+                            <input class="form-control" type="checkbox" formControlName="completed" />
+                        </td>-->
+                        <td>
+                            <select class="form-control" formControlName="unit">
+                                <option disabled selected hidden value="null">
+                                    Select Unit
+                                </option>
+                                @for(m of units; track $index) {
+                                    <option [value]="m">{{ m }}</option>
+                                }
+                                
+                            </select>
+                        </td>
+                        <td>
+                            <input class="form-control" formControlName="useWeight" placeholder="Item name" />
+                        </td>
+                        <td>
+                            <select class="form-control" formControlName="useUnit">
+                                <option disabled selected hidden value="null">
+                                    Select Unit
+                                </option>
+                                @for(m of units; track $index) {
+                                    <option [value]="m">{{ m }}</option>
+                                }
+                                
+                            </select>
+                        </td>
+                        <td>
+                            <button (click)="deleteItem($index)">Delete Item</button>
+                        </td>
+                    </tr>
+                    }
+        
+                </table>
+                }
+        
+            </div>
+            <button (click)="addNewItem()">Add New Item</button>
+            <button (click)="deleteAll()">Delete All</button>
+        </form>
+        
+        <b>Form's Value:</b>
+        {{ ingredientsCostsForm.value | json }}
+        <br />
+        <b>Form is Valid ? :</b>
+        {{ ingredientsCostsForm.valid }}
+        }

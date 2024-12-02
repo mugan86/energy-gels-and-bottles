@@ -62,21 +62,25 @@ export const ENERGETIC_INGREDIENTS = {
   flavoring: {
     price: 8.2,
     weight: 200,
+    label: 'Saborizante',
     unit: 'gr' as Units,
   },
   fructose: {
     price: 4.9,
     weight: 1,
+    label: 'Fructosa',
     unit: 'kgr' as Units,
   },
   maltodextrin: {
     price: 4.9,
     weight: 1,
+    label: 'Maltodextrina',
     unit: 'kgr' as Units,
   },
   water: {
     price: 0,
     weight: 1,
+    label: 'Agua',
     unit: 'kgr' as Units,
   },
 };

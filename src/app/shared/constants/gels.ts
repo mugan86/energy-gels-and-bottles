@@ -5,17 +5,20 @@ export const GEL_INGREDIENTS_PRICES = {
   evolytes: {
     price: 4.9,
     weight: 150,
+    label: 'Electrolitos',
     unit: 'gr' as Units,
   },
   ...ENERGETIC_INGREDIENTS,
   caffeine: {
     price: 3.8,
     weight: 120,
+    label: 'Cafeina (capsulas)',
     unit: 'unit' as Units,
   },
   energyGel: {
     price: 6.95,
     weight: 50,
+    label: 'Sobres geles',
     unit: 'unit' as Units,
   },
 };
@@ -111,14 +114,6 @@ export const GEL_MAX_WEIGHT = 110; // gr
 
 export const SLIDER_GELS_OPTIONS = [
   {
-    id: 'numberOfGels',
-    min: 1,
-    max: 6,
-    step: 1,
-    text: false,
-    title: 'Número de Geles',
-  },
-  {
     id: 'carbsPerGel',
     min: 30,
     max: 90,
@@ -141,6 +136,14 @@ export const SLIDER_GELS_OPTIONS = [
     step: 0.1,
     text: true, // sweetnessIndexText
     title: 'Índice de dulzor',
+  },
+  {
+    id: 'numberOfGels',
+    min: 1,
+    max: 6,
+    step: 1,
+    text: false,
+    title: 'Número de Geles',
   },
   
 ];
@@ -244,7 +247,7 @@ export const getGelTypes = (premium: boolean = false) => [
   },
   {
     id: '41',
-    label: '4:1 (Carbohidratos : Proteínas)',
+    label: '4:1 (Carbohidratos - Proteínas)',
     malto: 4,
     fructosa: 1,
     disabled: !premium,

@@ -30,32 +30,32 @@ export const KEYS_FILTERS = {
 };
 
 export const SPORTS: Select[] = [
-  { key: KEYS_FILTERS.SPORTS.CYCLING, label: 'Ciclismo' },
-  { key: KEYS_FILTERS.SPORTS.RUNNING, label: 'Running' },
-  { key: KEYS_FILTERS.SPORTS.TRAIL_RUNNING, label: 'Trail Running' },
-  { key: KEYS_FILTERS.SPORTS.TRIATLON, label: 'Triatlón' },
+  { key: KEYS_FILTERS.SPORTS.CYCLING, label: '🚴🏾‍♀️ Ciclismo 🚵🏾‍♂️' },
+  { key: KEYS_FILTERS.SPORTS.RUNNING, label: '🏃‍♂️ Running 🏃‍♀️' },
+  { key: KEYS_FILTERS.SPORTS.TRAIL_RUNNING, label: '🏃‍♂️ Trail Running 🏔️' },
+  { key: KEYS_FILTERS.SPORTS.TRIATLON, label: '🏊 Triatlón 🏃‍♀️' },
 ];
 export const DURATIONS: Select[] = [
-  { key: KEYS_FILTERS.DURATIONS.SIXTEEN_MAX, label: '< 1 h' },
-  { key: KEYS_FILTERS.DURATIONS.SIXTEEN_NINETEEN, label: '1-1.5 h' },
+  { key: KEYS_FILTERS.DURATIONS.SIXTEEN_MAX, label: '🕐 < 1 h 🕐' },
+  { key: KEYS_FILTERS.DURATIONS.SIXTEEN_NINETEEN, label: '🕐 1-1.5 h 🕜' },
   {
     key: KEYS_FILTERS.DURATIONS.NINETEEN_ONE_HUNDRED_EIGHTEEN,
-    label: '1.5-3 h',
+    label: '🕜 1.5-3 h 🕒',
   },
-  { key: KEYS_FILTERS.DURATIONS.TWO_FOUR_HOURS, label: '2-4 h' },
-  { key: KEYS_FILTERS.DURATIONS.MORE_THREE_HOURS, label: '> 3 h' },
-  { key: KEYS_FILTERS.DURATIONS.MORE_FOUR_HOURS, label: '> 4 h' },
-  { key: KEYS_FILTERS.DURATIONS.FOUR_SIX_HOURS, label: '4-6 h' },
-  { key: KEYS_FILTERS.DURATIONS.MORE_SIX_HOURS, label: '> 6 h' },
-  { key: KEYS_FILTERS.DURATIONS.MAX_10_KM, label: '< 10 km' },
-  { key: KEYS_FILTERS.DURATIONS.TEN_TWENTY_KM, label: '10-20 km' },
-  { key: KEYS_FILTERS.DURATIONS.MORE_TWENTY_KM, label: '> 20 km' },
-  { key: KEYS_FILTERS.DURATIONS.MORE_FIFTY_KM, label: '> 50 km' },
+  { key: KEYS_FILTERS.DURATIONS.TWO_FOUR_HOURS, label: '🕑 2-4 h 🕓' },
+  { key: KEYS_FILTERS.DURATIONS.MORE_THREE_HOURS, label: '🕒 > 3 h 🕒' },
+  { key: KEYS_FILTERS.DURATIONS.MORE_FOUR_HOURS, label: '🕓 > 4 h 🕓' },
+  { key: KEYS_FILTERS.DURATIONS.FOUR_SIX_HOURS, label: '🕓 4-6 h 🕕' },
+  { key: KEYS_FILTERS.DURATIONS.MORE_SIX_HOURS, label: '🕕 > 6 h 🕕' },
+  { key: KEYS_FILTERS.DURATIONS.MAX_10_KM, label: '↩️ < 10 km' },
+  { key: KEYS_FILTERS.DURATIONS.TEN_TWENTY_KM, label: '↩️ 10-20 km' },
+  { key: KEYS_FILTERS.DURATIONS.MORE_TWENTY_KM, label: '↩️ > 20 km' },
+  { key: KEYS_FILTERS.DURATIONS.MORE_FIFTY_KM, label: '↩️ > 50 km' },
 ];
 export const INTENSITIES: Select[] = [
-  { key: KEYS_FILTERS.INTENSITIES.HIGH, label: 'Alta (explosiva)' },
-  { key: KEYS_FILTERS.INTENSITIES.MIX, label: 'Mixta' },
-  { key: KEYS_FILTERS.INTENSITIES.LOW, label: 'Baja-moderada (sostenida)' },
+  { key: KEYS_FILTERS.INTENSITIES.HIGH, label: '🔥 Alta (explosiva) 🔥' },
+  { key: KEYS_FILTERS.INTENSITIES.MIX, label: '📊 Mixta 📊' },
+  { key: KEYS_FILTERS.INTENSITIES.LOW, label: '👟 Baja-moderada (sostenida) 👟' },
 ];
 
 export const gelData: GelRecommendation[] = [
