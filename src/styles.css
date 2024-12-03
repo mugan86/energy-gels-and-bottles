@@ -116,3 +116,9 @@ a {
 a:hover {
   color: var(--principal-color-hover)
 }
+
+.not-show:disabled {
+  opacity: 0;
+  cursor: default;
+  pointer-events: visible;
+}

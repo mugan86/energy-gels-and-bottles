@@ -1,173 +1,137 @@
-@if(toDoListForm) {
-    <form class="form-group" [formGroup]="toDoListForm">
-        <div formArrayName="items">
-            @if(itemsArray.value.length) {
-            <table class="table-bordered">
-                <tr>
-                    <th>ItemName</th>
-                    <th>Completed</th>
-                    <th>Priority</th>
-                    <th>Action</th>
-                </tr>
-                @for(x of itemsArray.controls; track $index) {
-                <tr [formGroupName]="$index">
-                    <td>
-                        <input class="form-control" formControlName="title" placeholder="Item name" />
-                    </td>
-                    <td>
-                        <input class="form-control" type="checkbox" formControlName="completed" />
-                    </td>
-                    <td>
-                        <select class="form-control" formControlName="priority">
-                            <option disabled selected hidden value="null">
-                                Select Priority
-                            </option>
-                            @for(m of prio; track $index) {
-                                <option [value]="m">{{ m }}</option>
-                            }
-                            
-                        </select>
-                    </td>
-                    <td>
-                        <button (click)="deleteItem($index)">Delete Item</button>
-                    </td>
-                </tr>
-                }
-    
-            </table>
-            }
-    
-        </div>
-        <button (click)="addNewItem()">Add New Item</button>
-        <button (click)="deleteAll()">Delete All</button>
-    </form>
-    
-    <b>Form's Value:</b>
-    {{ toDoListForm.value | json }}
-    <br />
-    <b>Form is Valid ? :</b>
-    {{ toDoListForm.valid }}
-    }
-
-    @if(ingredientsCostsForm) {
-        <form class="form-group" [formGroup]="ingredientsCostsForm">
-            <div formArrayName="ingredients">
-                @if(ingredientsArray.value.length) {
-                <table class="table-bordered">
-                    <tr>
-                        <th>Code</th>
-                        <th>Name</th>
-                        <th>Price</th>
-                        <th colspan="2">Cantidad por lote</th>
-                        <th colspan="2">Cantidad usado</th>
-                    </tr>
-                    @for(x of ingredientsArray.controls; track $index) {
-                    <tr [formGroupName]="$index">
-                        <td>
-                            <input class="form-control" formControlName="code" placeholder="Item name" />
-                        </td>
-                        <td>
-                            <input class="form-control" formControlName="label" placeholder="Item name" />
-                        </td>
-                        <td>
-                            <input class="form-control" formControlName="price" placeholder="Item name" />
-                        </td>
-                        <td>
-                            <input class="form-control" formControlName="weight" placeholder="Item name" />
-                        </td>
-                        <!--<td>
+@if(ingredientsCostsForm) {
+<form class="form-group" [formGroup]="ingredientsCostsForm">
+    <div formArrayName="ingredients">
+        @if(ingredientsArray.value.length) {
+        <table class="table-bordered">
+            <tr>
+                <th>Code</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th colspan="2">Cantidad por lote</th>
+                <th colspan="2">Cantidad usado</th>
+            </tr>
+            @for(x of ingredientsArray.controls; track $index) {
+            <tr [formGroupName]="$index">
+                <td>
+                    <input class="form-control" formControlName="code" placeholder="Item name" />
+                </td>
+                <td>
+                    <input class="form-control" formControlName="label" placeholder="Item name" />
+                </td>
+                <td>
+                    <input class="form-control" formControlName="price" placeholder="Item name" />
+                </td>
+                <td>
+                    <input class="form-control" formControlName="weight" placeholder="Item name" />
+                </td>
+                <!--<td>
                             <input class="form-control" type="checkbox" formControlName="completed" />
                         </td>-->
-                        <td>
-                            <select class="form-control" formControlName="unit">
-                                <option disabled selected hidden value="null">
-                                    Select Unit
-                                </option>
-                                @for(m of units; track $index) {
-                                    <option [value]="m">{{ m }}</option>
-                                }
-                                
-                            </select>
-                        </td>
-                        <td>
-                            <input class="form-control" formControlName="useWeight" placeholder="Item name" />
-                        </td>
-                        <td>
-                            <select class="form-control" formControlName="useUnit">
-                                <option disabled selected hidden value="null">
-                                    Select Unit
-                                </option>
-                                @for(m of units; track $index) {
-                                    <option [value]="m">{{ m }}</option>
-                                }
-                                
-                            </select>
-                        </td>
-                        <td>
-                            <button (click)="deleteItem($index)">Delete Item</button>
-                        </td>
-                    </tr>
-                    }
-        
-                </table>
-                }
-        
-            </div>
-            <button (click)="addNewItem()">Add New Item</button>
-            <button (click)="deleteAll()">Delete All</button>
-        </form>
-        
-        <b>Form's Value:</b>
-        {{ ingredientsCostsForm.value | json }}
-        <br />
-        <b>Form is Valid ? :</b>
-        {{ ingredientsCostsForm.valid }}
+                <td>
+                    <select class="form-control" formControlName="unit">
+                        <option disabled selected hidden value="null">
+                            Select Unit
+                        </option>
+                        @for(m of units; track $index) {
+                        <option [value]="m">{{ m }}</option>
+                        }
+
+                    </select>
+                </td>
+                <td>
+                    <input class="form-control" formControlName="useWeight" placeholder="Item name" />
+                </td>
+                <td>
+                    <select class="form-control" formControlName="useUnit">
+                        <option disabled selected hidden value="null">
+                            Select Unit
+                        </option>
+                        @for(m of units; track $index) {
+                        <option [value]="m">{{ m }}</option>
+                        }
+
+                    </select>
+                </td>
+                <td>
+                    <button (click)="deleteItem($index)">Delete Item</button>
+                </td>
+            </tr>
+            }
+
+        </table>
         }
 
-
-  <div class="calculator-container">
-    <h1>Calculadora Costes</h1>
-    <div class="product-section">
-      <div class="product-header">
-        <div>Producto</div>
-        <div>Valor</div>
-        <div>Uso y coste</div>
-      </div>
-      <div class="product-item">
-        <div>
-          <select>
-            <option>Nombre del producto</option>
-            <option>Maltodextrina</option>
-            <option>Electrolitos</option>
-          </select>
-        </div>
-        <div class="value-fields">
-          <input type="text" placeholder="Precio">
-          <input type="text" placeholder="Cantidad por lote">
-          <select>
-            <option>Unidad</option>
-            <option>gr</option>
-            <option>kgr</option>
-            <option>unit</option>
-          </select>
-        </div>
-        <div class="usage-fields">
-          
-          <input type="text" placeholder="Cantidad usada">
-          <select>
-            <option>Unidad</option>
-            <option>gr</option>
-            <option>kgr</option>
-            <option>unit</option>
-          </select>
-          <input type="text" placeholder="Coste (disabled)" disabled>
-        </div>
-        <button class="delete-btn">🗑️</button>
-      </div>
-      <div class="actions">
-        <button class="add-item">+ Nuevo ítem</button>
-        <button class="delete-all">Eliminar todos</button>
-      </div>
     </div>
-  </div>
+    <button (click)="addNewItem()">Add New Item</button>
+    <button>Delete All</button>
+</form>
 
+<b>Form's Value:</b>
+{{ ingredientsCostsForm.value | json }}
+<br />
+<b>Form is Valid ? :</b>
+{{ ingredientsCostsForm.valid }}
+}
+{{ ingredientsLabels | json }}
+
+<div class="calculator-container">
+    <h1>Calculadora Costes</h1>
+    <form [formGroup]="ingredientsCostsForm">
+        <div class="product-section">
+            <div class="product-header">
+                <div>Producto</div>
+                <div>Valor</div>
+                <div>Uso y coste</div>
+            </div>@if(ingredientsArray.value.length) {
+            <div class="product-item" formArrayName="ingredients">
+
+                @for(x of ingredientsArray.controls; track $index) {
+                <div>
+                    <select>
+                        @for(item of ingredientsLabels; track $index) {
+                        @if(!item) {<option [value]="null">Unidad</option>}
+                        @if(item) {<option [value]="item.code">{{item.name}}</option>}
+                        }
+                    </select>
+                </div>
+                <div class="value-fields">
+                    <input type="text" placeholder="Precio">
+                    <input type="text" placeholder="Cantidad por lote">
+                    <select>
+                        @for(unit of units; track $index) {
+                        @if(!unit) {<option [value]="null">Unidad</option>}
+                        @if(unit) {<option [value]="unit">{{unit}}</option>}
+                        }
+                    </select>
+                </div>
+                <div class="usage-fields">
+
+                    <input type="text" placeholder="Cantidad usada">
+                    <select>
+                        @for(unit of units; track $index) {
+                        @if(!unit) {<option [value]="null">Unidad</option>}
+                        @if(unit) {<option [value]="unit">{{unit}}</option>}
+                        }
+                    </select>
+                    <input type="text" placeholder="Coste (disabled)" disabled>
+                </div>
+
+                <button class="delete-btn" [ngClass]="{'not-show': $index === 0}" [disabled]="$index === 0">🗑️</button>
+
+
+                }
+
+
+
+            </div>
+            } @else {
+            <span class="product-item">No hay elementos, haz click en + Nuevo item</span>
+            }
+            <div class="actions">
+                <button class="add-item" (click)="addNewItem()">+ Nuevo item</button>
+                <button class="delete-all" (click)="deleteAll()">Eliminar todos</button>
+            </div>
+        </div>
+    </form>
+
+</div>

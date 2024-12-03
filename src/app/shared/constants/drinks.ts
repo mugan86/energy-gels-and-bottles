@@ -247,11 +247,13 @@ export const drinkSummaryHTML = `
 
 export const DRINK_INGREDIENTS_PRICES = {
   salt: {
+    label: 'Sal',
     price: 7.19,
     weight: 1000,
     unit: 'gr' as Units,
   },
   protein: {
+    label: 'Proteina',
     price: 30.90,
     weight: 2,
     unit: 'kgr' as Units,

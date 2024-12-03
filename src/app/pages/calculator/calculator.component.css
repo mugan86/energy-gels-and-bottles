@@ -17,7 +17,7 @@ body {
   
   h1 {
     text-align: center;
-    color: #00796b;
+    color: var(--principal-color);
     margin-bottom: 20px;
   }
   
@@ -125,7 +125,9 @@ body {
     background-color: #e0e0e0;
     cursor: not-allowed;
   }
-  
+  button.not-show {
+    cursor: default;
+  }
   .delete-btn {
     background-color: #f44336;
     color: white;
@@ -139,9 +141,13 @@ body {
   }
   
   .add-item {
-    background-color: #4caf50;
+    background-color: var(--principal-color);
     color: white;
     border: none;
+  }
+
+  .add-item:hover {
+    background-color: var(--principal-color-hover);
   }
   
   .delete-all {
