@@ -123,3 +123,51 @@
         <b>Form is Valid ? :</b>
         {{ ingredientsCostsForm.valid }}
         }
+
+
+  <div class="calculator-container">
+    <h1>Calculadora Costes</h1>
+    <div class="product-section">
+      <div class="product-header">
+        <div>Producto</div>
+        <div>Valor</div>
+        <div>Uso y coste</div>
+      </div>
+      <div class="product-item">
+        <div>
+          <select>
+            <option>Nombre del producto</option>
+            <option>Maltodextrina</option>
+            <option>Electrolitos</option>
+          </select>
+        </div>
+        <div class="value-fields">
+          <input type="text" placeholder="Precio">
+          <input type="text" placeholder="Cantidad por lote">
+          <select>
+            <option>Unidad</option>
+            <option>gr</option>
+            <option>kgr</option>
+            <option>unit</option>
+          </select>
+        </div>
+        <div class="usage-fields">
+          
+          <input type="text" placeholder="Cantidad usada">
+          <select>
+            <option>Unidad</option>
+            <option>gr</option>
+            <option>kgr</option>
+            <option>unit</option>
+          </select>
+          <input type="text" placeholder="Coste (disabled)" disabled>
+        </div>
+        <button class="delete-btn">🗑️</button>
+      </div>
+      <div class="actions">
+        <button class="add-item">+ Nuevo ítem</button>
+        <button class="delete-all">Eliminar todos</button>
+      </div>
+    </div>
+  </div>
+

@@ -1,0 +1,167 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .calculator-container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 20px auto;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  h1 {
+    text-align: center;
+    color: #00796b;
+    margin-bottom: 20px;
+  }
+  
+  .product-section {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .product-header {
+    display: grid;
+    grid-template-columns: 1fr 2fr 3fr;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  .product-item {
+    display: grid;
+    grid-template-columns: 1fr 2fr 3fr auto;
+    align-items: center;
+    gap: 10px;
+  }
+
+  input[type="text"] {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 120px; /* Ajustado para un máximo de 6 caracteres */
+  }
+  
+  input[disabled] {
+    background-color: #f0f0f0; /* Para distinguir campos deshabilitados */
+    cursor: not-allowed;
+  }
+
+  /* Secciones diferenciadas */
+.product-item {
+    display: grid;
+    grid-template-columns: 1fr 2fr 2fr auto;
+    align-items: center;
+    gap: 10px;
+    padding: 15px;
+    border: 1px solid #ddd; /* Borde para cada bloque */
+    border-radius: 5px; /* Bordes redondeados */
+    background-color: #f9f9f9; /* Fondo suave */
+  }
+  
+  /* Títulos de las secciones */
+  .product-header {
+    display: grid;
+    grid-template-columns: 1fr 2fr 3fr;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px;
+    background-color: #e7f5f2; /* Fondo para la cabecera */
+    border-radius: 5px;
+    border: 1px solid #d5e5e2; /* Borde sutil */
+  }
+  
+  /* Botones dentro de la sección de acciones */
+  .actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f2f2f2; /* Fondo más claro */
+    border-radius: 5px;
+    border: 1px solid #ccc; /* Borde ligero */
+  }
+  
+  .add-item {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+  }
+  
+  .delete-all {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+  }
+  
+  .value-fields,
+  .usage-fields {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  
+  input, select, button {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  button {
+    cursor: pointer;
+  }
+  
+  button:disabled {
+    background-color: #e0e0e0;
+    cursor: not-allowed;
+  }
+  
+  .delete-btn {
+    background-color: #f44336;
+    color: white;
+    border: none;
+  }
+  
+  .actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .add-item {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+  }
+  
+  .delete-all {
+    background-color: #f44336;
+    color: white;
+    border: none;
+  }
+  
+  @media (max-width: 768px) {
+    .product-header, .product-item {
+      grid-template-columns: 1fr;
+    }
+  
+    .value-fields, .usage-fields {
+      flex-direction: column;
+    }
+  
+    .actions {
+      flex-direction: column;
+      gap: 10px;
+    }
+  }
+  
