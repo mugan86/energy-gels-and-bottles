@@ -13,6 +13,7 @@ export class DataService {
     }).map(([key, value]) => ({
         name: key,
         ...value,
+        disabled: true
     }));
     getGelsIngredients = () => [...this.materials]
 }
