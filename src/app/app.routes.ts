@@ -1,6 +1,5 @@
 import { importProvidersFrom } from '@angular/core';
 import { Routes } from '@angular/router';
-import { TranslateModule } from '@ngx-translate/core';
 
 export const routes: Routes = [
   {
@@ -57,12 +56,7 @@ export const routes: Routes = [
     /*loadComponent: () =>
       import('./pages/home/home.component').then((mod) => mod.HomeComponent),*/
     loadComponent: () =>
-      import('./pages/gels/principal/gels.component').then((mod) => mod.GelsComponent),
-    providers: [
-      importProvidersFrom([
-        TranslateModule.forChild()
-      ])
-    ]
+      import('./pages/gels/principal/gels.component').then((mod) => mod.GelsComponent)
   },
   {
     path: ':proportion',
