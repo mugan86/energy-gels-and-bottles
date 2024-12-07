@@ -1,1 +1,0 @@
-import{Pa as n,Qa as o,W as a,_a as s,gb as i}from"./chunk-SLNQS2BI.js";var r=class t{static \u0275fac=function(e){return new(e||t)};static \u0275cmp=a({type:t,selectors:[["app-materials"]],standalone:!0,features:[i],decls:2,vars:0,template:function(e,l){e&1&&(n(0,"p"),s(1,"materials works!"),o())}})};export{r as MaterialsComponent};
