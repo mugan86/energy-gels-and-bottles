@@ -453,7 +453,7 @@ export const gelData: GelRecommendation[] = [
       {
         key: 'carb_to_protein',
         description: 'Carbohidratos:Proteínas',
-        value: '1:0.8',
+        value: '1:0:8',
       },
       { key: 'carbs_only', description: 'Carbohidratos solo', value: '1:2' },
     ],
@@ -467,7 +467,7 @@ export const gelData: GelRecommendation[] = [
       {
         key: 'carb_to_protein',
         description: 'Carbohidratos:Proteínas',
-        value: '1:0.8',
+        value: '1:0:8',
       },
       { key: 'carbs_only', description: 'Carbohidratos solo', value: '1:2' },
     ],
@@ -509,7 +509,7 @@ export const gelData: GelRecommendation[] = [
       {
         key: 'carb_to_protein',
         description: 'Carbohidratos:Proteínas',
-        value: '1:0.8',
+        value: '1:0:8',
       },
       { key: 'carbs_only', description: 'Carbohidratos solo', value: '1:2' },
     ],
@@ -523,7 +523,7 @@ export const gelData: GelRecommendation[] = [
       {
         key: 'carb_to_protein',
         description: 'Carbohidratos:Proteínas',
-        value: '1:0.8',
+        value: '1:0:8',
       },
       { key: 'carbs_only', description: 'Carbohidratos solo', value: '1:2' },
     ],
