@@ -1,167 +1,175 @@
+.chat-toggle {
+  padding: 10px 20px;
+  background: var(--principal-color);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
 
-  
-  .gel-calculator {
-      max-width: 600px;
-      margin: 0 auto;
-      padding: 20px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      background-color: #f9f9f9;
-    }
-    
-    form div {
-      margin-bottom: 15px;
-    }
-    
-    label {
-      display: block;
-      font-weight: bold;
-    }
-  
-    .option-check {
-      display: inline;
-      font-weight: normal;
-    }
-  
-    .option-check:hover {
-      cursor: pointer;
-    }
-  
-    label, .option-check {
-      margin-bottom: 5px;
-      font-size: 20px;
-    }
-  
-    ul.list {
-      list-style-type: '- ' !important;
-  }
-    
-   
-    
-    
-  
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
-      margin: 0;
-      padding: 20px;
-  }
-  
-  .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      text-align: center;
-      padding: 1rem;
-  }
-  
-  .instructions{
-    text-align: left;
-  } 
-  
-  .instructions li {
-    margin-top: 1rem;
-  }
-  
-  p {
-    font-size: 105%;
-  }
-  
-  .sliders {
-      margin-bottom: 30px;
-  }
-  
-  
-  
-  
-   /* Contenedor de las tarjetas */
-   .accordion-content .card-container {
-    display: grid !important;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    max-width: 1200px;
-    width: 100%;
-    padding: 20px;
-  }
-  
-  /* Estilo de cada tarjeta */
-  .card {
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    text-align: center;
-    transition: transform 0.2s;
-  }
-  
-  .card:hover {
-    transform: translateY(-5px);
-  }
-  
-  /* Imagen de la tarjeta */
-  .card img {
-    width: 100%;
-    height: 150px;
-    object-fit: cover;
-  }
-  
-  /* Texto y enlace */
-  .card a {
-    display: block;
-    padding: 15px;
-    text-decoration: none;
-    color: #333;
-    font-weight: bold;
-  }
-  
-  .card a:hover {
-    color: #007bff;
-  }
+.chat-toggle:hover {
+  background: var(--principal-color-hover);
+}
 
-  /* Contenedor de los botones toggle */
-  .toggle-group {
-    display: flex;
-    justify-content: center;
-    margin: 20px 0;
-  }
-  
-  .toggle-button {
-    background-color: #f3f3f3;
-    border: 1px solid #ddd;
-    border-radius: 0;
-    padding: 10px 20px;
-    cursor: pointer;
-    font-size: 16px;
-    flex: 1;
-    text-align: center;
-    transition: background-color 0.2s, color 0.2s;
-  }
-  
-  .toggle-button:not(:last-child) {
-    border-right: none;
-  }
-  
-  .toggle-button.active {
-    background-color: var(--principal-color);
-    color: white;
-    font-weight: bold;
-  }
-  
-  /* Estilo de hover en botones habilitados */
-  .toggle-button:hover {
-    background-color: var(--principal-color-hover);
-    color: white;
-  }
-  
-  /* Estilo para el botón deshabilitado, no permite hover */
-  button:disabled.toggle-button {
-    color: rgb(192, 176, 176) !important;
-    cursor: not-allowed;
-  }
-  
-  /* Desactivar el hover si el botón está deshabilitado */
-  button:disabled.toggle-button:hover {
-    background-color: #f3f3f3 !important; /* Asegura que no cambie el fondo */
-    color: rgb(192, 176, 176) !important; /* Mantiene el color de texto cuando el botón está deshabilitado */
-    cursor: not-allowed !important; /* Asegura que el cursor se mantenga deshabilitado */
-  }
-  
+.gel-calculator {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+form div {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+}
+
+.option-check {
+  display: inline;
+  font-weight: normal;
+}
+
+.option-check:hover {
+  cursor: pointer;
+}
+
+label,
+.option-check {
+  margin-bottom: 5px;
+  font-size: 20px;
+}
+
+ul.list {
+  list-style-type: '- ' !important;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 20px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 1rem;
+}
+
+.instructions {
+  text-align: left;
+}
+
+.instructions li {
+  margin-top: 1rem;
+}
+
+p {
+  font-size: 105%;
+}
+
+.sliders {
+  margin-bottom: 30px;
+}
+
+/* Contenedor de las tarjetas */
+.accordion-content .card-container {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 1200px;
+  width: 100%;
+  padding: 20px;
+}
+
+/* Estilo de cada tarjeta */
+.card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* Imagen de la tarjeta */
+.card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+/* Texto y enlace */
+.card a {
+  display: block;
+  padding: 15px;
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+.card a:hover {
+  color: #007bff;
+}
+
+/* Contenedor de los botones toggle */
+.toggle-group {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.toggle-button {
+  background-color: #f3f3f3;
+  border: 1px solid #ddd;
+  border-radius: 0;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  flex: 1;
+  text-align: center;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.toggle-button:not(:last-child) {
+  border-right: none;
+}
+
+.toggle-button.active {
+  background-color: var(--principal-color);
+  color: white;
+  font-weight: bold;
+}
+
+/* Estilo de hover en botones habilitados */
+.toggle-button:hover {
+  background-color: var(--principal-color-hover);
+  color: white;
+}
+
+/* Estilo para el botón deshabilitado, no permite hover */
+button:disabled.toggle-button {
+  color: rgb(192, 176, 176) !important;
+  cursor: not-allowed;
+}
+
+/* Desactivar el hover si el botón está deshabilitado */
+button:disabled.toggle-button:hover {
+  background-color: #f3f3f3 !important; /* Asegura que no cambie el fondo */
+  color: rgb(
+    192,
+    176,
+    176
+  ) !important; /* Mantiene el color de texto cuando el botón está deshabilitado */
+  cursor: not-allowed !important; /* Asegura que el cursor se mantenga deshabilitado */
+}

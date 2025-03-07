@@ -3,6 +3,8 @@
   <hr />
   <br />
 
+  <app-chatbot [isOpen]="isOpenChatBot" (isChatOpen)="isOpenChatBot = $event"></app-chatbot>
+
   <p>
     Seleccionar el tipo de gel, número, su textura y cantidad de carbohidratos
     por gel, para configurar los ingredientes necesarios con sus ingredientes
@@ -14,8 +16,9 @@
     <app-alert [type]="'info'">
       <span icon>ℹ</span>
       <span message
-        >¿No sabes cuál debes de elegir? Accede
-        <a [routerLink]="['/gels/recommendations']">aquí</a></span
+        >¿No sabes cuál debes de elegir?
+        <button class="chat-toggle" (click)="isOpenChatBot = !isOpenChatBot"> Pregunta a nuestro asistente</button>
+        <!--<a [routerLink]="['/gels/recommendations']">aquí</a>--></span
       >
     </app-alert>
 

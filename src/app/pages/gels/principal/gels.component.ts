@@ -19,7 +19,8 @@ import { CommonModule } from '@angular/common';
 import { AlertComponent } from '@shared/components/alert/alert.component';
 import { ButtonToggleGroupComponent } from '@shared/components/button-toggle-group/button-toggle-group.component';
 import { DEFAULT_FORM_OPTIONS, GEL_ACCORDION_OPTIONS, OPTIONS_VALUES_TEXTS } from './config';
-import { ActivatedRoute, RouterLink } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+import { ChatbotComponent } from '@app/shared/components/chatbot/chatbot.component';
 
 @Component({
   selector: 'app-gels',
@@ -31,13 +32,15 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
     CommonModule,
     AlertComponent,
     ButtonToggleGroupComponent,
-    RouterLink
+    // RouterLink,
+    ChatbotComponent
   ],
   templateUrl: './gels.component.html',
   styleUrl: './gels.component.css',
 })
 export class GelsComponent {
   title = 'geles';
+  isOpenChatBot = false;
   gelForm: FormGroup;
   result: any;
   numberOfGels = 1;

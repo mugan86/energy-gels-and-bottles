@@ -1,0 +1,25 @@
+<!--<button class="chat-toggle" (click)="toggleChat()">Chat</button>-->
+
+<div class="chat-modal" [class.open]="isOpen">
+    <div class="chat-header">
+        <h3>Recomendación de Geles</h3>
+        <button class="close-btn" (click)="toggleChat()">✖</button>
+    </div>
+
+    <div class="chat-box">
+        @for (message of messages$ | async; track message.text; let idx = $index) {
+        <div class="message" [ngClass]="message.sender">
+            <p [innerHTML]="message.text"></p>
+            @for (option of message.options; track option; let idx = $index) {
+            <button (click)="sendMessage(option)">{{ option }}</button>
+            }
+
+        </div>
+        }
+    </div>
+
+    <div class="input-container">
+        <input type="text" [(ngModel)]="userInput" (keyup.enter)="sendMessage()" placeholder="Type here...">
+        <button (click)="sendMessage()">Send</button>
+    </div>
+</div>
